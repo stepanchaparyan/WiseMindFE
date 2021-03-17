@@ -91,6 +91,6 @@ export const CheckboxText = styled.a`
 `;
 
 export const MainContainer = styled.div`
-  position: absolute;
-  bottom: 0;
+  ${'' /* position: absolute; */}
+  ${'' /* bottom: 0; */}
 `;

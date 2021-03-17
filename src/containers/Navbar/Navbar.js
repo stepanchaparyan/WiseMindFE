@@ -81,15 +81,16 @@ const Navbar = ({ language, setLanguage }) => {
               countries={languageTransformer(languagesList)}
               customLabels={{
                 US: 'English',
-                FR: 'French',
-                DE: 'Germany',
-                RU: 'Russian',
-                AM: 'Armenian',
-                ES: 'Spanish'
+                ES: 'Español',
+                FR: 'Français',
+                DE: 'Deutsch',
+                RU: 'Русский',
+                AM: 'Հայերեն'
               }}
               selected={language}
               onSelect={code => setLanguage(code)}
               selectedSize={14}
+              optionsSize={13}
               placeholder={'English'}
             />
             <SendRequestButton target={BLANK} href={sentRequest?.link}>
