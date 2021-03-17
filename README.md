@@ -1,1 +1,3 @@
-# WiseMindFE
+# Wise_Mind
+
+Wise_Mind
