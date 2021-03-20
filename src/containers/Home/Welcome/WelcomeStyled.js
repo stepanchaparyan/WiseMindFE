@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import MainImage from '../../../assets/bg.webp';
-import { desktopUp } from '../../../styles/mediaQueries/mixins';
+import { tabletUp, desktopUp } from '../../../styles/mediaQueries/mixins';
 
 export const Container = styled.div`
   background-image: url(${MainImage});
@@ -22,29 +22,35 @@ export const Module = styled.div`
 `;
 
 export const SmallText = styled.div`
-  margin-top: 80px;
   padding: 16px 0px;
   font-family: 'Montserrat';
   font-weight: bold;
-  color: ${props => props.theme.white};
-  font-size: 16px;
+  color: ${props => props.theme.black};
+  font-size: 18px;
   line-height: 1.5;
   text-align: center;
   letter-spacing: 2px;
   text-transform: uppercase;
-  ${desktopUp`
-    margin-top: 110px;
+  ${tabletUp`
+    font-size: 24px;
+    color: ${props => props.theme.black};
   `};
 `;
 
 export const TitleText = styled.div`
   font-family: 'Montserrat';
-  color: ${props => props.theme.white};
-  font-size: 55px;
+  color: ${props => props.theme.black};
+  font-size: 44px;
   line-height: 1.2;
   font-weight: 600;
   text-align: center;
   text-transform: uppercase;
+  ${tabletUp`
+    font-size: 64px;
+  `};
+  ${desktopUp`
+    font-size: 54px;
+  `};
 `;
 
 export const ButtonsContainer = styled.div`
@@ -57,13 +63,25 @@ export const ButtonsContainer = styled.div`
 
 export const LongText = styled.div`
   color: ${props => props.theme.white};
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   line-height: 1.5;
   text-align: center;
   letter-spacing: 2px;
   margin: 30px 0;
   ${desktopUp`
-    margin-top: 100px;
+    margin-top: 150px;
+    max-width: 40%;
   `};
+`;
+
+export const LogoContainer = styled.div`
+  padding-top: 50px;
+  ${desktopUp`
+    padding-top: 80px;
+  `};
+`;
+
+export const Logo = styled.img`
+  width: 100px;
 `;

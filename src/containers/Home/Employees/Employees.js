@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import customObject from '../../../util/propTypes';
 import useMedia from 'use-media';
 import { BLANK, FACEBOOK_LINK, TWITTER_LINK, INSTAGRAM_LINK } from '../../../constants/url';
 import {
@@ -16,7 +16,6 @@ import {
   MediaIcon,
   IconContainer
 } from './EmployeesStyled';
-import img from '../../../assets/photo.webp';
 
 const facebook = 'facebook';
 const twitter = 'twitter';
@@ -41,7 +40,7 @@ const Employees = ({ titleText, employees }) => {
     }
   }, [isMobile, isTablet, isDesktop]);
 
-  const OverlayMedia = () => (
+  const OverlayMedia = employee => (
     <Overlay>
       <Media>
         <IconContainer type={facebook} target={BLANK} href={FACEBOOK_LINK}>
@@ -54,7 +53,7 @@ const Employees = ({ titleText, employees }) => {
           <MediaIcon type={instagram}></MediaIcon>
         </IconContainer>
       </Media>
-      <Image src={img} alt={alt}></Image>
+      <Image src={employee?.url} alt={alt}></Image>
     </Overlay>
   );
 
@@ -63,11 +62,11 @@ const Employees = ({ titleText, employees }) => {
       <TitleText>{titleText?.text}</TitleText>
       {employees.length < 4 ? (
         <Employee>
-          {employees.map(text => (
-            <Container key={text?.title}>
-              {OverlayMedia()}
-              <NameText>{text?.title}</NameText>
-              <MainText>{text?.text}</MainText>
+          {employees.map(employee => (
+            <Container key={employee?.title}>
+              {OverlayMedia(employee)}
+              <NameText>{employee?.title}</NameText>
+              <MainText>{employee?.text}</MainText>
             </Container>
           ))}
         </Employee>
@@ -89,19 +88,8 @@ const Employees = ({ titleText, employees }) => {
 };
 
 Employees.propTypes = {
-  employees: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      text: PropTypes.string,
-      section: PropTypes.string.isRequired,
-      _id: PropTypes.string.isRequired
-    })
-  ),
-  titleText: PropTypes.shape({
-    text: PropTypes.string,
-    section: PropTypes.string.isRequired,
-    _id: PropTypes.string.isRequired
-  })
+  employees: customObject,
+  titleText: customObject
 };
 
 export default Employees;

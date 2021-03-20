@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import customObject from '../../../util/propTypes';
 import {
   Container,
   MainContainer,
@@ -134,36 +134,11 @@ const Footer = ({ infoText, address, phone, email, newsLetter }) => {
 };
 
 Footer.propTypes = {
-  infoText: PropTypes.shape({
-    title: PropTypes.string,
-    text: PropTypes.string,
-    section: PropTypes.string.isRequired,
-    _id: PropTypes.string.isRequired
-  }),
-  address: PropTypes.shape({
-    title: PropTypes.string,
-    text: PropTypes.string,
-    section: PropTypes.string.isRequired,
-    _id: PropTypes.string.isRequired
-  }),
-  phone: PropTypes.shape({
-    title: PropTypes.string,
-    text: PropTypes.string,
-    section: PropTypes.string.isRequired,
-    _id: PropTypes.string.isRequired
-  }),
-  email: PropTypes.shape({
-    title: PropTypes.string,
-    text: PropTypes.string,
-    section: PropTypes.string.isRequired,
-    _id: PropTypes.string.isRequired
-  }),
-  newsLetter: PropTypes.shape({
-    title: PropTypes.string,
-    text: PropTypes.string,
-    section: PropTypes.string.isRequired,
-    _id: PropTypes.string.isRequired
-  })
+  infoText: customObject,
+  address: customObject,
+  phone: customObject,
+  email: customObject,
+  newsLetter: customObject
 };
 
 export default Footer;

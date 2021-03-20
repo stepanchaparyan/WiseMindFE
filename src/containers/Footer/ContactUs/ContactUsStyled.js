@@ -12,7 +12,7 @@ export const Container = styled.div`
   ${tabletUp`
     height: 160px;
     flex-direction: row;
-    padding: 40px 100px 30px 100px;
+    padding: 24px 100px;
   `};
   ${desktopUp`
     height: 100px;

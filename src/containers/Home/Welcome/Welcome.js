@@ -1,4 +1,5 @@
 import React from 'react';
+import customObject from '../../../util/propTypes';
 import Button from '../../../components/Button/Button';
 import {
   Container,
@@ -6,19 +7,26 @@ import {
   SmallText,
   TitleText,
   ButtonsContainer,
-  LongText
+  LongText,
+  LogoContainer,
+  Logo
 } from './WelcomeStyled';
 import { LINK } from '../../../constants';
 import theme from '../../../styles/theme';
+import logo from '../../../assets/logo.png';
 
+const alt = 'logo';
 const { lightBlue, navGreen, lightBlack, white } = theme;
 
-const Welcome = () => {
+const Welcome = ({ shortText, WiseMindFullName, longText }) => {
   return (
     <Container>
       <Module>
-        <SmallText>Mental health Services</SmallText>
-        <TitleText>Wise Mind</TitleText>
+        <LogoContainer to={LINK.TO.HOME}>
+          <Logo src={logo} alt={alt} />
+        </LogoContainer>
+        <SmallText>{shortText?.text}</SmallText>
+        <TitleText>{WiseMindFullName?.text}</TitleText>
         <ButtonsContainer>
           <Button
             text="About Us"
@@ -38,12 +46,16 @@ const Welcome = () => {
             to={LINK.TO.CONTACT_US}
           />
         </ButtonsContainer>
-        <LongText>
-          Your solution to having more effective/productive mental fortitude for tomorrow.
-        </LongText>
+        <LongText>{longText?.text}</LongText>
       </Module>
     </Container>
   );
+};
+
+Welcome.propTypes = {
+  shortText: customObject,
+  WiseMindFullName: customObject,
+  longText: customObject
 };
 
 export default Welcome;

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import customObject from '../../../util/propTypes';
 import {
   CoreValesContainer,
   LeftPart,
@@ -66,26 +66,9 @@ const CoreValues = ({ coreValueMain, coreValues, whoWeAre }) => {
 };
 
 CoreValues.propTypes = {
-  coreValueMain: PropTypes.shape({
-    title: PropTypes.string,
-    text: PropTypes.string,
-    section: PropTypes.string.isRequired,
-    _id: PropTypes.string.isRequired
-  }),
-  coreValues: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      text: PropTypes.string,
-      section: PropTypes.string.isRequired,
-      _id: PropTypes.string.isRequired
-    })
-  ),
-  whoWeAre: PropTypes.shape({
-    title: PropTypes.string,
-    text: PropTypes.string,
-    section: PropTypes.string.isRequired,
-    _id: PropTypes.string.isRequired
-  })
+  coreValueMain: customObject,
+  coreValues: customObject,
+  whoWeAre: customObject
 };
 
 export default CoreValues;

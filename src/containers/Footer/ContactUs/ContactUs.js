@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import customObject from '../../../util/propTypes';
 import {
   Container,
   Texts,
@@ -44,12 +44,7 @@ const ContactUs = ({ texts }) => {
 };
 
 ContactUs.propTypes = {
-  texts: PropTypes.shape({
-    title: PropTypes.string,
-    text: PropTypes.string,
-    section: PropTypes.string.isRequired,
-    _id: PropTypes.string.isRequired
-  })
+  texts: customObject
 };
 
 export default ContactUs;

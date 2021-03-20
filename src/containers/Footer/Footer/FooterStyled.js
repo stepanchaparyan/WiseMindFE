@@ -26,11 +26,11 @@ export const MainContainer = styled.div`
   font-family: sans-serif;
   font-size: 14px;
   letter-spacing: 0.4px;
-  margin: 50px 40px 40px;
+  margin: 20px 40px;
   justify-content: space-between;
   ${tabletUp`
     flex-direction: row;
-    margin: 50px 100px 40px;
+    margin: 20px 100px;
   `};
 `;
 
@@ -48,7 +48,7 @@ export const InfoContainer = styled.div`
 
 export const Text = styled.div`
   display: flex;
-  padding: 24px 0;
+  padding: 10px 0 14px;
   line-height: 1.6;
   letter-spacing: 0.8px;
   width: 100%;
@@ -58,7 +58,7 @@ export const Address = styled.div`
   display: flex;
   line-height: 1.4;
   letter-spacing: 0.6px;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   width: 100%;
 `;
 
@@ -75,7 +75,7 @@ export const AddressIcon = styled.div`
 
 export const EmailContainer = styled.div`
   display: flex;
-  padding-top: 20px;
+  padding-top: 12px;
   line-height: 1.6;
   flex-direction: column;
   ${tabletUp`
@@ -150,10 +150,10 @@ export const BottomContainer = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  padding: 20px 40px;
+  padding: 12px 40px;
   ${tabletUp`
     flex-direction: row;
-    padding: 16px 100px;
+    padding: 10px 100px;
   `};
 `;
 
@@ -285,12 +285,12 @@ export const StyledLink = styled(NavLink)`
   :hover {
     color: ${props => props.theme.midLightGray};
   }
-  margin: 8px 0;
+  margin: 6px 0;
 `;
 
 export const ArrowIcon = styled.div`
   padding: 1px 4px;
-  margin: 12px 10px 0 0;
+  margin: 10px 10px 0 0;
   height: 6px;
   width: 0;
   background-image: url(${ArrowIconPNG});

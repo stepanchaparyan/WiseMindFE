@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import customObject from '../../../util/propTypes';
 import {
   TreatmentsContainer,
   Container,
@@ -35,14 +36,7 @@ const Treatments = ({ treatments }) => {
 };
 
 Treatments.propTypes = {
-  treatments: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      text: PropTypes.string,
-      section: PropTypes.string.isRequired,
-      _id: PropTypes.string.isRequired
-    })
-  ).isRequired
+  treatments: PropTypes.arrayOf(customObject).isRequired
 };
 
 export default Treatments;
