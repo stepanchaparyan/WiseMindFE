@@ -17,7 +17,7 @@ const ContactUs = ({ texts, makeRequest, checkBoxText }) => {
   const [isChecked, setChecked] = useState(false);
 
   return (
-    <Container>
+    <Container bgColor={texts?.color}>
       <Texts>
         <TitleText>{texts?.title}</TitleText>
         <SmallText>{texts?.text}</SmallText>

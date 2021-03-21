@@ -11,7 +11,7 @@ import { MainContainer } from './ContactUs/ContactUsStyled';
 const FooterContainer = ({ language }) => {
   const dispatch = useDispatch();
   const { footer, loading } = useSelector(state => state.footer);
-  const contactUsTexts = footer.find(item => item.section === 'contactUs');
+  const contactUs = footer.find(item => item.section === 'contactUs');
   const infoText = footer.find(item => item.title === 'text');
   const makeRequest = footer.find(item => item.title === 'makeRequest');
   const checkBoxText = footer.find(item => item.title === 'checkBoxText');
@@ -35,7 +35,7 @@ const FooterContainer = ({ language }) => {
       ) : (
         <MainContainer>
           <ContactUs
-            texts={contactUsTexts}
+            texts={contactUs}
             makeRequest={makeRequest}
             checkBoxText={checkBoxText}
           ></ContactUs>

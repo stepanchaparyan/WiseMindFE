@@ -6,7 +6,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: ${props => props.theme.lighterBlue};
+  background: ${props => props.bgColor};
   height: 270px;
   padding: 50px;
   ${tabletUp`

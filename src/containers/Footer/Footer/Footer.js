@@ -50,9 +50,9 @@ const Footer = ({
   email,
   newsLetter,
   linksTitle,
-  wiseMindFullName,
-  linksNames,
-  linksAddresses
+  wiseMindFullName
+  // linksNames,
+  // linksAddresses
 }) => {
   // console.log('linksNames', linksNames);
 
