@@ -43,7 +43,19 @@ const twitter = 'twitter';
 const instagram = 'instagram';
 const alt = 'logo';
 
-const Footer = ({ infoText, address, phone, email, newsLetter }) => {
+const Footer = ({
+  infoText,
+  address,
+  phone,
+  email,
+  newsLetter,
+  linksTitle,
+  wiseMindFullName,
+  linksNames,
+  linksAddresses
+}) => {
+  // console.log('linksNames', linksNames);
+
   const linksList = [
     { to: '/', text: 'Home' },
     { to: '/about', text: 'About' },
@@ -54,6 +66,10 @@ const Footer = ({ infoText, address, phone, email, newsLetter }) => {
     { to: '/privacy_policy', text: 'Privacy policy' }
   ];
 
+  // const linksList2 = linksNames?.text.map((item, i) => {
+  //   return { to: linksAddresses[i], text: item };
+  // });
+
   return (
     <Container>
       <MainContainer>
@@ -62,7 +78,7 @@ const Footer = ({ infoText, address, phone, email, newsLetter }) => {
             <ImageContainer to={LINK.TO.HOME}>
               <Logo src={logo} alt={alt} />
             </ImageContainer>
-            <LogoText>WISE MIND</LogoText>
+            <LogoText>{wiseMindFullName?.text}</LogoText>
           </LogoContainer>
           <Text>{infoText?.text}</Text>
           <Address>
@@ -72,7 +88,7 @@ const Footer = ({ infoText, address, phone, email, newsLetter }) => {
           </Address>
           <Phone>
             <PhoneIcon />
-            <PhoneText href="tel:+424-333-2933">
+            <PhoneText href={`tel:${phone?.text}`}>
               {phone?.title}
               {phone?.text}
             </PhoneText>
@@ -82,11 +98,11 @@ const Footer = ({ infoText, address, phone, email, newsLetter }) => {
               <MailIcon />
               {email?.title}
             </EmailSpan>
-            <EmailText href="mailto:wisemind2019@wisemindprocessinc.com">{email?.text}</EmailText>
+            <EmailText href={`mailto:${email?.text}`}>{email?.text}</EmailText>
           </EmailContainer>
         </InfoContainer>
         <LinksContainer>
-          <Title>Links</Title>
+          <Title>{linksTitle?.text}</Title>
           {linksList.map(({ to, text }) => (
             <Arrow key={text}>
               <ArrowIcon />
@@ -114,7 +130,7 @@ const Footer = ({ infoText, address, phone, email, newsLetter }) => {
       </MainContainer>
       <BottomContainer>
         <TitleAndDate>
-          <CompanyName>Wise Mind</CompanyName>
+          <CompanyName>{wiseMindFullName?.text}</CompanyName>
           <AllRightsReserved>{`© ${new Date().getFullYear()}. All rights reserved.`}</AllRightsReserved>
         </TitleAndDate>
         <SocialMedia>
@@ -138,7 +154,9 @@ Footer.propTypes = {
   address: customObject,
   phone: customObject,
   email: customObject,
-  newsLetter: customObject
+  newsLetter: customObject,
+  wiseMindFullName: customObject,
+  linksTitle: customObject
 };
 
 export default Footer;

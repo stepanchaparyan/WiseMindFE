@@ -248,7 +248,7 @@ export const Logo = styled.img`
 `;
 
 export const LogoText = styled.span`
-  margin: auto 24px;
+  margin: auto 14px;
   font-size: 22px;
   cursor: pointer;
   color: white;

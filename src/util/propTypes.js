@@ -10,7 +10,7 @@ const customObject = PropTypes.shape({
   page: PropTypes.string,
   parent_page: PropTypes.string,
   url: PropTypes.string,
-  number: PropTypes.number
+  number: PropTypes.string
 });
 
 export default customObject;

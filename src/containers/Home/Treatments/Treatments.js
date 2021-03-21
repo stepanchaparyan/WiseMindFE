@@ -14,7 +14,7 @@ import img1 from '../../../assets/map-3-64.png';
 import img2 from '../../../assets/brain-64.png';
 import img3 from '../../../assets/puzzle-4-64.png';
 
-const Treatments = ({ treatments }) => {
+const Treatments = ({ treatments, readMoreText }) => {
   const imgList = [img1, img2, img3]; // TODO will be removed
   const colors = ['white', 'lightBlue', 'lightGray']; // TODO will be removed
   const alt = 'image';
@@ -27,7 +27,7 @@ const Treatments = ({ treatments }) => {
             <Image src={imgList[i]} alt={alt}></Image>
             <TitleText>{text?.title}</TitleText>
             <MainText>{text?.text}</MainText>
-            <ButtonStyled>Read More</ButtonStyled>
+            <ButtonStyled>{readMoreText?.text}</ButtonStyled>
           </Container>
         ))}
       </ThreePictures>
@@ -36,7 +36,8 @@ const Treatments = ({ treatments }) => {
 };
 
 Treatments.propTypes = {
-  treatments: PropTypes.arrayOf(customObject).isRequired
+  treatments: PropTypes.arrayOf(customObject).isRequired,
+  readMoreText: customObject
 };
 
 export default Treatments;

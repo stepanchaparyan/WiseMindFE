@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import customObject from '../../../util/propTypes';
 import {
   CoreValesContainer,
@@ -25,7 +26,7 @@ import Core_Values_3 from '../../../assets/core_values_3.jpg';
 
 const { navGreen, lightBlack, white } = theme;
 
-const CoreValues = ({ coreValueMain, coreValues, whoWeAre }) => {
+const CoreValues = ({ coreValueMain, coreValues, whoWeAre, readMoreText }) => {
   const imgList = [Core_Values_1, Core_Values_2, Core_Values_3]; // TODO will be removed
   const alt = 'image';
 
@@ -34,7 +35,7 @@ const CoreValues = ({ coreValueMain, coreValues, whoWeAre }) => {
       <LeftPart>
         <Title>{coreValueMain?.title}</Title>
         <div>{coreValueMain?.text}</div>
-        <ButtonStyled>Read More</ButtonStyled>
+        <ButtonStyled>{readMoreText?.text}</ButtonStyled>
       </LeftPart>
       <RightPart>
         <ThreePictures>
@@ -67,8 +68,9 @@ const CoreValues = ({ coreValueMain, coreValues, whoWeAre }) => {
 
 CoreValues.propTypes = {
   coreValueMain: customObject,
-  coreValues: customObject,
-  whoWeAre: customObject
+  coreValues: PropTypes.arrayOf(customObject).isRequired,
+  whoWeAre: customObject,
+  readMoreText: customObject
 };
 
 export default CoreValues;

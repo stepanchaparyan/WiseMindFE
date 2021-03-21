@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import customObject from '../../../util/propTypes';
 import useMedia from 'use-media';
 import { BLANK, FACEBOOK_LINK, TWITTER_LINK, INSTAGRAM_LINK } from '../../../constants/url';
@@ -88,7 +89,7 @@ const Employees = ({ titleText, employees }) => {
 };
 
 Employees.propTypes = {
-  employees: customObject,
+  employees: PropTypes.arrayOf(customObject).isRequired,
   titleText: customObject
 };
 

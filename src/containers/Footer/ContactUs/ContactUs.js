@@ -13,9 +13,8 @@ import {
 } from './ContactUsStyled';
 import { BLANK, THERAPY_PORTAL } from '../../../constants/url';
 
-const ContactUs = ({ texts }) => {
+const ContactUs = ({ texts, makeRequest, checkBoxText }) => {
   const [isChecked, setChecked] = useState(false);
-  const checkBoxText = 'I have read and agree to the terms & conditions';
 
   return (
     <Container>
@@ -26,16 +25,16 @@ const ContactUs = ({ texts }) => {
       <ButtonContainer>
         <ButtonStyled>
           <MailIcon />
-          MAKE REQUEST
+          {makeRequest?.text}
         </ButtonStyled>
         <CheckBoxContainer>
           <input type="checkbox" defaultChecked={false} onClick={() => setChecked(!isChecked)} />
           {isChecked ? (
             <CheckboxText ischecked={isChecked} target={BLANK} href={THERAPY_PORTAL}>
-              {checkBoxText}
+              {checkBoxText?.text}
             </CheckboxText>
           ) : (
-            <CheckboxText>{checkBoxText}</CheckboxText>
+            <CheckboxText>{checkBoxText?.text}</CheckboxText>
           )}
         </CheckBoxContainer>
       </ButtonContainer>
@@ -44,7 +43,9 @@ const ContactUs = ({ texts }) => {
 };
 
 ContactUs.propTypes = {
-  texts: customObject
+  texts: customObject,
+  makeRequest: customObject,
+  checkBoxText: customObject
 };
 
 export default ContactUs;
