@@ -17,8 +17,8 @@ const FooterContainer = ({ language }) => {
   const checkBoxText = footer.find(item => item.title === 'checkBoxText');
   const wiseMindFullName = footer.find(item => item.title === 'wiseMindFullName');
   const linksTitle = footer.find(item => item.title === 'linksTitle');
-  const linksNames = footer.filter(item => item.title === 'names');
-  const linksAddresses = footer.filter(item => item.title === 'addresses');
+  const linksNames = footer.filter(item => item.title === 'names') || [];
+  const linksAddresses = footer.filter(item => item.title === 'addresses') || [];
   const address = footer.find(item => item.title === 'Address: ');
   const phone = footer.find(item => item.title === 'Phone: ');
   const email = footer.find(item => item.title === 'Email: ');

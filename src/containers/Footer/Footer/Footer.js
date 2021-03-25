@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import customObject from '../../../util/propTypes';
 import {
   Container,
@@ -50,25 +51,13 @@ const Footer = ({
   email,
   newsLetter,
   linksTitle,
-  wiseMindFullName
-  // linksNames,
-  // linksAddresses
+  wiseMindFullName,
+  linksNames,
+  linksAddresses
 }) => {
-  // console.log('linksNames', linksNames);
-
-  const linksList = [
-    { to: '/', text: 'Home' },
-    { to: '/about', text: 'About' },
-    { to: '/career_opportunities', text: 'Career Opportunities' },
-    { to: '/client_resources', text: 'Client Resources' },
-    { to: '/contact_us', text: 'Contact us' },
-    { to: '/terms_conditions', text: 'Terms conditions' },
-    { to: '/privacy_policy', text: 'Privacy policy' }
-  ];
-
-  // const linksList2 = linksNames?.text.map((item, i) => {
-  //   return { to: linksAddresses[i], text: item };
-  // });
+  const linksList = linksNames[0]?.text.map((item, i) => {
+    return { to: linksAddresses[0]?.text[i], text: item };
+  });
 
   return (
     <Container>
@@ -103,7 +92,7 @@ const Footer = ({
         </InfoContainer>
         <LinksContainer>
           <Title>{linksTitle?.text}</Title>
-          {linksList.map(({ to, text }) => (
+          {linksList?.map(({ to, text }) => (
             <Arrow key={text}>
               <ArrowIcon />
               <StyledLink to={to}>{text}</StyledLink>
@@ -156,7 +145,9 @@ Footer.propTypes = {
   email: customObject,
   newsLetter: customObject,
   wiseMindFullName: customObject,
-  linksTitle: customObject
+  linksTitle: customObject,
+  linksNames: PropTypes.array,
+  linksAddresses: PropTypes.array
 };
 
 export default Footer;
