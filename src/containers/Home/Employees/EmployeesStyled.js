@@ -98,6 +98,9 @@ export const MainText = styled.div`
   padding: 4px 0 24px 0;
   color: ${props => props.theme.moreDarkGray};
   line-height: 1.4;
+  :empty {
+    min-height: 19px;
+  }
 `;
 
 export const Overlay = styled.div`
