@@ -4,10 +4,11 @@
   "description": "Medical",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --open",
+    "start": "webpack --open",
+    "dev-server": "cross-env NODE_ENV=development webpack-dev-server --mode development --open",
     "build": "rimraf build && cross-env NODE_ENV=production webpack --mode production",
     "dev": "rimraf build && cross-env NODE_ENV=development webpack --mode development",
-    "dev-server": "rimraf build && cross-env NODE_ENV=development webpack-dashboard -- webpack-dev-server --mode development",
+    "dev-server-dashboard": "rimraf build && cross-env NODE_ENV=development webpack-dashboard -- webpack-dev-server --mode development",
     "eslint": "eslint .",
     "eslint-fix": "eslint --fix \"src/**/*.js\"",
     "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\""
