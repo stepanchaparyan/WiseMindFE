@@ -16,6 +16,7 @@ const Home = ({ language }) => {
   const WiseMindFullName = welcomeTexts.find(text => text.title === 'WiseMindFullName');
   const longText = welcomeTexts.find(text => text.title === 'longText');
   const readMoreText = homeTexts.find(item => item.title === 'readMore');
+  const readLessText = homeTexts.find(item => item.title === 'readLess');
   const treatments = homeTexts.filter(item => item.section === 'treatment');
   const coreValueMain = homeTexts.find(item => item.section === 'coreValuesMain');
   const coreValues = homeTexts.filter(item => item.parent_section === 'coreValues');
@@ -40,12 +41,15 @@ const Home = ({ language }) => {
             WiseMindFullName={WiseMindFullName}
             longText={longText}
           ></Welcome>
-          <CoreValues
-            coreValueMain={coreValueMain}
-            coreValues={coreValues}
-            whoWeAre={whoWeAre}
-            readMoreText={readMoreText}
-          ></CoreValues>
+          {coreValueMain && (
+            <CoreValues
+              coreValueMain={coreValueMain}
+              coreValues={coreValues}
+              whoWeAre={whoWeAre}
+              readMoreText={readMoreText?.text}
+              readLessText={readLessText?.text}
+            ></CoreValues>
+          )}
           <Treatments treatments={treatments} readMoreText={readMoreText}></Treatments>
           <Employees titleText={employeesTitleText} employees={employees}></Employees>
         </>

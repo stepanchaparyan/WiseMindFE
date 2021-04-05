@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import customObject from '../../../util/propTypes';
 import {
@@ -26,16 +26,22 @@ import Core_Values_3 from '../../../assets/core_values_3.jpg';
 
 const { navGreen, lightBlack, white } = theme;
 
-const CoreValues = ({ coreValueMain, coreValues, whoWeAre, readMoreText }) => {
+const CoreValues = ({ coreValueMain, coreValues, whoWeAre, readMoreText, readLessText }) => {
   const imgList = [Core_Values_1, Core_Values_2, Core_Values_3]; // TODO will be removed
   const alt = 'image';
+
+  const [isLongText, setLongText] = useState(false);
+
+  const buttonText = isLongText ? readLessText : readMoreText;
+  const mainText = coreValueMain?.text;
+  const finalText = isLongText ? mainText : `${mainText.slice(0, 473)} ...`;
 
   return (
     <CoreValesContainer>
       <LeftPart>
         <Title>{coreValueMain?.title}</Title>
-        <div>{coreValueMain?.text}</div>
-        <ButtonStyled>{readMoreText?.text}</ButtonStyled>
+        <div>{finalText}</div>
+        <ButtonStyled onClick={() => setLongText(!isLongText)}>{buttonText}</ButtonStyled>
       </LeftPart>
       <RightPart>
         <ThreePictures>
@@ -70,7 +76,8 @@ CoreValues.propTypes = {
   coreValueMain: customObject,
   coreValues: PropTypes.arrayOf(customObject).isRequired,
   whoWeAre: customObject,
-  readMoreText: customObject
+  readMoreText: PropTypes.string,
+  readLessText: PropTypes.string
 };
 
 export default CoreValues;

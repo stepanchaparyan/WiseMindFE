@@ -39,7 +39,7 @@ export const ButtonStyled = styled.button`
   align-items: center;
   text-decoration: none;
   border-radius: 3px;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 1px;
   border: 1px solid gray;
   cursor: pointer;
