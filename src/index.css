@@ -8,6 +8,8 @@
   src: local('Lora'), url(./fonts/Lora.ttf) format('truetype');
 }
 
+@import "../node_modules/normalize.css/normalize.css";
+
 body {
   margin: 0 !important;
   padding: 0 !important;
