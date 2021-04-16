@@ -17,3 +17,7 @@ body {
   position: relative;
   min-height: 100vh;
 }
+ul, li {
+  margin: 0;
+  padding: 0;
+}
