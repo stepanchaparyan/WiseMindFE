@@ -5,6 +5,7 @@ import Navbar from './containers/Navbar/Navbar';
 import FooterContainer from './containers/Footer/FooterContainer';
 import Routes from './Routes';
 import theme from '../src/styles/theme';
+import './index.css';
 
 const App = () => {
   const [language, setLanguage] = useState(localStorage.getItem('language') || 'US');
