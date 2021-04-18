@@ -1,7 +1,5 @@
 import { serverUrl } from '../../environment';
 
-const API = 'api';
-
 export const BASE_URL = `${serverUrl}`;
 
 export const BLANK = '_blank';

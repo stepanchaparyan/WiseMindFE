@@ -11,18 +11,18 @@ import { MainContainer } from './ContactUs/ContactUsStyled';
 const FooterContainer = ({ language }) => {
   const dispatch = useDispatch();
   const { footer, loading } = useSelector(state => state.footer);
-  const contactUs = footer.find(item => item.section === 'contactUs');
-  const infoText = footer.find(item => item.title === 'text');
-  const makeRequest = footer.find(item => item.title === 'makeRequest');
-  const checkBoxText = footer.find(item => item.title === 'checkBoxText');
-  const wiseMindFullName = footer.find(item => item.title === 'wiseMindFullName');
-  const linksTitle = footer.find(item => item.title === 'linksTitle');
-  const linksNames = footer.filter(item => item.title === 'names') || [];
-  const linksAddresses = footer.filter(item => item.title === 'addresses') || [];
-  const address = footer.find(item => item.title === 'Address: ');
-  const phone = footer.find(item => item.title === 'Phone: ');
-  const email = footer.find(item => item.title === 'Email: ');
-  const newsLetter = footer.find(item => item.title === 'NewsLetter');
+  const contactUs = footer?.find(item => item.section === 'contactUs');
+  const infoText = footer?.find(item => item.title === 'text');
+  const makeRequest = footer?.find(item => item.title === 'makeRequest');
+  const checkBoxText = footer?.find(item => item.title === 'checkBoxText');
+  const wiseMindFullName = footer?.find(item => item.title === 'wiseMindFullName');
+  const linksTitle = footer?.find(item => item.title === 'linksTitle');
+  const linksNames = footer?.filter(item => item.title === 'names') || [];
+  const linksAddresses = footer?.filter(item => item.title === 'addresses') || [];
+  const address = footer?.find(item => item.title === 'Address: ');
+  const phone = footer?.find(item => item.title === 'Phone: ');
+  const email = footer?.find(item => item.title === 'Email: ');
+  const newsLetter = footer?.find(item => item.title === 'NewsLetter');
 
   useEffect(() => {
     dispatch(getFooter(language.toLowerCase()));

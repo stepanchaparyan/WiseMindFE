@@ -11,20 +11,20 @@ import Employees from './Employees/Employees';
 const Home = ({ language }) => {
   const dispatch = useDispatch();
   const { homeTexts, loading, error } = useSelector(state => state.homeTexts);
-  const welcomeTexts = homeTexts.filter(item => item.section === 'welcome');
-  const shortText = welcomeTexts.find(text => text.title === 'shortText');
-  const WiseMindFullName = welcomeTexts.find(text => text.title === 'WiseMindFullName');
-  const longText = welcomeTexts.find(text => text.title === 'longText');
-  const readMoreText = homeTexts.find(item => item.title === 'readMore');
-  const readLessText = homeTexts.find(item => item.title === 'readLess');
-  const treatments = homeTexts.filter(item => item.section === 'treatment');
-  const coreValueMain = homeTexts.find(item => item.section === 'coreValuesMain');
-  const coreValues = homeTexts.filter(item => item.parent_section === 'coreValues');
-  const whoWeAre = homeTexts.find(item => item.section === 'whoWeAre');
+  const welcomeTexts = homeTexts?.filter(item => item.section === 'welcome');
+  const shortText = welcomeTexts?.find(text => text.title === 'shortText');
+  const WiseMindFullName = welcomeTexts?.find(text => text.title === 'WiseMindFullName');
+  const longText = welcomeTexts?.find(text => text.title === 'longText');
+  const readMoreText = homeTexts?.find(item => item.title === 'readMore');
+  const readLessText = homeTexts?.find(item => item.title === 'readLess');
+  const treatments = homeTexts?.filter(item => item.section === 'treatment');
+  const coreValueMain = homeTexts?.find(item => item.section === 'coreValuesMain');
+  const coreValues = homeTexts?.filter(item => item.parent_section === 'coreValues');
+  const whoWeAre = homeTexts?.find(item => item.section === 'whoWeAre');
   const employees = homeTexts
-    .filter(item => item.section === 'employees')
+    ?.filter(item => item.section === 'employees')
     .sort((a, b) => a.number.localeCompare(b.number));
-  const employeesTitleText = homeTexts.find(item => item.section === 'employeesTitleText');
+  const employeesTitleText = homeTexts?.find(item => item.section === 'employeesTitleText');
 
   useEffect(() => {
     dispatch(getHomeTexts(language.toLowerCase()));
@@ -50,8 +50,12 @@ const Home = ({ language }) => {
               readLessText={readLessText?.text}
             ></CoreValues>
           )}
-          <Treatments treatments={treatments} readMoreText={readMoreText}></Treatments>
-          <Employees titleText={employeesTitleText} employees={employees}></Employees>
+          {treatments && (
+            <Treatments treatments={treatments} readMoreText={readMoreText}></Treatments>
+          )}
+          {employees && (
+            <Employees titleText={employeesTitleText} employees={employees}></Employees>
+          )}
         </>
       )}
     </>

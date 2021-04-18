@@ -21,6 +21,7 @@ import { BLANK } from '../../constants/url';
 import { getNavbar } from '../../redux/actions/navbarActions';
 import { useOnClickOutside } from '../../hooks/clickOutSide';
 import { languageTransformer } from '../../util/languageTransformer';
+import { showLanguageSelector } from '../../../environment';
 
 const alt = 'logo';
 
@@ -33,9 +34,9 @@ const Navbar = ({ language, setLanguage }) => {
 
   const dispatch = useDispatch();
   const { navbar, loading } = useSelector(state => state.navbar);
-  const sentRequest = navbar.find(item => item.section === 'sendRequest');
+  const sentRequest = navbar?.find(item => item.section === 'sendRequest');
   const navbarMenus = navbar
-    .filter(item => item.section === 'navbar')
+    ?.filter(item => item.section === 'navbar')
     .sort((a, b) => a.number.localeCompare(b.number));
 
   useEffect(() => {
@@ -67,32 +68,36 @@ const Navbar = ({ language, setLanguage }) => {
           <LogoContainer to={LINK.TO.HOME}>
             <Logo src={logo} alt={alt} />
           </LogoContainer>
-          <NavLinkContainer open={open}>
-            <NavLinks>
-              {navbarMenus.map(({ title, link }) => (
-                <StyledLink exact key={title} to={link}>
-                  {title.toUpperCase()}
-                </StyledLink>
-              ))}
-            </NavLinks>
-          </NavLinkContainer>
+          {navbarMenus && (
+            <NavLinkContainer open={open}>
+              <NavLinks>
+                {navbarMenus.map(({ title, link }) => (
+                  <StyledLink exact key={title} to={link}>
+                    {title.toUpperCase()}
+                  </StyledLink>
+                ))}
+              </NavLinks>
+            </NavLinkContainer>
+          )}
           <RightContainer open={open}>
-            <ReactFlagsSelectStyled
-              countries={languageTransformer(languagesList)}
-              customLabels={{
-                US: 'English',
-                ES: 'Español',
-                FR: 'Français',
-                DE: 'Deutsch',
-                RU: 'Русский',
-                AM: 'Հայերեն'
-              }}
-              selected={language}
-              onSelect={code => setLanguage(code)}
-              selectedSize={14}
-              optionsSize={13}
-              placeholder={'English'}
-            />
+            {showLanguageSelector && (
+              <ReactFlagsSelectStyled
+                countries={languageTransformer(languagesList)}
+                customLabels={{
+                  US: 'English',
+                  ES: 'Español',
+                  FR: 'Français',
+                  DE: 'Deutsch',
+                  RU: 'Русский',
+                  AM: 'Հայերեն'
+                }}
+                selected={language}
+                onSelect={code => setLanguage(code)}
+                selectedSize={14}
+                optionsSize={13}
+                placeholder={'English'}
+              />
+            )}
             <SendRequestButton target={BLANK} href={sentRequest?.link}>
               {sentRequest?.title}
               <PaperPlaneIcon />

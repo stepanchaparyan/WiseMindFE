@@ -7,7 +7,7 @@ import Routes from './Routes';
 import theme from '../src/styles/theme';
 
 const App = () => {
-  const [language, setLanguage] = useState(localStorage.getItem('language') || 'US');
+  const [language, setLanguage] = useState(localStorage.getItem('language') || 'EN');
   localStorage.setItem('language', language);
 
   return (
