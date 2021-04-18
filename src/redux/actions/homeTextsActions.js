@@ -10,7 +10,7 @@ export const getHomeTexts = lang => async dispatch => {
   try {
     dispatch({ type: actionTypes.GET_HOME_TEXTS_REQUEST });
 
-    const { data } = await axios.get(createURL(lang));
+    const { data } = await axios.get(createURL('en'));
 
     dispatch({
       type: actionTypes.GET_HOME_TEXTS_SUCCESS,
