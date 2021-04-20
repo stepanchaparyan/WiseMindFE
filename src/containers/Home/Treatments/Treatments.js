@@ -26,8 +26,8 @@ const Treatments = ({ treatments, readMoreText }) => {
           <Container key={text?.title} color={colors[i]}>
             <Image src={imgList[i]} alt={alt}></Image>
             <TitleText>{text?.title}</TitleText>
-            <MainText>{text?.text}</MainText>
-            <ButtonStyled>{readMoreText?.text}</ButtonStyled>
+            <MainText>{text?.content}</MainText>
+            <ButtonStyled>{readMoreText?.content}</ButtonStyled>
           </Container>
         ))}
       </ThreePictures>

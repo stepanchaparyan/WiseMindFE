@@ -25,8 +25,8 @@ const Welcome = ({ shortText, WiseMindFullName, longText }) => {
         <LogoContainer to={LINK.TO.HOME}>
           <Logo src={logo} alt={alt} />
         </LogoContainer>
-        <SmallText>{shortText?.text}</SmallText>
-        <TitleText>{WiseMindFullName?.text}</TitleText>
+        <SmallText>{shortText?.content}</SmallText>
+        <TitleText>{WiseMindFullName?.content}</TitleText>
         <ButtonsContainer>
           <Button
             text="About Us"
@@ -46,7 +46,7 @@ const Welcome = ({ shortText, WiseMindFullName, longText }) => {
             to={LINK.TO.CONTACT_US}
           />
         </ButtonsContainer>
-        <LongText>{longText?.text}</LongText>
+        <LongText>{longText?.content}</LongText>
       </Module>
     </Container>
   );

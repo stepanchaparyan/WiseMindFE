@@ -33,8 +33,8 @@ const CoreValues = ({ coreValueMain, coreValues, whoWeAre, readMoreText, readLes
   const [isLongText, setLongText] = useState(false);
 
   const buttonText = isLongText ? readLessText : readMoreText;
-  const mainText = coreValueMain?.text;
-  const finalText = isLongText ? mainText : `${mainText.slice(0, 473)} ...`;
+  const mainText = coreValueMain?.content;
+  const finalText = isLongText ? mainText : `${mainText?.slice(0, 473)} ...`;
 
   return (
     <CoreValesContainer>
@@ -51,13 +51,13 @@ const CoreValues = ({ coreValueMain, coreValues, whoWeAre, readMoreText, readLes
                 <Image src={imgList[i]} alt={alt}></Image>
               </Overlay>
               <TitleText>{text?.title}</TitleText>
-              <MainText>{text?.text}</MainText>
+              <MainText>{text?.content}</MainText>
             </Container>
           ))}
         </ThreePictures>
         <WhoWeAre>
           <WhoWeAreTitleText>{whoWeAre?.title}</WhoWeAreTitleText>
-          <WhoWeAreMainText>{whoWeAre?.text}</WhoWeAreMainText>
+          <WhoWeAreMainText>{whoWeAre?.content}</WhoWeAreMainText>
           <Button
             text="About Us"
             textcolor={white}

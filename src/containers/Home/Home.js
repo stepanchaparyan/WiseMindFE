@@ -21,9 +21,11 @@ const Home = ({ language }) => {
   const coreValueMain = homeTexts?.find(item => item.section === 'coreValuesMain');
   const coreValues = homeTexts?.filter(item => item.parent_section === 'coreValues');
   const whoWeAre = homeTexts?.find(item => item.section === 'whoWeAre');
-  const employees = homeTexts
-    ?.filter(item => item.section === 'employees')
-    .sort((a, b) => a.number.localeCompare(b.number));
+  // const employees = homeTexts
+  //   ?.filter(item => item.section === 'employees')
+  //   .sort((a, b) => a.number.localeCompare(b.number));
+  // const employeesTitleText = homeTexts?.find(item => item.section === 'employeesTitleText');
+  const employees = homeTexts?.filter(item => item.section === 'employees');
   const employeesTitleText = homeTexts?.find(item => item.section === 'employeesTitleText');
 
   useEffect(() => {
