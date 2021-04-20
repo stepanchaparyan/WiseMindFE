@@ -15,7 +15,7 @@ const FooterContainer = ({ language }) => {
   const infoText = footer?.find(item => item.title === 'text');
   const makeRequest = footer?.find(item => item.title === 'makeRequest');
   const checkBoxText = footer?.find(item => item.title === 'checkBoxText');
-  const wiseMindFullName = footer?.find(item => item.title === 'wiseMindFullName');
+  const appFullName = footer?.find(item => item.title === 'appFullName');
   const linksTitle = footer?.find(item => item.title === 'linksTitle');
   const linksNames = footer?.filter(item => item.title === 'names') || [];
   const linksAddresses = footer?.filter(item => item.title === 'addresses') || [];
@@ -45,7 +45,7 @@ const FooterContainer = ({ language }) => {
             phone={phone}
             email={email}
             newsLetter={newsLetter}
-            wiseMindFullName={wiseMindFullName}
+            appFullName={appFullName}
             linksTitle={linksTitle}
             linksNames={linksNames}
             linksAddresses={linksAddresses}

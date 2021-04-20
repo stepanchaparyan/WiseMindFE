@@ -40,7 +40,7 @@ export const SmallText = styled.div`
 export const TitleText = styled.div`
   font-family: 'Montserrat';
   color: ${props => props.theme.black};
-  font-size: 44px;
+  font-size: 40px;
   line-height: 1.2;
   font-weight: 600;
   text-align: center;

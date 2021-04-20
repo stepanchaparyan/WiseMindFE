@@ -15,12 +15,12 @@ const CareerOpportunities = () => {
 
       <Module>
         <WelcomeText>{'welcome'}</WelcomeText>
-        <LongText>{'Wise_Mind'}</LongText>
+        <LongText>{'Astute care path ways'}</LongText>
         <LinkStyled to={LINK.TO.HOME}>{'GO HOME'}</LinkStyled>
       </Module>
       <Module>
         <WelcomeText>{'welcome'}</WelcomeText>
-        <LongText>{'Wise_Mind'}</LongText>
+        <LongText>{'Astute care path ways'}</LongText>
         <LinkStyled to={LINK.TO.HOME}>{'GO HOME'}</LinkStyled>
       </Module>
     </>

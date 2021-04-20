@@ -1,4 +1,4 @@
-# Wise Mind web page
+#  Astute care path ways, Inc
 
 #### Used technologies
 

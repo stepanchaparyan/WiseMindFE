@@ -18,7 +18,7 @@ import logo from '../../../assets/logo.png';
 const alt = 'logo';
 const { lightBlue, navGreen, lightBlack, white } = theme;
 
-const Welcome = ({ shortText, WiseMindFullName, longText }) => {
+const Welcome = ({ shortText, appFullName, longText }) => {
   return (
     <Container>
       <Module>
@@ -26,7 +26,7 @@ const Welcome = ({ shortText, WiseMindFullName, longText }) => {
           <Logo src={logo} alt={alt} />
         </LogoContainer>
         <SmallText>{shortText?.content}</SmallText>
-        <TitleText>{WiseMindFullName?.content}</TitleText>
+        <TitleText>{appFullName?.content}</TitleText>
         <ButtonsContainer>
           <Button
             text="About Us"
@@ -54,7 +54,7 @@ const Welcome = ({ shortText, WiseMindFullName, longText }) => {
 
 Welcome.propTypes = {
   shortText: customObject,
-  WiseMindFullName: customObject,
+  appFullName: customObject,
   longText: customObject
 };
 

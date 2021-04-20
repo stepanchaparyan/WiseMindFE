@@ -51,7 +51,7 @@ const Footer = ({
   email,
   newsLetter,
   linksTitle,
-  wiseMindFullName,
+  appFullName,
   linksNames,
   linksAddresses
 }) => {
@@ -67,7 +67,7 @@ const Footer = ({
             <ImageContainer to={LINK.TO.HOME}>
               <Logo src={logo} alt={alt} />
             </ImageContainer>
-            <LogoText>{wiseMindFullName?.text}</LogoText>
+            <LogoText>{appFullName?.content}</LogoText>
           </LogoContainer>
           <Text>{infoText?.text}</Text>
           <Address>
@@ -119,7 +119,7 @@ const Footer = ({
       </MainContainer>
       <BottomContainer>
         <TitleAndDate>
-          <CompanyName>{wiseMindFullName?.text}</CompanyName>
+          <CompanyName>{appFullName?.content}</CompanyName>
           <AllRightsReserved>{`© ${new Date().getFullYear()}. All rights reserved.`}</AllRightsReserved>
         </TitleAndDate>
         <SocialMedia>
@@ -144,7 +144,7 @@ Footer.propTypes = {
   phone: customObject,
   email: customObject,
   newsLetter: customObject,
-  wiseMindFullName: customObject,
+  appFullName: customObject,
   linksTitle: customObject,
   linksNames: PropTypes.array,
   linksAddresses: PropTypes.array

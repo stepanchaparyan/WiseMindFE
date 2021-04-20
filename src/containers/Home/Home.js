@@ -13,19 +13,19 @@ const Home = ({ language }) => {
   const { homeTexts, loading, error } = useSelector(state => state.homeTexts);
   const welcomeTexts = homeTexts?.filter(item => item.section === 'welcome');
   const shortText = welcomeTexts?.find(text => text.title === 'shortText');
-  const WiseMindFullName = welcomeTexts?.find(text => text.title === 'WiseMindFullName');
+  const appFullName = welcomeTexts?.find(text => text.title === 'appFullName');
   const longText = welcomeTexts?.find(text => text.title === 'longText');
   const readMoreText = homeTexts?.find(item => item.title === 'readMore');
   const readLessText = homeTexts?.find(item => item.title === 'readLess');
   const treatments = homeTexts?.filter(item => item.section === 'treatment');
   const coreValueMain = homeTexts?.find(item => item.section === 'coreValuesMain');
-  const coreValues = homeTexts?.filter(item => item.parent_section === 'coreValues');
+  const coreValues = homeTexts
+    ?.filter(item => item.parent_section === 'coreValues')
+    .sort((a, b) => (a.num < b.num ? -1 : a.num > b.num ? 1 : 0));
   const whoWeAre = homeTexts?.find(item => item.section === 'whoWeAre');
-  // const employees = homeTexts
-  //   ?.filter(item => item.section === 'employees')
-  //   .sort((a, b) => a.number.localeCompare(b.number));
-  // const employeesTitleText = homeTexts?.find(item => item.section === 'employeesTitleText');
-  const employees = homeTexts?.filter(item => item.section === 'employees');
+  const employees = homeTexts
+    ?.filter(item => item.section === 'employees')
+    .sort((a, b) => (a.num < b.num ? -1 : a.num > b.num ? 1 : 0));
   const employeesTitleText = homeTexts?.find(item => item.section === 'employeesTitleText');
 
   useEffect(() => {
@@ -38,18 +38,14 @@ const Home = ({ language }) => {
         <Loading></Loading>
       ) : (
         <>
-          <Welcome
-            shortText={shortText}
-            WiseMindFullName={WiseMindFullName}
-            longText={longText}
-          ></Welcome>
+          <Welcome shortText={shortText} appFullName={appFullName} longText={longText}></Welcome>
           {coreValueMain && (
             <CoreValues
               coreValueMain={coreValueMain}
               coreValues={coreValues}
               whoWeAre={whoWeAre}
-              readMoreText={readMoreText?.text}
-              readLessText={readLessText?.text}
+              readMoreText={readMoreText?.content}
+              readLessText={readLessText?.content}
             ></CoreValues>
           )}
           {treatments && (
