@@ -34,10 +34,10 @@ const Navbar = ({ language, setLanguage }) => {
 
   const dispatch = useDispatch();
   const { navbar, loading } = useSelector(state => state.navbar);
-  const sentRequest = navbar?.find(item => item.section === 'sendRequest');
+  const sentRequest = navbar?.find(item => item.num === 0);
   const navbarMenus = navbar
-    ?.filter(item => item.section === 'navbar')
-    .sort((a, b) => a.number.localeCompare(b.number));
+    ?.filter(item => item.num !== 0)
+    .sort((a, b) => (a.num < b.num ? -1 : a.num > b.num ? 1 : 0));
 
   useEffect(() => {
     dispatch(getNavbar(language.toLowerCase()));
@@ -71,8 +71,8 @@ const Navbar = ({ language, setLanguage }) => {
           {navbarMenus && (
             <NavLinkContainer open={open}>
               <NavLinks>
-                {navbarMenus.map(({ title, link }) => (
-                  <StyledLink exact key={title} to={link}>
+                {navbarMenus.map(({ title, h_link }) => (
+                  <StyledLink exact key={title} to={h_link}>
                     {title.toUpperCase()}
                   </StyledLink>
                 ))}
@@ -98,7 +98,7 @@ const Navbar = ({ language, setLanguage }) => {
                 placeholder={'English'}
               />
             )}
-            <SendRequestButton target={BLANK} href={sentRequest?.link}>
+            <SendRequestButton target={BLANK} href={sentRequest?.h_link}>
               {sentRequest?.title}
               <PaperPlaneIcon />
             </SendRequestButton>
