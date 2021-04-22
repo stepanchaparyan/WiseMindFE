@@ -67,7 +67,7 @@ const Employees = ({ titleText, employees }) => {
             <Container key={employee?.title}>
               {OverlayMedia(employee)}
               <NameText>{employee?.title}</NameText>
-              <MainText>{employee?.text}</MainText>
+              <MainText>{employee?.content}</MainText>
             </Container>
           ))}
         </Employee>
@@ -78,7 +78,7 @@ const Employees = ({ titleText, employees }) => {
               <Container key={text?.title}>
                 {OverlayMedia()}
                 <NameText>{text?.title}</NameText>
-                <MainText>{text?.text}</MainText>
+                <MainText>{text?.content}</MainText>
               </Container>
             ))}
           </CarouselStyled>
