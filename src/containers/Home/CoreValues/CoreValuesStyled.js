@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import CoreValueBGImage from '../../../assets/bg-core-values.jpg';
 import { tabletUp } from '../../../styles/mediaQueries/mixins';
 
 export const CoreValesContainer = styled.div`
@@ -18,7 +17,7 @@ export const LeftPart = styled.div`
   letter-spacing: 1.4px;
   line-height: 1.8;
   color: ${props => props.theme.midLightGray};
-  background-image: url(${CoreValueBGImage});
+  background-image: ${props => `url(${props.src})`};
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

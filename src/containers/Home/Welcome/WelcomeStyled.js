@@ -1,9 +1,8 @@
 import styled from 'styled-components';
-import MainImage from '../../../assets/bg.webp';
 import { tabletUp, desktopUp } from '../../../styles/mediaQueries/mixins';
 
 export const Container = styled.div`
-  background-image: url(${MainImage});
+  background-image: ${props => `url(${props.src})`};
   width: 100%;
   height: 100%;
   background-position: center;
@@ -22,7 +21,7 @@ export const Module = styled.div`
 `;
 
 export const SmallText = styled.div`
-  padding: 16px 0px;
+  padding: 16px 0;
   font-family: 'Montserrat';
   font-weight: bold;
   color: ${props => props.theme.black};

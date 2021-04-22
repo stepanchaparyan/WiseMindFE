@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import customObject from '../../../util/propTypes';
 import Button from '../../../components/Button/Button';
 import {
@@ -11,16 +12,20 @@ import {
   LogoContainer,
   Logo
 } from './WelcomeStyled';
-import { LINK } from '../../../constants';
+import { LINK, BASE_URL } from '../../../constants';
 import theme from '../../../styles/theme';
 import logo from '../../../assets/logo.png';
 
 const alt = 'logo';
 const { lightBlue, navGreen, lightBlack, white } = theme;
 
-const Welcome = ({ shortText, appFullName, longText }) => {
+const Welcome = ({ shortText, appFullName, longText, welcomeImages }) => {
+  const { image_url } =
+    welcomeImages.length && welcomeImages.find(item => item.section === 'welcome');
+  const mainBG = `${BASE_URL}${image_url}`;
+
   return (
-    <Container>
+    <Container src={mainBG}>
       <Module>
         <LogoContainer to={LINK.TO.HOME}>
           <Logo src={logo} alt={alt} />
@@ -55,7 +60,8 @@ const Welcome = ({ shortText, appFullName, longText }) => {
 Welcome.propTypes = {
   shortText: customObject,
   appFullName: customObject,
-  longText: customObject
+  longText: customObject,
+  welcomeImages: PropTypes.array
 };
 
 export default Welcome;

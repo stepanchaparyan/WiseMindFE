@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getHomeTexts } from '../../redux/actions/homeTextsActions';
+import { getHomeImages } from '../../redux/actions/homeImagesActions';
 import Loading from '../../components/Loading/Loading';
 import Welcome from './Welcome/Welcome';
 import CoreValues from './CoreValues/CoreValues';
@@ -28,8 +29,13 @@ const Home = ({ language }) => {
     .sort((a, b) => (a.num < b.num ? -1 : a.num > b.num ? 1 : 0));
   const employeesTitleText = homeTexts?.find(item => item.section === 'employeesTitleText');
 
+  const { homeImages } = useSelector(state => state.homeImages);
+  const welcomeImages = homeImages?.filter(item => item.parent_section === 'welcome');
+  const coreValuesImages = homeImages?.filter(item => item.parent_section === 'coreValuesMain');
+
   useEffect(() => {
     dispatch(getHomeTexts(language.toLowerCase()));
+    dispatch(getHomeImages());
   }, [dispatch, language]);
 
   return (
@@ -38,7 +44,12 @@ const Home = ({ language }) => {
         <Loading></Loading>
       ) : (
         <>
-          <Welcome shortText={shortText} appFullName={appFullName} longText={longText}></Welcome>
+          <Welcome
+            shortText={shortText}
+            appFullName={appFullName}
+            longText={longText}
+            welcomeImages={welcomeImages}
+          ></Welcome>
           {coreValueMain && (
             <CoreValues
               coreValueMain={coreValueMain}
@@ -46,6 +57,7 @@ const Home = ({ language }) => {
               whoWeAre={whoWeAre}
               readMoreText={readMoreText?.content}
               readLessText={readLessText?.content}
+              coreValuesImages={coreValuesImages}
             ></CoreValues>
           )}
           {treatments && (
