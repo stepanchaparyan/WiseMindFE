@@ -20,9 +20,6 @@ import {
 import Button from '../../../components/Button/Button';
 import theme from '../../../styles/theme';
 import { LINK } from '../../../constants';
-import Core_Values_1 from '../../../assets/core_values_1.jpg';
-import Core_Values_2 from '../../../assets/core_values_2.jpg';
-import Core_Values_3 from '../../../assets/core_values_3.jpg';
 
 const { navGreen, lightBlack, white } = theme;
 
@@ -36,6 +33,7 @@ const CoreValues = ({
   coreValuesImages
 }) => {
   const [isLongText, setLongText] = useState(false);
+  const textLength = 473;
   const buttonText = isLongText ? readLessText : readMoreText;
   const mainText = coreValueMain?.content;
   const finalText = isLongText ? mainText : `${mainText?.slice(0, 473)} ...`;
@@ -48,14 +46,16 @@ const CoreValues = ({
       <LeftPart src={image_url}>
         <Title>{coreValueMain?.title}</Title>
         <div>{finalText}</div>
-        <ButtonStyled onClick={() => setLongText(!isLongText)}>{buttonText}</ButtonStyled>
+        {coreValueMain?.content?.length > textLength && (
+          <ButtonStyled onClick={() => setLongText(!isLongText)}>{buttonText}</ButtonStyled>
+        )}
       </LeftPart>
       <RightPart>
         <ThreePictures>
           {coreValues.map((text, i) => (
             <Container key={text?.title}>
               <Overlay>
-                <Image src={coreValuesImages[i].image_url} alt={alt}></Image>
+                <Image src={coreValuesImages[i]?.image_url} alt={alt}></Image>
               </Overlay>
               <TitleText>{text?.title}</TitleText>
               <MainText>{text?.content}</MainText>

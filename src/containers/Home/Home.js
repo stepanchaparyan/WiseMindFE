@@ -20,7 +20,7 @@ const Home = ({ language }) => {
   const readLessText = homeTexts?.find(item => item.title === 'readLess');
   const coreValueMain = homeTexts?.find(item => item.section === 'coreValuesMain');
   const treatments = homeTexts
-    ?.filter(item => item.section === 'treatment')
+    ?.filter(item => item.parent_section === 'treatment')
     .sort((a, b) => (a.position < b.position ? -1 : a.position > b.position ? 1 : 0));
   const coreValues = homeTexts
     ?.filter(item => item.parent_section === 'coreValues')
@@ -67,7 +67,11 @@ const Home = ({ language }) => {
             ></CoreValues>
           )}
           {treatments && (
-            <Treatments treatments={treatments} readMoreText={readMoreText}></Treatments>
+            <Treatments
+              treatments={treatments}
+              readMoreText={readMoreText?.content}
+              readLessText={readLessText?.content}
+            ></Treatments>
           )}
           {employees && (
             <Employees titleText={employeesTitleText} employees={employees}></Employees>

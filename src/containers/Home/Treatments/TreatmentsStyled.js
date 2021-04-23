@@ -4,6 +4,7 @@ import { tabletUp } from '../../../styles/mediaQueries/mixins';
 export const TreatmentsContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   background-color: ${props => props.theme.lightGray};
   padding: 60px 0;
   ${tabletUp`
@@ -39,6 +40,7 @@ export const ThreePictures = styled.div`
   text-align: center;
   ${tabletUp`
     flex-direction: row;
+    width: 30%;
   `};
 `;
 
@@ -54,7 +56,7 @@ export const Container = styled.div`
   margin: 16px;
   padding: 24px;
   ${tabletUp`
-    width: 22%;
+    min-width: 22%;
   `};
   transition: margin-top 0.5s;
   :hover {
