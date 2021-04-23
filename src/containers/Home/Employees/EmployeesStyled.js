@@ -80,6 +80,7 @@ export const TitleText = styled.div`
   ${desktopUp`
     padding: 20px 0;
     font-size: 36px;
+    max-width: 65%;
   `};
 `;
 

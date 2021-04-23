@@ -19,7 +19,7 @@ import {
 } from './CoreValuesStyled';
 import Button from '../../../components/Button/Button';
 import theme from '../../../styles/theme';
-import { LINK, BASE_URL } from '../../../constants';
+import { LINK } from '../../../constants';
 import Core_Values_1 from '../../../assets/core_values_1.jpg';
 import Core_Values_2 from '../../../assets/core_values_2.jpg';
 import Core_Values_3 from '../../../assets/core_values_3.jpg';
@@ -32,24 +32,20 @@ const CoreValues = ({
   whoWeAre,
   readMoreText,
   readLessText,
+  coreValuesMainImage,
   coreValuesImages
 }) => {
-  const imgList = [Core_Values_1, Core_Values_2, Core_Values_3]; // TODO will be removed
-  const alt = 'image';
-
   const [isLongText, setLongText] = useState(false);
-
   const buttonText = isLongText ? readLessText : readMoreText;
   const mainText = coreValueMain?.content;
   const finalText = isLongText ? mainText : `${mainText?.slice(0, 473)} ...`;
 
-  const { image_url } =
-    coreValuesImages.length && coreValuesImages.find(item => item.section === 'coreValuesMain');
-  const leftBG = `${BASE_URL}${image_url}`;
+  const image_url = coreValuesMainImage?.image_url;
+  const alt = 'image';
 
   return (
     <CoreValesContainer>
-      <LeftPart src={leftBG}>
+      <LeftPart src={image_url}>
         <Title>{coreValueMain?.title}</Title>
         <div>{finalText}</div>
         <ButtonStyled onClick={() => setLongText(!isLongText)}>{buttonText}</ButtonStyled>
@@ -59,7 +55,7 @@ const CoreValues = ({
           {coreValues.map((text, i) => (
             <Container key={text?.title}>
               <Overlay>
-                <Image src={imgList[i]} alt={alt}></Image>
+                <Image src={coreValuesImages[i].image_url} alt={alt}></Image>
               </Overlay>
               <TitleText>{text?.title}</TitleText>
               <MainText>{text?.content}</MainText>
@@ -89,7 +85,8 @@ CoreValues.propTypes = {
   whoWeAre: customObject,
   readMoreText: PropTypes.string,
   readLessText: PropTypes.string,
-  coreValuesImages: PropTypes.array
+  coreValuesImages: PropTypes.array,
+  coreValuesMainImage: PropTypes.object
 };
 
 export default CoreValues;

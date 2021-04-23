@@ -60,7 +60,7 @@ const Employees = ({ titleText, employees }) => {
 
   return (
     <EmployeesContainer>
-      <TitleText>{titleText?.text}</TitleText>
+      <TitleText>{titleText?.content}</TitleText>
       {employees.length < 4 ? (
         <Employee>
           {employees.map(employee => (

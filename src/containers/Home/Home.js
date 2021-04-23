@@ -18,20 +18,25 @@ const Home = ({ language }) => {
   const longText = welcomeTexts?.find(text => text.title === 'longText');
   const readMoreText = homeTexts?.find(item => item.title === 'readMore');
   const readLessText = homeTexts?.find(item => item.title === 'readLess');
-  const treatments = homeTexts?.filter(item => item.section === 'treatment');
   const coreValueMain = homeTexts?.find(item => item.section === 'coreValuesMain');
+  const treatments = homeTexts
+    ?.filter(item => item.section === 'treatment')
+    .sort((a, b) => (a.position < b.position ? -1 : a.position > b.position ? 1 : 0));
   const coreValues = homeTexts
     ?.filter(item => item.parent_section === 'coreValues')
-    .sort((a, b) => (a.num < b.num ? -1 : a.num > b.num ? 1 : 0));
+    .sort((a, b) => (a.position < b.position ? -1 : a.position > b.position ? 1 : 0));
   const whoWeAre = homeTexts?.find(item => item.section === 'whoWeAre');
   const employees = homeTexts
-    ?.filter(item => item.section === 'employees')
-    .sort((a, b) => (a.num < b.num ? -1 : a.num > b.num ? 1 : 0));
+    ?.filter(item => item.parent_section === 'all_employee')
+    .sort((a, b) => (a.position < b.position ? -1 : a.position > b.position ? 1 : 0));
   const employeesTitleText = homeTexts?.find(item => item.section === 'employeesTitleText');
 
   const { homeImages } = useSelector(state => state.homeImages);
   const welcomeImages = homeImages?.filter(item => item.parent_section === 'welcome');
-  const coreValuesImages = homeImages?.filter(item => item.parent_section === 'coreValuesMain');
+  const coreValuesMainImage = homeImages?.find(item => item.parent_section === 'coreValuesMain');
+  const coreValuesImages = homeImages
+    ?.filter(item => item.parent_section === 'coreValues')
+    .sort((a, b) => (a.position < b.position ? -1 : a.position > b.position ? 1 : 0));
 
   useEffect(() => {
     dispatch(getHomeTexts(language.toLowerCase()));
@@ -57,6 +62,7 @@ const Home = ({ language }) => {
               whoWeAre={whoWeAre}
               readMoreText={readMoreText?.content}
               readLessText={readLessText?.content}
+              coreValuesMainImage={coreValuesMainImage}
               coreValuesImages={coreValuesImages}
             ></CoreValues>
           )}

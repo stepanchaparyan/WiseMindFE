@@ -12,7 +12,7 @@ import {
   LogoContainer,
   Logo
 } from './WelcomeStyled';
-import { LINK, BASE_URL } from '../../../constants';
+import { LINK } from '../../../constants';
 import theme from '../../../styles/theme';
 import logo from '../../../assets/logo.png';
 
@@ -22,10 +22,9 @@ const { lightBlue, navGreen, lightBlack, white } = theme;
 const Welcome = ({ shortText, appFullName, longText, welcomeImages }) => {
   const { image_url } =
     welcomeImages.length && welcomeImages.find(item => item.section === 'welcome');
-  const mainBG = `${BASE_URL}${image_url}`;
 
   return (
-    <Container src={mainBG}>
+    <Container src={image_url}>
       <Module>
         <LogoContainer to={LINK.TO.HOME}>
           <Logo src={logo} alt={alt} />
