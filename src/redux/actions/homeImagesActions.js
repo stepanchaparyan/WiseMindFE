@@ -15,7 +15,7 @@ export const getHomeImages = () => async dispatch => {
   } catch (error) {
     dispatch({
       type: actionTypes.GET_HOME_IMAGES_FAIL,
-      paiyload:
+      payload:
         error.response && error.response.data.message ? error.response.data.message : error.message
     });
   }

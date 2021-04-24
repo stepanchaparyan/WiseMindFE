@@ -40,7 +40,7 @@ const Treatments = ({ treatments, readMoreText, readLessText }) => {
 
   return (
     <TreatmentsContainer>
-      {treatments.map((treatment, i) => i < 3 && oneTreatment(treatment, i))}
+      {treatments?.map((treatment, i) => i < 3 && oneTreatment(treatment, i))}
     </TreatmentsContainer>
   );
 };

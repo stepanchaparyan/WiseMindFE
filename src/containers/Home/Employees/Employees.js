@@ -61,9 +61,9 @@ const Employees = ({ titleText, employees }) => {
   return (
     <EmployeesContainer>
       <TitleText>{titleText?.content}</TitleText>
-      {employees.length < 4 ? (
+      {employees?.length < 4 ? (
         <Employee>
-          {employees.map(employee => (
+          {employees?.map(employee => (
             <Container key={employee?.title}>
               {OverlayMedia(employee)}
               <NameText>{employee?.title}</NameText>
@@ -74,7 +74,7 @@ const Employees = ({ titleText, employees }) => {
       ) : (
         <Employee>
           <CarouselStyled itemsToShow={itemsToShow} itemPadding={[0, 20]}>
-            {employees.map(text => (
+            {employees?.map(text => (
               <Container key={text?.title}>
                 {OverlayMedia()}
                 <NameText>{text?.title}</NameText>

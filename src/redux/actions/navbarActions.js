@@ -19,7 +19,7 @@ export const getNavbar = lang => async dispatch => {
   } catch (error) {
     dispatch({
       type: actionTypes.GET_NAVBAR_FAIL,
-      paiyload:
+      payload:
         error.response && error.response.data.message ? error.response.data.message : error.message
     });
   }

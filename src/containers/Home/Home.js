@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getHomeTexts } from '../../redux/actions/homeTextsActions';
@@ -8,6 +8,7 @@ import Welcome from './Welcome/Welcome';
 import CoreValues from './CoreValues/CoreValues';
 import Treatments from './Treatments/Treatments';
 import Employees from './Employees/Employees';
+import CustomModal from '../../components/Modal/Modal';
 
 const Home = ({ language }) => {
   const dispatch = useDispatch();
@@ -18,14 +19,14 @@ const Home = ({ language }) => {
   const longText = welcomeTexts?.find(text => text.title === 'longText');
   const readMoreText = homeTexts?.find(item => item.title === 'readMore');
   const readLessText = homeTexts?.find(item => item.title === 'readLess');
-  const coreValueMain = homeTexts?.find(item => item.section === 'coreValuesMain');
+  const coreValueMainText = homeTexts?.find(item => item.section === 'coreValuesMain');
   const treatments = homeTexts
     ?.filter(item => item.parent_section === 'treatment')
     .sort((a, b) => (a.position < b.position ? -1 : a.position > b.position ? 1 : 0));
-  const coreValues = homeTexts
+  const coreValuesTexts = homeTexts
     ?.filter(item => item.parent_section === 'coreValues')
     .sort((a, b) => (a.position < b.position ? -1 : a.position > b.position ? 1 : 0));
-  const whoWeAre = homeTexts?.find(item => item.section === 'whoWeAre');
+  const whoWeAreText = homeTexts?.find(item => item.section === 'whoWeAre');
   const employees = homeTexts
     ?.filter(item => item.parent_section === 'all_employee')
     .sort((a, b) => (a.position < b.position ? -1 : a.position > b.position ? 1 : 0));
@@ -43,11 +44,16 @@ const Home = ({ language }) => {
     dispatch(getHomeImages());
   }, [dispatch, language]);
 
+  const [modalIsOpen, setCloseModal] = useState(!error);
+  const handleCloseErrorModal = () => {
+    setCloseModal(false);
+  };
+
   return (
     <>
       {loading ? (
         <Loading></Loading>
-      ) : (
+      ) : !error ? (
         <>
           <Welcome
             shortText={shortText}
@@ -55,11 +61,11 @@ const Home = ({ language }) => {
             longText={longText}
             welcomeImages={welcomeImages}
           ></Welcome>
-          {coreValueMain && (
+          {coreValuesTexts && (
             <CoreValues
-              coreValueMain={coreValueMain}
-              coreValues={coreValues}
-              whoWeAre={whoWeAre}
+              coreValueMainText={coreValueMainText}
+              coreValuesTexts={coreValuesTexts}
+              whoWeAreText={whoWeAreText}
               readMoreText={readMoreText?.content}
               readLessText={readLessText?.content}
               coreValuesMainImage={coreValuesMainImage}
@@ -77,6 +83,17 @@ const Home = ({ language }) => {
             <Employees titleText={employeesTitleText} employees={employees}></Employees>
           )}
         </>
+      ) : (
+        <CustomModal
+          modalIsOpen={modalIsOpen}
+          onConfirm={handleCloseErrorModal}
+          title="Error"
+          text="Something went wrong, please try later"
+          buttonConfirmText="OK"
+          titleBgColor="gray"
+          isBigSize
+          shouldShowFooter
+        ></CustomModal>
       )}
     </>
   );

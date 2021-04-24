@@ -24,9 +24,9 @@ import { LINK } from '../../../constants';
 const { navGreen, lightBlack, white } = theme;
 
 const CoreValues = ({
-  coreValueMain,
-  coreValues,
-  whoWeAre,
+  coreValueMainText,
+  coreValuesTexts,
+  whoWeAreText,
   readMoreText,
   readLessText,
   coreValuesMainImage,
@@ -35,7 +35,7 @@ const CoreValues = ({
   const [isLongText, setLongText] = useState(false);
   const textLength = 473;
   const buttonText = isLongText ? readLessText : readMoreText;
-  const mainText = coreValueMain?.content;
+  const mainText = coreValueMainText?.content || '';
   const finalText = isLongText ? mainText : `${mainText?.slice(0, 473)} ...`;
 
   const image_url = coreValuesMainImage?.image_url;
@@ -44,18 +44,20 @@ const CoreValues = ({
   return (
     <CoreValesContainer>
       <LeftPart src={image_url}>
-        <Title>{coreValueMain?.title}</Title>
+        <Title>{coreValueMainText?.title}</Title>
         <div>{finalText}</div>
-        {coreValueMain?.content?.length > textLength && (
+        {coreValueMainText?.content?.length > textLength && (
           <ButtonStyled onClick={() => setLongText(!isLongText)}>{buttonText}</ButtonStyled>
         )}
       </LeftPart>
       <RightPart>
         <ThreePictures>
-          {coreValues.map((text, i) => (
+          {coreValuesTexts?.map((text, i) => (
             <Container key={text?.title}>
               <Overlay>
-                <Image src={coreValuesImages[i]?.image_url} alt={alt}></Image>
+                {coreValuesImages?.length > 2 && (
+                  <Image src={coreValuesImages[i]?.image_url} alt={alt}></Image>
+                )}
               </Overlay>
               <TitleText>{text?.title}</TitleText>
               <MainText>{text?.content}</MainText>
@@ -63,8 +65,8 @@ const CoreValues = ({
           ))}
         </ThreePictures>
         <WhoWeAre>
-          <WhoWeAreTitleText>{whoWeAre?.title}</WhoWeAreTitleText>
-          <WhoWeAreMainText>{whoWeAre?.content}</WhoWeAreMainText>
+          <WhoWeAreTitleText>{whoWeAreText?.title}</WhoWeAreTitleText>
+          <WhoWeAreMainText>{whoWeAreText?.content}</WhoWeAreMainText>
           <Button
             text="About Us"
             textcolor={white}
@@ -80,9 +82,9 @@ const CoreValues = ({
 };
 
 CoreValues.propTypes = {
-  coreValueMain: customObject,
-  coreValues: PropTypes.arrayOf(customObject).isRequired,
-  whoWeAre: customObject,
+  coreValueMainText: customObject,
+  coreValuesTexts: PropTypes.arrayOf(customObject).isRequired,
+  whoWeAreText: customObject,
   readMoreText: PropTypes.string,
   readLessText: PropTypes.string,
   coreValuesImages: PropTypes.array,

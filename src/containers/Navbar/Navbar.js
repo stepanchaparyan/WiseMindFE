@@ -22,6 +22,7 @@ import { getNavbar } from '../../redux/actions/navbarActions';
 import { useOnClickOutside } from '../../hooks/clickOutSide';
 import { languageTransformer } from '../../util/languageTransformer';
 import { showLanguageSelector } from '../../../environment';
+import Loading from '../../components/Loading/Loading';
 
 const alt = 'logo';
 
@@ -63,48 +64,54 @@ const Navbar = ({ language, setLanguage }) => {
 
   return (
     <>
-      {!loading && (
-        <Container ref={node} visible={visible}>
-          <LogoContainer to={LINK.TO.HOME}>
-            <Logo src={logo} alt={alt} />
-          </LogoContainer>
-          {navbarMenus && (
-            <NavLinkContainer open={open}>
-              <NavLinks>
-                {navbarMenus.map(({ title, h_link }) => (
-                  <StyledLink exact key={title} to={h_link}>
-                    {title.toUpperCase()}
-                  </StyledLink>
-                ))}
-              </NavLinks>
-            </NavLinkContainer>
+      {loading ? (
+        <Loading></Loading>
+      ) : (
+        <>
+          {!loading && (
+            <Container ref={node} visible={visible}>
+              <LogoContainer to={LINK.TO.HOME}>
+                <Logo src={logo} alt={alt} />
+              </LogoContainer>
+              {navbarMenus && (
+                <NavLinkContainer open={open}>
+                  <NavLinks>
+                    {navbarMenus.map(({ title, h_link }) => (
+                      <StyledLink exact key={title} to={h_link}>
+                        {title.toUpperCase()}
+                      </StyledLink>
+                    ))}
+                  </NavLinks>
+                </NavLinkContainer>
+              )}
+              <RightContainer open={open}>
+                {showLanguageSelector && (
+                  <ReactFlagsSelectStyled
+                    countries={languageTransformer(languagesList)}
+                    customLabels={{
+                      US: 'English',
+                      ES: 'Español',
+                      FR: 'Français',
+                      DE: 'Deutsch',
+                      RU: 'Русский',
+                      AM: 'Հայերեն'
+                    }}
+                    selected={language}
+                    onSelect={code => setLanguage(code)}
+                    selectedSize={14}
+                    optionsSize={13}
+                    placeholder={'English'}
+                  />
+                )}
+                <SendRequestButton target={BLANK} href={sentRequest?.h_link}>
+                  {sentRequest?.title}
+                  <PaperPlaneIcon />
+                </SendRequestButton>
+              </RightContainer>
+              <Hamburger src={hamburger} onClick={toggle}></Hamburger>
+            </Container>
           )}
-          <RightContainer open={open}>
-            {showLanguageSelector && (
-              <ReactFlagsSelectStyled
-                countries={languageTransformer(languagesList)}
-                customLabels={{
-                  US: 'English',
-                  ES: 'Español',
-                  FR: 'Français',
-                  DE: 'Deutsch',
-                  RU: 'Русский',
-                  AM: 'Հայերեն'
-                }}
-                selected={language}
-                onSelect={code => setLanguage(code)}
-                selectedSize={14}
-                optionsSize={13}
-                placeholder={'English'}
-              />
-            )}
-            <SendRequestButton target={BLANK} href={sentRequest?.h_link}>
-              {sentRequest?.title}
-              <PaperPlaneIcon />
-            </SendRequestButton>
-          </RightContainer>
-          <Hamburger src={hamburger} onClick={toggle}></Hamburger>
-        </Container>
+        </>
       )}
     </>
   );

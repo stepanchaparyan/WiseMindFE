@@ -19,7 +19,7 @@ export const getFooter = lang => async dispatch => {
   } catch (error) {
     dispatch({
       type: actionTypes.GET_FOOTER_FAIL,
-      paiyload:
+      payload:
         error.response && error.response.data.message ? error.response.data.message : error.message
     });
   }

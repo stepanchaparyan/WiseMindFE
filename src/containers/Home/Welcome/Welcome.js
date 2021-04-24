@@ -21,7 +21,7 @@ const { lightBlue, navGreen, lightBlack, white } = theme;
 
 const Welcome = ({ shortText, appFullName, longText, welcomeImages }) => {
   const { image_url } =
-    welcomeImages.length && welcomeImages.find(item => item.section === 'welcome');
+    (welcomeImages?.length && welcomeImages.find(item => item.section === 'welcome')) || '';
 
   return (
     <Container src={image_url}>
