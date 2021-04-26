@@ -240,11 +240,10 @@ export const LogoContainer = styled.div`
 export const ImageContainer = styled(NavLink)`
   margin: 0;
   padding: 0;
-  padding-left: 30px;
 `;
 
 export const Logo = styled.img`
-  width: 50px;
+  width: 60px;
 `;
 
 export const LogoText = styled.span`

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import customObject from '../../../util/propTypes';
+import { footerObject } from '../../../util/propTypes';
 import {
   Container,
   Texts,
@@ -13,28 +13,28 @@ import {
 } from './ContactUsStyled';
 import { BLANK, THERAPY_PORTAL } from '../../../constants/url';
 
-const ContactUs = ({ texts, makeRequest, checkBoxText }) => {
+const ContactUs = ({ contactUsTitle, contactUsText, makeRequest, checkBoxText }) => {
   const [isChecked, setChecked] = useState(false);
 
   return (
-    <Container bgColor={texts?.color}>
+    <Container>
       <Texts>
-        <TitleText>{texts?.title}</TitleText>
-        <SmallText>{texts?.text}</SmallText>
+        <TitleText>{contactUsTitle?.title}</TitleText>
+        <SmallText>{contactUsText?.title}</SmallText>
       </Texts>
       <ButtonContainer>
         <ButtonStyled>
           <MailIcon />
-          {makeRequest?.text}
+          {makeRequest?.title}
         </ButtonStyled>
         <CheckBoxContainer>
           <input type="checkbox" defaultChecked={false} onClick={() => setChecked(!isChecked)} />
           {isChecked ? (
             <CheckboxText ischecked={isChecked} target={BLANK} href={THERAPY_PORTAL}>
-              {checkBoxText?.text}
+              {checkBoxText?.title}
             </CheckboxText>
           ) : (
-            <CheckboxText>{checkBoxText?.text}</CheckboxText>
+            <CheckboxText>{checkBoxText?.title}</CheckboxText>
           )}
         </CheckBoxContainer>
       </ButtonContainer>
@@ -43,9 +43,10 @@ const ContactUs = ({ texts, makeRequest, checkBoxText }) => {
 };
 
 ContactUs.propTypes = {
-  texts: customObject,
-  makeRequest: customObject,
-  checkBoxText: customObject
+  contactUsTitle: footerObject,
+  contactUsText: footerObject,
+  makeRequest: footerObject,
+  checkBoxText: footerObject
 };
 
 export default ContactUs;

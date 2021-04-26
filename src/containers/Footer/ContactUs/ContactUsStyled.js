@@ -6,7 +6,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: ${props => props.bgColor};
+  background: ${props => props.theme.lighterBlue};
   height: 270px;
   padding: 50px;
   ${tabletUp`
@@ -51,7 +51,7 @@ export const ButtonContainer = styled.div`
 export const ButtonStyled = styled.button`
   min-width: 180px;
   width: 180px;
-  margin: 24px 0 8px 5px;
+  margin: 4px 0 8px 2px;
   padding: 10px;
   align-items: center;
   text-decoration: none;
@@ -90,7 +90,4 @@ export const CheckboxText = styled.a`
   cursor: ${props => (props.ischecked ? 'pointer' : 'not-allowed')};
 `;
 
-export const MainContainer = styled.div`
-  ${'' /* position: absolute; */}
-  ${'' /* bottom: 0; */}
-`;
+export const MainContainer = styled.div``;

@@ -11,18 +11,23 @@ import { MainContainer } from './ContactUs/ContactUsStyled';
 const FooterContainer = ({ language }) => {
   const dispatch = useDispatch();
   const { footer, loading } = useSelector(state => state.footer);
-  const contactUs = footer?.find(item => item.section === 'contactUs');
-  const infoText = footer?.find(item => item.title === 'text');
-  const makeRequest = footer?.find(item => item.title === 'makeRequest');
-  const checkBoxText = footer?.find(item => item.title === 'checkBoxText');
-  const appFullName = footer?.find(item => item.title === 'appFullName');
-  const linksTitle = footer?.find(item => item.title === 'linksTitle');
-  const linksNames = footer?.filter(item => item.title === 'names') || [];
-  const linksAddresses = footer?.filter(item => item.title === 'addresses') || [];
-  const address = footer?.find(item => item.title === 'Address: ');
-  const phone = footer?.find(item => item.title === 'Phone: ');
-  const email = footer?.find(item => item.title === 'Email: ');
-  const newsLetter = footer?.find(item => item.title === 'NewsLetter');
+
+  const contactUsTitle = footer?.find(item => item.num === 1);
+  const contactUsText = footer?.find(item => item.num === 2);
+  const makeRequest = footer?.find(item => item.num === 3);
+  const checkBoxText = footer?.find(item => item.num === 4);
+
+  const infoText = footer?.find(item => item.num === 11);
+  const addressText = footer?.find(item => item.num === 12);
+  const address = footer?.find(item => item.num === 13);
+  const emailText = footer?.find(item => item.num === 14);
+  const email = footer?.find(item => item.num === 15);
+  const phoneText = footer?.find(item => item.num === 16);
+  const phone = footer?.find(item => item.num === 17);
+  const appFullName = footer?.find(item => item.num === 18);
+  // const linksTitle = footer?.find(item => item.num === 19);
+  // const linksNames = footer?.find(item => item.num === 'names') || [];
+  // const newsLetter = footer?.find(item => item.num === 'NewsLetter');
 
   useEffect(() => {
     dispatch(getFooter(language.toLowerCase()));
@@ -35,20 +40,24 @@ const FooterContainer = ({ language }) => {
       ) : (
         <MainContainer>
           <ContactUs
-            texts={contactUs}
+            contactUsTitle={contactUsTitle}
+            contactUsText={contactUsText}
             makeRequest={makeRequest}
             checkBoxText={checkBoxText}
           ></ContactUs>
           <Footer
             infoText={infoText}
             address={address}
+            addressText={addressText}
             phone={phone}
+            phoneText={phoneText}
             email={email}
-            newsLetter={newsLetter}
+            emailText={emailText}
+            // newsLetter={newsLetter}
             appFullName={appFullName}
-            linksTitle={linksTitle}
-            linksNames={linksNames}
-            linksAddresses={linksAddresses}
+            // linksTitle={linksTitle}
+            // linksNames={linksNames}
+            // linksAddresses={linksAddresses}
           ></Footer>
           <ScrollToTop></ScrollToTop>
         </MainContainer>

@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import customObject from '../../../util/propTypes';
+import { footerObject } from '../../../util/propTypes';
 import {
   Container,
   MainContainer,
@@ -47,17 +46,20 @@ const alt = 'logo';
 const Footer = ({
   infoText,
   address,
+  addressText,
   phone,
+  phoneText,
   email,
-  newsLetter,
-  linksTitle,
-  appFullName,
-  linksNames,
-  linksAddresses
+  emailText,
+  // newsLetter,
+  // linksTitle,
+  appFullName
+  // linksNames,
+  // linksAddresses
 }) => {
-  const linksList = linksNames[0]?.text.map((item, i) => {
-    return { to: linksAddresses[0]?.text[i], text: item };
-  });
+  // const linksList = linksNames[0]?.title.map((item, i) => {
+  //   return { to: linksAddresses[0]?.title[i], title: item };
+  // });
 
   return (
     <Container>
@@ -67,41 +69,39 @@ const Footer = ({
             <ImageContainer to={LINK.TO.HOME}>
               <Logo src={logo} alt={alt} />
             </ImageContainer>
-            <LogoText>{appFullName?.content}</LogoText>
+            <LogoText>{appFullName?.title}</LogoText>
           </LogoContainer>
-          <Text>{infoText?.text}</Text>
+          <Text>{infoText?.title}</Text>
           <Address>
             <AddressIcon />
-            {address?.title}
-            {address?.text}
+            {addressText?.title} {address?.title}
           </Address>
           <Phone>
             <PhoneIcon />
-            <PhoneText href={`tel:${phone?.text}`}>
-              {phone?.title}
-              {phone?.text}
+            <PhoneText href={`tel:${phone?.title}`}>
+              {phoneText?.title} {phone?.title}
             </PhoneText>
           </Phone>
           <EmailContainer>
             <EmailSpan>
               <MailIcon />
-              {email?.title}
+              {emailText?.title}
             </EmailSpan>
-            <EmailText href={`mailto:${email?.text}`}>{email?.text}</EmailText>
+            <EmailText href={`mailto:${email?.title}`}>{email?.title}</EmailText>
           </EmailContainer>
         </InfoContainer>
         <LinksContainer>
-          <Title>{linksTitle?.text}</Title>
-          {linksList?.map(({ to, text }) => (
-            <Arrow key={text}>
+          {/* <Title>{linksTitle?.title}</Title> */}
+          {/* {linksList?.map(({ to, title }) => (
+            <Arrow key={title}>
               <ArrowIcon />
-              <StyledLink to={to}>{text}</StyledLink>
+              <StyledLink to={to}>{title}</StyledLink>
             </Arrow>
-          ))}
+          ))} */}
         </LinksContainer>
         <NewsLetterContainer>
-          <Title>{newsLetter?.title}</Title>
-          <NewsLetterText>{newsLetter?.text}</NewsLetterText>
+          {/* <Title>{newsLetter?.title}</Title> */}
+          {/* <NewsLetterText>{newsLetter?.title}</NewsLetterText> */}
           <DMCA>
             <a
               href="//www.dmca.com/Protection/Status.aspx?ID=ee666a97-0e83-434e-b545-94a68eadadf8"
@@ -119,7 +119,7 @@ const Footer = ({
       </MainContainer>
       <BottomContainer>
         <TitleAndDate>
-          <CompanyName>{appFullName?.content}</CompanyName>
+          <CompanyName>{appFullName?.title}</CompanyName>
           <AllRightsReserved>{`© ${new Date().getFullYear()}. All rights reserved.`}</AllRightsReserved>
         </TitleAndDate>
         <SocialMedia>
@@ -139,15 +139,18 @@ const Footer = ({
 };
 
 Footer.propTypes = {
-  infoText: customObject,
-  address: customObject,
-  phone: customObject,
-  email: customObject,
-  newsLetter: customObject,
-  appFullName: customObject,
-  linksTitle: customObject,
-  linksNames: PropTypes.array,
-  linksAddresses: PropTypes.array
+  infoText: footerObject,
+  address: footerObject,
+  addressText: footerObject,
+  phone: footerObject,
+  phoneText: footerObject,
+  email: footerObject,
+  emailText: footerObject,
+  // newsLetter: customObject,
+  appFullName: footerObject
+  // linksTitle: customObject,
+  // linksNames: PropTypes.array,
+  // linksAddresses: PropTypes.array
 };
 
 export default Footer;

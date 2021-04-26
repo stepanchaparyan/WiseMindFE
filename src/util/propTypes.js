@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const customObject = PropTypes.shape({
+export const customObject = PropTypes.shape({
   lang: PropTypes.string,
   title: PropTypes.string,
   context: PropTypes.string,
@@ -11,6 +11,14 @@ const customObject = PropTypes.shape({
   url: PropTypes.string,
   num: PropTypes.number,
   position: PropTypes.number
+});
+
+export const footerObject = PropTypes.shape({
+  lang: PropTypes.string,
+  title: PropTypes.string,
+  parent: PropTypes.string,
+  h_link: PropTypes.string,
+  num: PropTypes.number
 });
 
 export default customObject;
