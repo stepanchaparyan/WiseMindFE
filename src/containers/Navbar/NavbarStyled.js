@@ -30,7 +30,8 @@ export const LogoContainer = styled(NavLink)`
 `;
 
 export const Logo = styled.img`
-  width: 50px;
+  width: 54px;
+  margin-top: 6px;
 `;
 
 export const NavLinks = styled.div`
