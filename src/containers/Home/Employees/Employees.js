@@ -23,7 +23,7 @@ const twitter = 'twitter';
 const instagram = 'instagram';
 
 const Employees = ({ titleText, employees }) => {
-  const alt = 'image';
+  const alt = 'employee image';
   const [itemsToShow, setItemsToShow] = useState(3);
   const isMobile = useMedia({ maxWidth: 768 });
   const isTablet = useMedia({ maxWidth: 1024 });

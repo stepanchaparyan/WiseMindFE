@@ -16,7 +16,7 @@ import { LINK } from '../../../constants';
 import theme from '../../../styles/theme';
 import logo from '../../../assets/logo.png';
 
-const alt = 'logo';
+const alt = 'astute logo';
 const { lightBlue, navGreen, lightBlack, white } = theme;
 
 const Welcome = ({ shortText, appFullName, longText, welcomeImages }) => {

@@ -24,7 +24,8 @@ import { languageTransformer } from '../../util/languageTransformer';
 import { showLanguageSelector } from '../../../environment';
 import Loading from '../../components/Loading/Loading';
 
-const alt = 'logo';
+const logoAlt = 'logoAlt';
+const hamburgerAlt = 'hamburgerAlt';
 
 const Navbar = ({ language, setLanguage }) => {
   const [visible, setVisible] = useState(false);
@@ -71,7 +72,7 @@ const Navbar = ({ language, setLanguage }) => {
           {!loading && (
             <Container ref={node} visible={visible}>
               <LogoContainer to={LINK.TO.HOME}>
-                <Logo src={logo} alt={alt} />
+                <Logo src={logo} alt={logoAlt} />
               </LogoContainer>
               {navbarMenus && (
                 <NavLinkContainer open={open}>
@@ -108,7 +109,7 @@ const Navbar = ({ language, setLanguage }) => {
                   <PaperPlaneIcon />
                 </SendRequestButton>
               </RightContainer>
-              <Hamburger src={hamburger} onClick={toggle}></Hamburger>
+              <Hamburger src={hamburger} alt={hamburgerAlt} onClick={toggle}></Hamburger>
             </Container>
           )}
         </>

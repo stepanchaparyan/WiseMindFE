@@ -42,7 +42,7 @@ import logo from '../../../assets/logo.png';
 const facebook = 'facebook';
 const twitter = 'twitter';
 const instagram = 'instagram';
-const alt = 'logo';
+const alt = 'astute logo';
 
 const Footer = ({
   infoText,
