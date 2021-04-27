@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { footerObject } from '../../../util/propTypes';
 import {
   Container,
@@ -51,16 +52,13 @@ const Footer = ({
   phoneText,
   email,
   emailText,
-  // newsLetter,
-  // linksTitle,
-  appFullName
-  // linksNames,
-  // linksAddresses
+  appFullName,
+  linksTitle,
+  linksNames,
+  newsLetterTitle,
+  newsLetterText,
+  allRights
 }) => {
-  // const linksList = linksNames[0]?.title.map((item, i) => {
-  //   return { to: linksAddresses[0]?.title[i], title: item };
-  // });
-
   return (
     <Container>
       <MainContainer>
@@ -91,17 +89,17 @@ const Footer = ({
           </EmailContainer>
         </InfoContainer>
         <LinksContainer>
-          {/* <Title>{linksTitle?.title}</Title> */}
-          {/* {linksList?.map(({ to, title }) => (
+          <Title>{linksTitle?.title}</Title>
+          {linksNames?.map(({ h_link, title }) => (
             <Arrow key={title}>
               <ArrowIcon />
-              <StyledLink to={to}>{title}</StyledLink>
+              <StyledLink to={h_link}>{title}</StyledLink>
             </Arrow>
-          ))} */}
+          ))}
         </LinksContainer>
         <NewsLetterContainer>
-          {/* <Title>{newsLetter?.title}</Title> */}
-          {/* <NewsLetterText>{newsLetter?.title}</NewsLetterText> */}
+          <Title>{newsLetterTitle?.title}</Title>
+          <NewsLetterText>{newsLetterText?.title}</NewsLetterText>
           <DMCA>
             <a
               href="//www.dmca.com/Protection/Status.aspx?ID=ee666a97-0e83-434e-b545-94a68eadadf8"
@@ -120,7 +118,9 @@ const Footer = ({
       <BottomContainer>
         <TitleAndDate>
           <CompanyName>{appFullName?.title}</CompanyName>
-          <AllRightsReserved>{`© ${new Date().getFullYear()}. All rights reserved.`}</AllRightsReserved>
+          <AllRightsReserved>{`© ${new Date().getFullYear()}. ${
+            allRights?.title
+          }`}</AllRightsReserved>
         </TitleAndDate>
         <SocialMedia>
           <IconContainer type={facebook} target={BLANK} href={FACEBOOK_LINK}>
@@ -146,11 +146,12 @@ Footer.propTypes = {
   phoneText: footerObject,
   email: footerObject,
   emailText: footerObject,
-  // newsLetter: customObject,
-  appFullName: footerObject
-  // linksTitle: customObject,
-  // linksNames: PropTypes.array,
-  // linksAddresses: PropTypes.array
+  appFullName: footerObject,
+  linksTitle: footerObject,
+  linksNames: PropTypes.array,
+  newsLetterTitle: footerObject,
+  newsLetterText: footerObject,
+  allRights: footerObject
 };
 
 export default Footer;

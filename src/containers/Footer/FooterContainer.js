@@ -25,9 +25,12 @@ const FooterContainer = ({ language }) => {
   const phoneText = footer?.find(item => item.num === 16);
   const phone = footer?.find(item => item.num === 17);
   const appFullName = footer?.find(item => item.num === 18);
-  // const linksTitle = footer?.find(item => item.num === 19);
-  // const linksNames = footer?.find(item => item.num === 'names') || [];
-  // const newsLetter = footer?.find(item => item.num === 'NewsLetter');
+
+  const linksTitle = footer?.find(item => item.num === 19);
+  const linksNames = footer?.filter(item => item.num === 20);
+  const newsLetterTitle = footer?.find(item => item.num === 21);
+  const newsLetterText = footer?.find(item => item.num === 22);
+  const allRights = footer?.find(item => item.num === 23);
 
   useEffect(() => {
     dispatch(getFooter(language.toLowerCase()));
@@ -53,11 +56,12 @@ const FooterContainer = ({ language }) => {
             phoneText={phoneText}
             email={email}
             emailText={emailText}
-            // newsLetter={newsLetter}
             appFullName={appFullName}
-            // linksTitle={linksTitle}
-            // linksNames={linksNames}
-            // linksAddresses={linksAddresses}
+            linksTitle={linksTitle}
+            linksNames={linksNames}
+            newsLetterTitle={newsLetterTitle}
+            newsLetterText={newsLetterText}
+            allRights={allRights}
           ></Footer>
           <ScrollToTop></ScrollToTop>
         </MainContainer>
