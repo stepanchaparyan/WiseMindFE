@@ -36,7 +36,7 @@ const CoreValues = ({
   const textLength = 473;
   const buttonText = isLongText ? readLessText : readMoreText;
   const mainText = coreValueMainText?.content || '';
-  const finalText = isLongText ? mainText : `${mainText?.slice(0, 473)} ...`;
+  const finalText = isLongText ? mainText : `${mainText?.slice(0, 472)}...`;
 
   const image_url = coreValuesMainImage?.image_url;
   const alt = 'core values';
@@ -45,10 +45,12 @@ const CoreValues = ({
     <CoreValesContainer>
       <LeftPart src={image_url}>
         <Title>{coreValueMainText?.title}</Title>
-        <div>{finalText}</div>
-        {coreValueMainText?.content?.length > textLength && (
-          <ButtonStyled onClick={() => setLongText(!isLongText)}>{buttonText}</ButtonStyled>
-        )}
+        <div>
+          {finalText}
+          {coreValueMainText?.content?.length > textLength && (
+            <ButtonStyled onClick={() => setLongText(!isLongText)}>{buttonText}</ButtonStyled>
+          )}
+        </div>
       </LeftPart>
       <RightPart>
         <ThreePictures>

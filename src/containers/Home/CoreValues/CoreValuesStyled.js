@@ -32,23 +32,14 @@ export const Title = styled.div`
   font-weight: bold;
 `;
 
-export const ButtonStyled = styled.button`
-  margin: 20px 70px 20px 0;
-  padding: 14px 40px;
-  align-items: center;
-  text-decoration: none;
-  border-radius: 3px;
-  font-size: 14px;
-  letter-spacing: 1px;
-  border: 1px solid gray;
+export const ButtonStyled = styled.span`
+  margin: 0 8px;
   cursor: pointer;
-  color: ${props => props.theme.midLightGray};
-  background-color: transparent;
+  color: ${props => props.theme.lightBlue};
+  font-weight: bold;
   transition: color 0.5s;
   :hover {
-    color: white;
-    border: 1px solid white;
-    transition: border 0.5s;
+    color: ${props => props.theme.medBlue};
   }
 `;
 

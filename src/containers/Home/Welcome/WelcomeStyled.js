@@ -25,7 +25,7 @@ export const SmallText = styled.h6`
   margin: 0;
   font-family: 'Montserrat';
   font-weight: bold;
-  color: ${props => props.theme.black};
+  color: ${props => props.theme.purple};
   font-size: 18px;
   line-height: 1.5;
   text-align: center;
@@ -33,7 +33,7 @@ export const SmallText = styled.h6`
   text-transform: uppercase;
   ${tabletUp`
     font-size: 24px;
-    color: ${props => props.theme.black};
+    color: ${props => props.theme.purple};
   `};
 `;
 
@@ -46,6 +46,14 @@ export const TitleText = styled.h1`
   text-align: center;
   text-transform: uppercase;
   margin: 0;
+
+  background: -webkit-linear-gradient(left, blue, orange);
+  background: -o-linear-gradient(right, blue, orange);
+  background: -moz-linear-gradient(right, blue, orange);
+  background: linear-gradient(to right, blue, orange);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
   ${tabletUp`
     font-size: 64px;
   `};
