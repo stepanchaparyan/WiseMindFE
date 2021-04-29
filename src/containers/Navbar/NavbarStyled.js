@@ -5,7 +5,7 @@ import PaperPlaneWhite from '../../assets/paper-plane-16_white.png';
 import PaperPlaneGray from '../../assets/paper-plane-16_gray.png';
 import ReactFlagsSelect from 'react-flags-select';
 
-export const Container = styled.div`
+export const Container = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;

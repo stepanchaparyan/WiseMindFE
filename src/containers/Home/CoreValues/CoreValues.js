@@ -56,7 +56,7 @@ const CoreValues = ({
             <Container key={text?.title}>
               <Overlay>
                 {coreValuesImages?.length > 2 && (
-                  <Image src={coreValuesImages[i]?.image_url} alt={alt}></Image>
+                  <Image src={coreValuesImages[i]?.image_url} alt={`${alt}_${i}`}></Image>
                 )}
               </Overlay>
               <TitleText>{text?.title}</TitleText>

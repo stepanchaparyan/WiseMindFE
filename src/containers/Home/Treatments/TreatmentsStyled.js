@@ -80,6 +80,7 @@ export const TitleText = styled.div`
 export const MainText = styled.div`
   display: flex;
   padding: 4px 24px 24px 24px;
+  color: ${props => props.theme.moreDarkGray};
 `;
 
 export const Image = styled.img`

@@ -23,7 +23,7 @@ const twitter = 'twitter';
 const instagram = 'instagram';
 
 const Employees = ({ titleText, employees }) => {
-  const alt = 'employee image';
+  const alt = 'astute employees';
   const [itemsToShow, setItemsToShow] = useState(3);
   const isMobile = useMedia({ maxWidth: 768 });
   const isTablet = useMedia({ maxWidth: 1024 });
@@ -41,7 +41,7 @@ const Employees = ({ titleText, employees }) => {
     }
   }, [isMobile, isTablet, isDesktop]);
 
-  const OverlayMedia = employee => (
+  const OverlayMedia = (employee, i) => (
     <Overlay>
       <Media>
         <IconContainer type={facebook} target={BLANK} href={FACEBOOK_LINK}>
@@ -54,7 +54,7 @@ const Employees = ({ titleText, employees }) => {
           <MediaIcon type={instagram}></MediaIcon>
         </IconContainer>
       </Media>
-      <Image src={employee?.url} alt={alt}></Image>
+      <Image src={employee?.url} alt={`${alt}_${i}`}></Image>
     </Overlay>
   );
 
@@ -63,9 +63,9 @@ const Employees = ({ titleText, employees }) => {
       <TitleText>{titleText?.content}</TitleText>
       {employees?.length < 4 ? (
         <Employee>
-          {employees?.map(employee => (
+          {employees?.map((employee, i) => (
             <Container key={employee?.title}>
-              {OverlayMedia(employee)}
+              {OverlayMedia(employee, i)}
               <NameText>{employee?.title}</NameText>
               <MainText>{employee?.content}</MainText>
             </Container>

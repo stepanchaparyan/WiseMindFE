@@ -33,6 +33,8 @@ import {
   MediaIcon,
   Title,
   AllRightsReserved,
+  AddressTitleContainer,
+  AddressText,
   DMCA
 } from './FooterStyled';
 import { LINK } from '../../../constants';
@@ -71,8 +73,11 @@ const Footer = ({
           </LogoContainer>
           <Text>{infoText?.title}</Text>
           <Address>
-            <AddressIcon />
-            {addressText?.title} {address?.title}
+            <AddressTitleContainer>
+              <AddressIcon />
+              <div>{addressText?.title}</div>
+            </AddressTitleContainer>
+            <AddressText>{address?.title}</AddressText>
           </Address>
           <Phone>
             <PhoneIcon />

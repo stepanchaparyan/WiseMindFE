@@ -168,7 +168,7 @@ export const WhoWeAreTitleText = styled.div`
 export const WhoWeAreMainText = styled.div`
   display: flex;
   padding: 4px 24px 24px 24px;
-  color: ${props => props.theme.veryDarkGray};
+  color: ${props => props.theme.moreDarkGray};
   font-size: 14px;
   letter-spacing: 1.4px;
   line-height: 1.8;

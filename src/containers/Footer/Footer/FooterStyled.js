@@ -12,7 +12,7 @@ import PhoneIconPNG from '../../../assets/mobile-phone.png';
 import AddressIconPNG from '../../../assets/pin.png';
 import ArrowIconPNG from '../../../assets/arrow.png';
 
-export const Container = styled.div`
+export const Container = styled.footer`
   display: flex;
   flex-direction: column;
   background-color: ${props => props.theme.footerBlack};
@@ -42,7 +42,7 @@ export const InfoContainer = styled.div`
   flex-wrap: no-wrap;
   ${tabletUp`
     flex-wrap: wrap;
-    width: 40%;
+    width: 45%;
   `};
 `;
 
@@ -136,7 +136,7 @@ export const NewsLetterContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   ${tabletUp`
-    width: 20%;
+    width: 18%;
   `};
 `;
 
@@ -263,7 +263,7 @@ export const LinksContainer = styled.div`
   width: 100%;
   align-items: flex-start;
   ${tabletUp`
-    width: 20%;
+    width: 16%;
   `};
 `;
 
@@ -304,4 +304,13 @@ export const Arrow = styled.div`
 
 export const DMCA = styled.div`
   margin: 10px 0 0 -4px;
+`;
+
+export const AddressTitleContainer = styled.div`
+  display: flex;
+`;
+
+export const AddressText = styled.div`
+  display: flex;
+  margin-left: 6px;
 `;

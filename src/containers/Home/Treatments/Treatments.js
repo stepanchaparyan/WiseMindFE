@@ -16,7 +16,7 @@ import img3 from '../../../assets/puzzle-4-64.png';
 
 const Treatments = ({ treatments, readMoreText, readLessText }) => {
   const imgList = [img1, img2, img3]; // TODO will be removed
-  const alt = 'image';
+  const alt = 'treatment images';
 
   const oneTreatment = (treatment, i) => {
     const textLength = 110;
@@ -27,7 +27,7 @@ const Treatments = ({ treatments, readMoreText, readLessText }) => {
     return (
       <ThreePictures key={treatment?.title}>
         <Container color={treatment.background}>
-          <Image src={imgList[i]} alt={alt}></Image>
+          <Image src={imgList[i]} alt={`${alt}_${i}`}></Image>
           <TitleText>{treatment?.title}</TitleText>
           <MainText>{updatedText(treatment?.content)}</MainText>
           {treatment?.content?.length > textLength && (

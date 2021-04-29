@@ -20,8 +20,9 @@ export const Module = styled.div`
   padding: 16px;
 `;
 
-export const SmallText = styled.div`
+export const SmallText = styled.h6`
   padding: 16px 0;
+  margin: 0;
   font-family: 'Montserrat';
   font-weight: bold;
   color: ${props => props.theme.black};
@@ -36,7 +37,7 @@ export const SmallText = styled.div`
   `};
 `;
 
-export const TitleText = styled.div`
+export const TitleText = styled.h1`
   font-family: 'Montserrat';
   color: ${props => props.theme.black};
   font-size: 40px;
@@ -44,6 +45,7 @@ export const TitleText = styled.div`
   font-weight: 600;
   text-align: center;
   text-transform: uppercase;
+  margin: 0;
   ${tabletUp`
     font-size: 64px;
   `};

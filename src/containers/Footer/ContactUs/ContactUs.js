@@ -28,14 +28,21 @@ const ContactUs = ({ contactUsTitle, contactUsText, makeRequest, checkBoxText })
           {makeRequest?.title}
         </ButtonStyled>
         <CheckBoxContainer>
-          <input type="checkbox" defaultChecked={false} onClick={() => setChecked(!isChecked)} />
-          {isChecked ? (
-            <CheckboxText ischecked={isChecked} target={BLANK} href={THERAPY_PORTAL}>
-              {checkBoxText?.title}
-            </CheckboxText>
-          ) : (
-            <CheckboxText>{checkBoxText?.title}</CheckboxText>
-          )}
+          <label htmlFor="checkbox">
+            <input
+              type="checkbox"
+              id={'checkbox'}
+              defaultChecked={false}
+              onClick={() => setChecked(!isChecked)}
+            />
+            {isChecked ? (
+              <CheckboxText ischecked={isChecked} target={BLANK} href={THERAPY_PORTAL}>
+                {checkBoxText?.title}
+              </CheckboxText>
+            ) : (
+              <CheckboxText>{checkBoxText?.title}</CheckboxText>
+            )}
+          </label>
         </CheckBoxContainer>
       </ButtonContainer>
     </Container>

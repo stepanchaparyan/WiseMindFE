@@ -9,7 +9,7 @@ const theme = {
   footerBlack: '#202426',
   footerTextColor: '#9e9f9f',
   midLightGray: '#e0e0e0',
-  moreDarkGray: '#8a8a8a',
+  moreDarkGray: '#595959',
   lightGray: '#F5F5F5',
   veryLightGray: '#f8f8f8',
   darkgray: 'darkgray',
@@ -17,7 +17,8 @@ const theme = {
   navGreen: '#71b347',
   white: '#ffffff',
   lightBlue: '#1996cd',
-  lighterBlue: '#2398c9'
+  lighterBlue: '#2398c9',
+  medBlue: '#155C7A'
 };
 
 export default theme;
