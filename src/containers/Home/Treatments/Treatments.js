@@ -7,32 +7,30 @@ import {
   ButtonStyled,
   ThreePictures,
   TitleText,
-  MainText,
-  Image
+  MainText
 } from './TreatmentsStyled';
-import img1 from '../../../assets/map-3-64.png';
-import img2 from '../../../assets/brain-64.png';
-import img3 from '../../../assets/puzzle-4-64.png';
 
 const Treatments = ({ treatments, readMoreText, readLessText }) => {
-  const imgList = [img1, img2, img3]; // TODO will be removed
-  const alt = 'treatment images';
-
-  const oneTreatment = (treatment, i) => {
-    const textLength = 110;
-    const [isLongText, setLongText] = useState(false);
+  const oneTreatment = treatment => {
+    const text = treatment?.content;
+    const textMaxLength = 120;
+    const [isLongText, setLongText] = useState(text > textMaxLength);
     const buttonText = isLongText ? readLessText : readMoreText;
-    const updatedText = text => (isLongText ? text : `${text?.slice(0, 110)}`);
+    const updatedText = isLongText ? text : `${text?.slice(0, textMaxLength)}`;
 
     return (
       <ThreePictures key={treatment?.title}>
         <Container color={treatment.background}>
-          <Image src={imgList[i]} alt={`${alt}_${i}`}></Image>
           <TitleText>{treatment?.title}</TitleText>
-          <MainText>{updatedText(treatment?.content)}</MainText>
-          {treatment?.content?.length > textLength && (
-            <ButtonStyled onClick={() => setLongText(!isLongText)}>{buttonText}</ButtonStyled>
-          )}
+          <MainText>
+            {updatedText}
+            {treatment?.content?.length > textMaxLength && (
+              <>
+                {!isLongText && <span>...</span>}
+                <ButtonStyled onClick={() => setLongText(!isLongText)}>{buttonText}</ButtonStyled>
+              </>
+            )}
+          </MainText>
         </Container>
       </ThreePictures>
     );

@@ -12,24 +12,16 @@ export const TreatmentsContainer = styled.div`
   `};
 `;
 
-export const ButtonStyled = styled.button`
-  margin: 10px 0;
-  padding: 12px 10px;
-  align-items: center;
-  text-decoration: none;
-  font-size: 16px;
-  letter-spacing: 1px;
-  border: none;
-  border-radius: 3px;
+export const ButtonStyled = styled.span`
+  margin: 0 8px;
   cursor: pointer;
-  align-self: center;
-  color: ${props => props.theme.black};
   background-color: transparent;
+  color: ${props => props.theme.lightBlue};
+  font-weight: bold;
   transition: color 0.5s;
   :hover {
-    color: ${props => props.theme.black};
-    border: 1px solid black;
-    transition: border 0.5s;
+    color: ${props => props.theme.medBlue};
+  }
   }
 `;
 
@@ -78,14 +70,5 @@ export const TitleText = styled.div`
 `;
 
 export const MainText = styled.div`
-  display: flex;
-  padding: 4px 24px 24px 24px;
   color: ${props => props.theme.moreDarkGray};
-`;
-
-export const Image = styled.img`
-  width: 64px;
-  height: 64px;
-  align-self: center;
-  margin-top: 16px;
 `;

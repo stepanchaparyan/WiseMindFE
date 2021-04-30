@@ -39,6 +39,11 @@ const Home = ({ language }) => {
     ?.filter(item => item.parent_section === 'coreValues')
     .sort((a, b) => (a.position < b.position ? -1 : a.position > b.position ? 1 : 0));
 
+  const { navbar } = useSelector(state => state.navbar);
+  const sentRequest = navbar?.find(item => item.num === 0);
+  const aboutUsText = homeTexts?.find(item => item.section === 'aboutMeButton');
+  const contactUsText = homeTexts?.find(item => item.section === 'contactUsButton');
+
   useEffect(() => {
     dispatch(getHomeTexts(language.toLowerCase()));
     dispatch(getHomeImages());
@@ -60,6 +65,9 @@ const Home = ({ language }) => {
             appFullName={appFullName}
             longText={longText}
             welcomeImages={welcomeImages}
+            sentRequest={sentRequest}
+            aboutUsText={aboutUsText}
+            contactUsText={contactUsText}
           ></Welcome>
           {coreValuesTexts && (
             <CoreValues
@@ -70,6 +78,8 @@ const Home = ({ language }) => {
               readLessText={readLessText?.content}
               coreValuesMainImage={coreValuesMainImage}
               coreValuesImages={coreValuesImages}
+              sentRequest={sentRequest}
+              aboutUsText={aboutUsText}
             ></CoreValues>
           )}
           {treatments && (

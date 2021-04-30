@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { footerObject } from '../../../util/propTypes';
 import {
   Container,
@@ -11,10 +12,11 @@ import {
   CheckBoxContainer,
   CheckboxText
 } from './ContactUsStyled';
-import { BLANK, THERAPY_PORTAL } from '../../../constants/url';
+import { BLANK } from '../../../constants/url';
 
 const ContactUs = ({ contactUsTitle, contactUsText, makeRequest, checkBoxText }) => {
-  const [isChecked, setChecked] = useState(false);
+  const { navbar } = useSelector(state => state.navbar);
+  const sentRequest = navbar?.find(item => item.num === 0);
 
   return (
     <Container>
@@ -23,26 +25,14 @@ const ContactUs = ({ contactUsTitle, contactUsText, makeRequest, checkBoxText })
         <SmallText>{contactUsText?.title}</SmallText>
       </Texts>
       <ButtonContainer>
-        <ButtonStyled>
+        <ButtonStyled target={BLANK} href={sentRequest?.h_link}>
           <MailIcon />
           {makeRequest?.title}
         </ButtonStyled>
         <CheckBoxContainer>
-          <label htmlFor="checkbox">
-            <input
-              type="checkbox"
-              id={'checkbox'}
-              defaultChecked={false}
-              onClick={() => setChecked(!isChecked)}
-            />
-            {isChecked ? (
-              <CheckboxText ischecked={isChecked} target={BLANK} href={THERAPY_PORTAL}>
-                {checkBoxText?.title}
-              </CheckboxText>
-            ) : (
-              <CheckboxText>{checkBoxText?.title}</CheckboxText>
-            )}
-          </label>
+          <CheckboxText target={BLANK} href={sentRequest?.h_link}>
+            {checkBoxText?.title}
+          </CheckboxText>
         </CheckBoxContainer>
       </ButtonContainer>
     </Container>

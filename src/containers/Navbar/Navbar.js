@@ -16,8 +16,7 @@ import {
 } from './NavbarStyled';
 import logo from '../../assets/logo.png';
 import hamburger from '../../assets/hamburger.png';
-import { LINK } from '../../constants';
-import { BLANK } from '../../constants/url';
+import { LINK, BLANK } from '../../constants';
 import { getNavbar } from '../../redux/actions/navbarActions';
 import { useOnClickOutside } from '../../hooks/clickOutSide';
 import { languageTransformer } from '../../util/languageTransformer';

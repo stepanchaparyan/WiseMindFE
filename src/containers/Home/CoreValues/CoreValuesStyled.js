@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { tabletUp } from '../../../styles/mediaQueries/mixins';
+import { tabletUp, desktopUp } from '../../../styles/mediaQueries/mixins';
 
 export const CoreValesContainer = styled.div`
   display: flex;
@@ -163,4 +163,29 @@ export const WhoWeAreMainText = styled.div`
   font-size: 14px;
   letter-spacing: 1.4px;
   line-height: 1.8;
+`;
+
+export const ContactUsButton = styled.a`
+  align-items: center;
+  padding: 12px 28px;
+  margin: auto 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 3px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: ${props => props.theme.white};
+  background-color: ${props => props.theme.navGreen};
+  transition: background-color 0.5s;
+  :hover {
+    background-color: ${props => props.theme.lightBlack};
+  }
+  ${tabletUp`
+    padding: 14px 50px;
+    margin: auto 30px;
+  `};
+  ${desktopUp`
+    padding: 14px 60px;
+    margin: auto 40px;
+  `};
 `;

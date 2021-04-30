@@ -48,9 +48,9 @@ export const ButtonContainer = styled.div`
   height: 100px;
 `;
 
-export const ButtonStyled = styled.button`
-  min-width: 180px;
-  width: 180px;
+export const ButtonStyled = styled.a`
+  min-width: 140px;
+  width: 140px;
   margin: 4px 0 8px 2px;
   padding: 10px;
   align-items: center;
@@ -87,7 +87,7 @@ export const CheckboxText = styled.a`
   font-size: 14px;
   color: white;
   margin-left: 4px;
-  cursor: ${props => (props.ischecked ? 'pointer' : 'not-allowed')};
+  cursor: 'pointer';
 `;
 
 export const MainContainer = styled.div``;

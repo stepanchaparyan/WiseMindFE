@@ -15,13 +15,10 @@ import {
   MainText,
   WhoWeAreTitleText,
   WhoWeAreMainText,
-  Overlay
+  Overlay,
+  ContactUsButton
 } from './CoreValuesStyled';
-import Button from '../../../components/Button/Button';
-import theme from '../../../styles/theme';
-import { LINK } from '../../../constants';
-
-const { navGreen, lightBlack, white } = theme;
+import { BLANK } from '../../../constants';
 
 const CoreValues = ({
   coreValueMainText,
@@ -30,7 +27,9 @@ const CoreValues = ({
   readMoreText,
   readLessText,
   coreValuesMainImage,
-  coreValuesImages
+  coreValuesImages,
+  sentRequest,
+  aboutUsText
 }) => {
   const [isLongText, setLongText] = useState(false);
   const textLength = 473;
@@ -69,14 +68,9 @@ const CoreValues = ({
         <WhoWeAre>
           <WhoWeAreTitleText>{whoWeAreText?.title}</WhoWeAreTitleText>
           <WhoWeAreMainText>{whoWeAreText?.content}</WhoWeAreMainText>
-          <Button
-            text="About Us"
-            textcolor={white}
-            texthovercolor={white}
-            backgroundcolor={navGreen}
-            backgroundhovercolor={lightBlack}
-            to={LINK.TO.ABOUT}
-          />
+          <ContactUsButton target={BLANK} href={sentRequest?.h_link}>
+            {aboutUsText?.title}
+          </ContactUsButton>
         </WhoWeAre>
       </RightPart>
     </CoreValesContainer>
@@ -90,7 +84,9 @@ CoreValues.propTypes = {
   readMoreText: PropTypes.string,
   readLessText: PropTypes.string,
   coreValuesImages: PropTypes.array,
-  coreValuesMainImage: PropTypes.object
+  coreValuesMainImage: PropTypes.object,
+  aboutUsText: PropTypes.object,
+  sentRequest: PropTypes.object
 };
 
 export default CoreValues;

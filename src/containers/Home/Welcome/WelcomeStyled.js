@@ -94,3 +94,54 @@ export const LogoContainer = styled.div`
 export const Logo = styled.img`
   width: 120px;
 `;
+
+export const ContactUsButton = styled.a`
+  align-items: center;
+  padding: 10px 18px;
+  margin: auto 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 3px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: ${props => props.theme.white};
+  background-color: ${props => props.theme.navGreen};
+  transition: background-color 0.5s;
+  :hover {
+    background-color: ${props => props.theme.lightBlack};
+  }
+  ${tabletUp`
+    padding: 14px 32px;
+    margin: auto 30px;
+  `};
+  ${desktopUp`
+    padding: 17px 50px;
+    margin: auto 40px;
+  `};
+`;
+
+export const AboutUsButton = styled.a`
+  align-items: center;
+  padding: 10px 24px;
+  margin: auto 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: ${props => props.theme.white};
+  background-color: ${props => props.theme.lightBlue};
+  transition: background-color 0.5s;
+  :hover {
+    background-color: ${props => props.theme.lightBlack};
+  }
+  ${tabletUp`
+    padding: 14px 40px;
+    margin: auto 30px;
+  `};
+  ${desktopUp`
+    padding: 17px 54px;
+    margin: auto 40px;
+  `};
+`;

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import customObject from '../../../util/propTypes';
-import Button from '../../../components/Button/Button';
 import {
   Container,
   Module,
@@ -10,16 +9,24 @@ import {
   ButtonsContainer,
   LongText,
   LogoContainer,
-  Logo
+  Logo,
+  ContactUsButton,
+  AboutUsButton
 } from './WelcomeStyled';
-import { LINK } from '../../../constants';
-import theme from '../../../styles/theme';
+import { LINK, BLANK } from '../../../constants';
 import logo from '../../../assets/logo.png';
 
 const alt = 'astute logo';
-const { lightBlue, navGreen, lightBlack, white } = theme;
 
-const Welcome = ({ shortText, appFullName, longText, welcomeImages }) => {
+const Welcome = ({
+  shortText,
+  appFullName,
+  longText,
+  welcomeImages,
+  sentRequest,
+  contactUsText,
+  aboutUsText
+}) => {
   const { image_url } =
     (welcomeImages?.length && welcomeImages.find(item => item.section === 'welcome')) || '';
 
@@ -32,23 +39,12 @@ const Welcome = ({ shortText, appFullName, longText, welcomeImages }) => {
         <SmallText>{shortText?.content}</SmallText>
         <TitleText>{appFullName?.content}</TitleText>
         <ButtonsContainer>
-          <Button
-            text="About Us"
-            textcolor={white}
-            texthovercolor={white}
-            backgroundcolor={lightBlue}
-            backgroundhovercolor={lightBlack}
-            to={LINK.TO.ABOUT}
-          />
-          <Button
-            text="Contact Us"
-            textcolor={white}
-            texthovercolor={white}
-            backgroundcolor={navGreen}
-            backgroundhovercolor={lightBlack}
-            borderColor={white}
-            to={LINK.TO.CONTACT_US}
-          />
+          <AboutUsButton target={BLANK} href={sentRequest?.h_link}>
+            {aboutUsText?.title}
+          </AboutUsButton>
+          <ContactUsButton target={BLANK} href={sentRequest?.h_link}>
+            {contactUsText?.title}
+          </ContactUsButton>
         </ButtonsContainer>
         <LongText>{longText?.content}</LongText>
       </Module>
@@ -60,6 +56,9 @@ Welcome.propTypes = {
   shortText: customObject,
   appFullName: customObject,
   longText: customObject,
+  sentRequest: PropTypes.object,
+  contactUsText: customObject,
+  aboutUsText: customObject,
   welcomeImages: PropTypes.array
 };
 
