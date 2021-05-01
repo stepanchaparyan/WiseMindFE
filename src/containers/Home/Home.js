@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getHomeTexts } from '../../redux/actions/homeTextsActions';
 import { getHomeImages } from '../../redux/actions/homeImagesActions';
@@ -9,11 +9,12 @@ import CoreValues from './CoreValues/CoreValues';
 import Treatments from './Treatments/Treatments';
 import Employees from './Employees/Employees';
 import CustomModal from '../../components/Modal/Modal';
+import { welcomeTextsSelector } from '../../redux/selectors/homeTextsSelector';
 
-const Home = ({ language }) => {
+const Home = ({ language, welcomeTexts }) => {
   const dispatch = useDispatch();
   const { homeTexts, loading, error } = useSelector(state => state.homeTexts);
-  const welcomeTexts = homeTexts?.filter(item => item.section === 'welcome');
+  // const welcomeTexts = homeTexts?.filter(item => item.section === 'welcome');
   const shortText = welcomeTexts?.find(text => text.title === 'shortText');
   const appFullName = welcomeTexts?.find(text => text.title === 'appFullName');
   const longText = welcomeTexts?.find(text => text.title === 'longText');
@@ -27,10 +28,12 @@ const Home = ({ language }) => {
     ?.filter(item => item.parent_section === 'coreValues')
     .sort((a, b) => (a.position < b.position ? -1 : a.position > b.position ? 1 : 0));
   const whoWeAreText = homeTexts?.find(item => item.section === 'whoWeAre');
-  const employees = homeTexts
+  const employeesTexts = homeTexts
     ?.filter(item => item.parent_section === 'all_employee')
     .sort((a, b) => (a.position < b.position ? -1 : a.position > b.position ? 1 : 0));
   const employeesTitleText = homeTexts?.find(item => item.section === 'employeesTitleText');
+  const aboutUsText = homeTexts?.find(item => item.section === 'aboutMeButton');
+  const contactUsText = homeTexts?.find(item => item.section === 'contactUsButton');
 
   const { homeImages } = useSelector(state => state.homeImages);
   const welcomeImages = homeImages?.filter(item => item.parent_section === 'welcome');
@@ -38,11 +41,12 @@ const Home = ({ language }) => {
   const coreValuesImages = homeImages
     ?.filter(item => item.parent_section === 'coreValues')
     .sort((a, b) => (a.position < b.position ? -1 : a.position > b.position ? 1 : 0));
+  const employeesImages = homeImages
+    ?.filter(item => item.parent_section === 'all_employee')
+    .sort((a, b) => (a.position < b.position ? -1 : a.position > b.position ? 1 : 0));
 
   const { navbar } = useSelector(state => state.navbar);
   const sentRequest = navbar?.find(item => item.num === 0);
-  const aboutUsText = homeTexts?.find(item => item.section === 'aboutMeButton');
-  const contactUsText = homeTexts?.find(item => item.section === 'contactUsButton');
 
   useEffect(() => {
     dispatch(getHomeTexts(language.toLowerCase()));
@@ -89,8 +93,12 @@ const Home = ({ language }) => {
               readLessText={readLessText?.content}
             ></Treatments>
           )}
-          {employees && (
-            <Employees titleText={employeesTitleText} employees={employees}></Employees>
+          {employeesImages && (
+            <Employees
+              titleText={employeesTitleText}
+              employeesImages={employeesImages}
+              employeesTexts={employeesTexts}
+            ></Employees>
           )}
         </>
       ) : (
@@ -110,7 +118,16 @@ const Home = ({ language }) => {
 };
 
 Home.propTypes = {
-  language: PropTypes.string.isRequired
+  language: PropTypes.string.isRequired,
+  welcomeTexts: PropTypes.any // todo
 };
 
-export default Home;
+const mapStateToProps = state => {
+  return {
+    welcomeTexts: welcomeTextsSelector(state)
+    // navbarMenus: navbarMenusSelector(state),
+    // loading: loadingSelector(state)
+  };
+};
+
+export default connect(mapStateToProps)(Home);

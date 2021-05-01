@@ -22,7 +22,7 @@ const facebook = 'facebook';
 const twitter = 'twitter';
 const instagram = 'instagram';
 
-const Employees = ({ titleText, employees }) => {
+const Employees = ({ titleText, employeesTexts, employeesImages }) => {
   const alt = 'astute employees';
   const [itemsToShow, setItemsToShow] = useState(3);
   const isMobile = useMedia({ maxWidth: 768 });
@@ -41,7 +41,12 @@ const Employees = ({ titleText, employees }) => {
     }
   }, [isMobile, isTablet, isDesktop]);
 
-  const OverlayMedia = (employee, i) => (
+  const employeeList = [];
+  for (let i = 0; i < employeesTexts.length; i++) {
+    employeeList.push({ ...employeesTexts[i], ...employeesImages[i] });
+  }
+
+  const OverlayMedia = (employeeImage, i) => (
     <Overlay>
       <Media>
         <IconContainer type={facebook} target={BLANK} href={FACEBOOK_LINK}>
@@ -54,18 +59,18 @@ const Employees = ({ titleText, employees }) => {
           <MediaIcon type={instagram}></MediaIcon>
         </IconContainer>
       </Media>
-      <Image src={employee?.url} alt={`${alt}_${i}`}></Image>
+      <Image src={employeeImage?.image_url} alt={`${alt}_${i}`}></Image>
     </Overlay>
   );
 
   return (
     <EmployeesContainer>
       <TitleText>{titleText?.content}</TitleText>
-      {employees?.length < 4 ? (
+      {employeeList?.length < 4 ? (
         <Employee>
-          {employees?.map((employee, i) => (
+          {employeeList?.map((employee, i) => (
             <Container key={employee?.title}>
-              {OverlayMedia(employee, i)}
+              {OverlayMedia(employeeList[i], i)}
               <NameText>{employee?.title}</NameText>
               <MainText>{employee?.content}</MainText>
             </Container>
@@ -74,7 +79,7 @@ const Employees = ({ titleText, employees }) => {
       ) : (
         <Employee>
           <CarouselStyled itemsToShow={itemsToShow} itemPadding={[0, 20]}>
-            {employees?.map(text => (
+            {employeeList?.map(text => (
               <Container key={text?.title}>
                 {OverlayMedia()}
                 <NameText>{text?.title}</NameText>
@@ -89,7 +94,8 @@ const Employees = ({ titleText, employees }) => {
 };
 
 Employees.propTypes = {
-  employees: PropTypes.arrayOf(customObject).isRequired,
+  employeesTexts: PropTypes.arrayOf(customObject).isRequired,
+  employeesImages: PropTypes.arrayOf(customObject).isRequired,
   titleText: customObject
 };
 

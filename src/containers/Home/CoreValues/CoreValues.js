@@ -84,9 +84,9 @@ CoreValues.propTypes = {
   readMoreText: PropTypes.string,
   readLessText: PropTypes.string,
   coreValuesImages: PropTypes.array,
-  coreValuesMainImage: PropTypes.object,
-  aboutUsText: PropTypes.object,
-  sentRequest: PropTypes.object
+  coreValuesMainImage: customObject,
+  aboutUsText: customObject,
+  sentRequest: customObject
 };
 
 export default CoreValues;

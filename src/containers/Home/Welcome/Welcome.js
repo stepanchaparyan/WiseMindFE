@@ -56,7 +56,7 @@ Welcome.propTypes = {
   shortText: customObject,
   appFullName: customObject,
   longText: customObject,
-  sentRequest: PropTypes.object,
+  sentRequest: customObject,
   contactUsText: customObject,
   aboutUsText: customObject,
   welcomeImages: PropTypes.array

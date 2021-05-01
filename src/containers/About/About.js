@@ -75,7 +75,10 @@ const About = () => {
           <Link to="/media/core_values_1.jpg" target="_blank" download>
             Download
           </Link>
-          <Link to="https://www.w3schools.com/images/myw3schoolsimage.jpg" target="_blank" download>
+          <Link to="http://54.151.11.251/media/big_logo.webp" target="_blank" download>
+            Download
+          </Link>
+          <Link to="/media/big_logo.webp" target="_blank" download>
             Download
           </Link>
         </Module>

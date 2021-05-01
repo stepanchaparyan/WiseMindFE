@@ -4,11 +4,11 @@ export const customObject = PropTypes.shape({
   lang: PropTypes.string,
   title: PropTypes.string,
   context: PropTypes.string,
-  section: PropTypes.string.isRequired,
+  section: PropTypes.string,
   parent_section: PropTypes.string,
   page: PropTypes.string,
-  parent_page: PropTypes.string,
   url: PropTypes.string,
+  h_link: PropTypes.string,
   num: PropTypes.number,
   position: PropTypes.number
 });
@@ -18,6 +18,7 @@ export const footerObject = PropTypes.shape({
   title: PropTypes.string,
   parent: PropTypes.string,
   h_link: PropTypes.string,
+  url: PropTypes.string,
   num: PropTypes.number
 });
 

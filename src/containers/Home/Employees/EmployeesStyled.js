@@ -137,7 +137,8 @@ export const Image = styled.img`
   `};
   width: 300px;
   min-width: 300px;
-  height: auto;
+  height: 350px;
+  object-fit: cover;
 `;
 
 export const Media = styled.span`

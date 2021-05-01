@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
   Container,
@@ -22,11 +22,16 @@ import { useOnClickOutside } from '../../hooks/clickOutSide';
 import { languageTransformer } from '../../util/languageTransformer';
 import { showLanguageSelector } from '../../../environment';
 import Loading from '../../components/Loading/Loading';
+import {
+  navbarMenusSelector,
+  sentRequestSelector,
+  loadingSelector
+} from '../../redux/selectors/navbarSelector';
 
 const logoAlt = 'logoAlt';
 const hamburgerAlt = 'hamburgerAlt';
 
-const Navbar = ({ language, setLanguage }) => {
+const Navbar = ({ language, setLanguage, sentRequest, navbarMenus, loading }) => {
   const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
   const node = useRef();
@@ -34,11 +39,6 @@ const Navbar = ({ language, setLanguage }) => {
   useOnClickOutside(node, () => setOpen(false));
 
   const dispatch = useDispatch();
-  const { navbar, loading } = useSelector(state => state.navbar);
-  const sentRequest = navbar?.find(item => item.num === 0);
-  const navbarMenus = navbar
-    ?.filter(item => item.num !== 0)
-    .sort((a, b) => (a.num < b.num ? -1 : a.num > b.num ? 1 : 0));
 
   useEffect(() => {
     dispatch(getNavbar(language.toLowerCase()));
@@ -119,7 +119,18 @@ const Navbar = ({ language, setLanguage }) => {
 
 Navbar.propTypes = {
   language: PropTypes.string.isRequired,
-  setLanguage: PropTypes.func.isRequired
+  setLanguage: PropTypes.func.isRequired,
+  sentRequest: PropTypes.object, //todo
+  navbarMenus: PropTypes.array, // todo
+  loading: PropTypes.bool //todo
 };
 
-export default Navbar;
+const mapStateToProps = state => {
+  return {
+    sentRequest: sentRequestSelector(state),
+    navbarMenus: navbarMenusSelector(state),
+    loading: loadingSelector(state)
+  };
+};
+
+export default connect(mapStateToProps)(Navbar);
