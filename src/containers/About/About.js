@@ -81,6 +81,9 @@ const About = () => {
           <Link to="/media/big_logo.webp" target="_blank" download>
             Download
           </Link>
+          <Link to="/media/core_values_1.jpg" target="_blank" download>
+            Download
+          </Link>
         </Module>
       </Container>
     </>
