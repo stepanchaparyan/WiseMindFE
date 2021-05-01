@@ -118,44 +118,6 @@ const Footer = ({
             </a>
             <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
           </DMCA>
-          <a
-            href="http://api.astutecarepathways.com/media/core_values_1.jpg"
-            download="11111111.png"
-          >
-            <img
-              src="http://api.astutecarepathways.com/media/core_values_1.jpg"
-              alt="W3Schools"
-              width="100"
-              height="100"
-            />
-          </a>
-          <a
-            href="https://api.astutecarepathways.com/media/core_values_1.jpg"
-            download="22222222222.png"
-          >
-            <img
-              src="http://api.astutecarepathways.com/media/core_values_1.jpg"
-              alt="W3Schools"
-              width="100"
-              height="100"
-            />
-          </a>
-          <a href="/media/core_values_1.jpg" download="33333333333.png">
-            <img
-              src="http://api.astutecarepathways.com/media/core_values_1.jpg"
-              alt="W3Schools"
-              width="100"
-              height="100"
-            />
-          </a>
-          <a href="media/core_values_1.jpg" download="444444444.png">
-            <img
-              src="http://api.astutecarepathways.com/media/core_values_1.jpg"
-              alt="W3Schools"
-              width="100"
-              height="100"
-            />
-          </a>
         </NewsLetterContainer>
       </MainContainer>
       <BottomContainer>
