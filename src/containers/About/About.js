@@ -11,26 +11,29 @@ const About = () => {
           <WelcomeText>{'About Us'}</WelcomeText>
           <LongText>{'About Us'}</LongText>
           <LinkStyled to={LINK.TO.HOME}>{'GO HOME'}</LinkStyled>
-          <DownLoadLink to="src/assets/test.pdf" download>
+          <DownLoadLink to="src/assets/test.pdf" target="_blank" download>
             Download
           </DownLoadLink>
-          <DownLoadLink to="./test.pdf" download>
+          <DownLoadLink to="./test.pdf" target="_blank" download>
             Download
           </DownLoadLink>
-          <DownLoadLink to="test.pdf" download>
+          <DownLoadLink to="test.pdf" target="_blank" download>
             Download
           </DownLoadLink>
-          <DownLoadLink to="./test.jpg" download>
+          <DownLoadLink to="./test.jpg" target="_blank" download>
             Download
           </DownLoadLink>
-          <DownLoadLink to="test.jpg" download>
+          <DownLoadLink to="test.jpg" target="_blank" download>
             Download
           </DownLoadLink>
-          <DownLoadLink to="/usr/share/nginx/html/src/assets/test.pdf" download>
+          <DownLoadLink to="../test.pdf" target="_blank" download="test.pdf">
             Download
           </DownLoadLink>
-          <DownLoadLink to="/usr/share/nginx/html/src/assets/test.jpg" download>
+          <DownLoadLink to="../src/test.jpg" target="_blank" download="test.jpg">
             Download
+          </DownLoadLink>
+          <DownLoadLink to="../src/test.jpg" target="_blank" download="test.jpg">
+            Download 1
           </DownLoadLink>
         </Module>
       </Container>
