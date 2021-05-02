@@ -11,7 +11,7 @@ const About = () => {
           <WelcomeText>{'About Us'}</WelcomeText>
           <LongText>{'About Us'}</LongText>
           <LinkStyled to={LINK.TO.HOME}>{'GO HOME'}</LinkStyled>
-          <DownLoadLink to="src/assets/test.pdf" target="_blank" download>
+          {/* <DownLoadLink to="src/assets/test.pdf" target="_blank" download>
             Download
           </DownLoadLink>
           <DownLoadLink to="/media/core_values_2.jpg" target="_blank" download="test.jpg">
@@ -48,7 +48,7 @@ const About = () => {
           </DownLoadLink>
           <DownLoadLink to="../src/test.jpg" target="_blank" download="test.jpg">
             Download 1
-          </DownLoadLink>
+          </DownLoadLink> */}
         </Module>
       </Container>
     </>
