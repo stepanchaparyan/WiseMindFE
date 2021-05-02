@@ -20,8 +20,19 @@ const About = () => {
           <a href="/media/core_values_2.jpg" download="w3logo.jpg">
             XXXXXXXXXXXXX
           </a>
+
           <a href="/media/core_values_2.jpg" download>
             XXXXXXXXXXXXX
+          </a>
+          <a
+            href="http://api.astutecarepathways.com/media/core_values_1.jpg"
+            download="11111111.jpg"
+          ></a>
+          <a
+            href="https://api.astutecarepathways.com/media/core_values_1.jpg"
+            download="11111111.jpg"
+          >
+            <a href="http://api.astutecarepathways.com/media/core_values_1.jpg" download></a>
           </a>
           <DownLoadLink to="/media/core_values_2.jpg" target="_blank" download>
             Download ee
