@@ -20,6 +20,12 @@ const About = () => {
           <DownLoadLink to="test.pdf" target="_blank" download>
             Download
           </DownLoadLink>
+          <DownLoadLink to="./test.jpg" target="_blank" download>
+            Download
+          </DownLoadLink>
+          <DownLoadLink to="test.jpg" target="_blank" download>
+            Download
+          </DownLoadLink>
         </Module>
       </Container>
     </>
