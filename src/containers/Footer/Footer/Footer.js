@@ -35,11 +35,12 @@ import {
   AllRightsReserved,
   AddressTitleContainer,
   AddressText,
-  DMCA
+  DMCAContainer
 } from './FooterStyled';
 import { LINK } from '../../../constants';
 import { BLANK, FACEBOOK_LINK, TWITTER_LINK, INSTAGRAM_LINK } from '../../../constants/url';
 import logo from '../../../assets/logo.png';
+import { DMCA } from '../Dmca';
 
 const facebook = 'facebook';
 const twitter = 'twitter';
@@ -105,19 +106,7 @@ const Footer = ({
         <NewsLetterContainer>
           <Title>{newsLetterTitle?.title}</Title>
           <NewsLetterText>{newsLetterText?.title}</NewsLetterText>
-          <DMCA>
-            <a
-              href="//www.dmca.com/Protection/Status.aspx?ID=a3258b30-9793-4632-9dcf-9bf92a6549a2"
-              title="DMCA.com Protection Status"
-              className="dmca-badge"
-            >
-              <img
-                src="https://images.dmca.com/Badges/dmca_protected_sml_120m.png?ID=a3258b30-9793-4632-9dcf-9bf92a6549a2"
-                alt="DMCA.com Protection Status"
-              />
-            </a>{' '}
-            <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
-          </DMCA>
+          <DMCAContainer>{DMCA}</DMCAContainer>
         </NewsLetterContainer>
       </MainContainer>
       <BottomContainer>

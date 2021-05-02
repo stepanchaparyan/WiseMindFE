@@ -302,7 +302,7 @@ export const Arrow = styled.div`
   display: flex;
 `;
 
-export const DMCA = styled.div`
+export const DMCAContainer = styled.div`
   margin: 10px 0 0 -4px;
 `;
 

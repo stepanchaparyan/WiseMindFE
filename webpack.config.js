@@ -32,7 +32,8 @@ const optimization = () => {
   return config;
 };
 
-const filename = ext => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`);
+// const filename = ext => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`);
+const filename = ext => `[name].${ext}`;
 
 const cssLoaders = extra => {
   const loaders = [
@@ -146,7 +147,7 @@ module.exports = {
         use: cssLoaders('sass-loader')
       },
       {
-        test: /\.(png|jpe?g|svg|gif|webp|jp2)$/,
+        test: /\.(png|jpe?g|pdf|svg|gif|webp|jp2)$/,
         use: [
           'file-loader',
           {
