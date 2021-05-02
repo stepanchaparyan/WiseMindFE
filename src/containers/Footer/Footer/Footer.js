@@ -107,15 +107,15 @@ const Footer = ({
           <NewsLetterText>{newsLetterText?.title}</NewsLetterText>
           <DMCA>
             <a
-              href="//www.dmca.com/Protection/Status.aspx?ID=ee666a97-0e83-434e-b545-94a68eadadf8"
+              href="//www.dmca.com/Protection/Status.aspx?ID=a3258b30-9793-4632-9dcf-9bf92a6549a2"
               title="DMCA.com Protection Status"
               className="dmca-badge"
             >
               <img
-                src="https://images.dmca.com/Badges/dmca-badge-w200-5x1-02.png?ID=ee666a97-0e83-434e-b545-94a68eadadf8"
+                src="https://images.dmca.com/Badges/dmca_protected_sml_120m.png?ID=a3258b30-9793-4632-9dcf-9bf92a6549a2"
                 alt="DMCA.com Protection Status"
               />
-            </a>
+            </a>{' '}
             <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
           </DMCA>
         </NewsLetterContainer>
