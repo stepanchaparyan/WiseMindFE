@@ -5,6 +5,7 @@ const mobileSizeMin = `(min-width: ${size.mobileMin})`;
 const mobileSizeMax = `(max-width: ${size.mobileMax})`;
 const tabletSizeMin = `(min-width: ${size.tabletMin})`;
 const desktopSizeMin = `(min-width: ${size.desktopMin})`;
+const desktopBigSizeMin = `(min-width: ${size.desktopBigMin})`;
 const desktopLargeSizeMin = `(min-width: ${size.desktopLargeMin})`;
 
 export const mobile = (...args) => css` @media ${mobileSizeMax} {
@@ -23,6 +24,11 @@ export const tabletUp = (...args) => css` @media ${tabletSizeMin} {
  }`;
 
 export const desktopUp = (...args) => css` @media ${desktopSizeMin} {
+  ${css(...args)};
+     }
+ }`;
+
+export const desktopBigeUp = (...args) => css` @media ${desktopBigSizeMin} {
   ${css(...args)};
      }
  }`;

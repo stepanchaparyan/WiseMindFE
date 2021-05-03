@@ -11,7 +11,8 @@ import {
   LogoContainer,
   Logo,
   ContactUsButton,
-  AboutUsButton
+  AboutUsButton,
+  TestContainer
 } from './WelcomeStyled';
 import { LINK, BLANK } from '../../../constants';
 import logo from '../../../assets/logo.png';
@@ -36,8 +37,7 @@ const Welcome = ({
         <LogoContainer to={LINK.TO.HOME}>
           <Logo src={logo} alt={alt} />
         </LogoContainer>
-        <SmallText>{shortText?.content}</SmallText>
-        <TitleText>{appFullName?.content}</TitleText>
+
         <ButtonsContainer>
           <AboutUsButton target={BLANK} href={sentRequest?.h_link}>
             {aboutUsText?.title}
@@ -46,7 +46,12 @@ const Welcome = ({
             {contactUsText?.title}
           </ContactUsButton>
         </ButtonsContainer>
-        <LongText>{longText?.content}</LongText>
+
+        <TestContainer>
+          <SmallText>{shortText?.content}</SmallText>
+          <TitleText>{appFullName?.content}</TitleText>
+          <LongText>{longText?.content}</LongText>
+        </TestContainer>
       </Module>
     </Container>
   );
