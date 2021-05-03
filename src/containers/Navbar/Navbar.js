@@ -77,7 +77,7 @@ const Navbar = ({ language, setLanguage, sentRequest, navbarMenus, loading }) =>
                 <NavLinkContainer open={open}>
                   <NavLinks>
                     {navbarMenus.map(({ title, h_link }) => (
-                      <StyledLink exact key={title} to={h_link}>
+                      <StyledLink exact key={title} onClick={() => setOpen(false)} to={h_link}>
                         {title.toUpperCase()}
                       </StyledLink>
                     ))}
