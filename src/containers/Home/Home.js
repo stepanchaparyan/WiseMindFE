@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector, connect } from 'react-redux';
+import { useDispatch, connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import customObject from '../../util/propTypes';
 import { getHomeTexts } from '../../redux/actions/homeTextsActions';
 import { getHomeImages } from '../../redux/actions/homeImagesActions';
 import Loading from '../../components/Loading/Loading';
@@ -9,44 +10,56 @@ import CoreValues from './CoreValues/CoreValues';
 import Treatments from './Treatments/Treatments';
 import Employees from './Employees/Employees';
 import CustomModal from '../../components/Modal/Modal';
-import { welcomeTextsSelector } from '../../redux/selectors/homeTextsSelector';
+import {
+  loadingSelector,
+  errorSelector,
+  welcomeTextsSelector,
+  shortTextSelector,
+  appFullNameSelector,
+  longTextSelector,
+  readMoreTextSelector,
+  readLessTextsSelector,
+  coreValueMainTextSelector,
+  treatmentsSelector,
+  coreValuesTextsSelector,
+  whoWeAreTextSelector,
+  employeesTextsSelector,
+  employeesTitleTextSelector,
+  aboutUsTextSelector,
+  contactUsTextSelector
+} from '../../redux/selectors/homeTextsSelector';
+import {
+  welcomeImagesSelector,
+  coreValuesMainImageSelector,
+  coreValuesImagesSelector,
+  employeesImagesSelector
+} from '../../redux/selectors/homeImagesSelector';
+import { sentRequestSelector } from '../../redux/selectors/navbarSelector';
 
-const Home = ({ language, welcomeTexts }) => {
+const Home = ({
+  language,
+  loading,
+  error,
+  longText,
+  appFullName,
+  shortText,
+  readMoreText,
+  readLessText,
+  coreValueMainText,
+  treatments,
+  coreValuesTexts,
+  whoWeAreText,
+  employeesTexts,
+  employeesTitleText,
+  aboutUsText,
+  contactUsText,
+  welcomeImages,
+  coreValuesMainImage,
+  coreValuesImages,
+  employeesImages,
+  sentRequest
+}) => {
   const dispatch = useDispatch();
-  const { homeTexts, loading, error } = useSelector(state => state.homeTexts);
-  // const welcomeTexts = homeTexts?.filter(item => item.section === 'welcome');
-  const shortText = welcomeTexts?.find(text => text.title === 'shortText');
-  const appFullName = welcomeTexts?.find(text => text.title === 'appFullName');
-  const longText = welcomeTexts?.find(text => text.title === 'longText');
-  const readMoreText = homeTexts?.find(item => item.title === 'readMore');
-  const readLessText = homeTexts?.find(item => item.title === 'readLess');
-  const coreValueMainText = homeTexts?.find(item => item.section === 'coreValuesMain');
-  const treatments = homeTexts
-    ?.filter(item => item.parent_section === 'treatment')
-    .sort((a, b) => (a.position < b.position ? -1 : a.position > b.position ? 1 : 0));
-  const coreValuesTexts = homeTexts
-    ?.filter(item => item.parent_section === 'coreValues')
-    .sort((a, b) => (a.position < b.position ? -1 : a.position > b.position ? 1 : 0));
-  const whoWeAreText = homeTexts?.find(item => item.section === 'whoWeAre');
-  const employeesTexts = homeTexts
-    ?.filter(item => item.parent_section === 'all_employee')
-    .sort((a, b) => (a.position < b.position ? -1 : a.position > b.position ? 1 : 0));
-  const employeesTitleText = homeTexts?.find(item => item.section === 'employeesTitleText');
-  const aboutUsText = homeTexts?.find(item => item.section === 'aboutMeButton');
-  const contactUsText = homeTexts?.find(item => item.section === 'contactUsButton');
-
-  const { homeImages } = useSelector(state => state.homeImages);
-  const welcomeImages = homeImages?.filter(item => item.parent_section === 'welcome');
-  const coreValuesMainImage = homeImages?.find(item => item.parent_section === 'coreValuesMain');
-  const coreValuesImages = homeImages
-    ?.filter(item => item.parent_section === 'coreValues')
-    .sort((a, b) => (a.position < b.position ? -1 : a.position > b.position ? 1 : 0));
-  const employeesImages = homeImages
-    ?.filter(item => item.parent_section === 'all_employee')
-    .sort((a, b) => (a.position < b.position ? -1 : a.position > b.position ? 1 : 0));
-
-  const { navbar } = useSelector(state => state.navbar);
-  const sentRequest = navbar?.find(item => item.num === 0);
 
   useEffect(() => {
     dispatch(getHomeTexts(language.toLowerCase()));
@@ -119,14 +132,56 @@ const Home = ({ language, welcomeTexts }) => {
 
 Home.propTypes = {
   language: PropTypes.string.isRequired,
-  welcomeTexts: PropTypes.any // todo
+  welcomeTexts: PropTypes.arrayOf(customObject),
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.object,
+  shortText: customObject,
+  longText: customObject,
+  appFullName: customObject,
+  readMoreText: customObject,
+  readLessText: customObject,
+  coreValueMainText: customObject,
+  treatments: PropTypes.arrayOf(customObject),
+  coreValuesTexts: PropTypes.arrayOf(customObject),
+  whoWeAreText: customObject,
+  employeesTexts: PropTypes.arrayOf(customObject),
+  employeesTitleText: customObject,
+  aboutUsText: customObject,
+  contactUsText: customObject,
+  welcomeImages: PropTypes.arrayOf(customObject),
+  coreValuesMainImage: customObject,
+  coreValuesImages: PropTypes.arrayOf(customObject),
+  employeesImages: PropTypes.arrayOf(customObject),
+  sentRequest: customObject
+};
+
+Home.defaultProps = {
+  error: null
 };
 
 const mapStateToProps = state => {
   return {
-    welcomeTexts: welcomeTextsSelector(state)
-    // navbarMenus: navbarMenusSelector(state),
-    // loading: loadingSelector(state)
+    sentRequest: sentRequestSelector(state),
+    loading: loadingSelector(state),
+    error: errorSelector(state),
+    welcomeTexts: welcomeTextsSelector(state),
+    shortText: shortTextSelector(state),
+    appFullName: appFullNameSelector(state),
+    longText: longTextSelector(state),
+    readMoreText: readMoreTextSelector(state),
+    readLessText: readLessTextsSelector(state),
+    coreValueMainText: coreValueMainTextSelector(state),
+    treatments: treatmentsSelector(state),
+    coreValuesTexts: coreValuesTextsSelector(state),
+    whoWeAreText: whoWeAreTextSelector(state),
+    employeesTexts: employeesTextsSelector(state),
+    employeesTitleText: employeesTitleTextSelector(state),
+    aboutUsText: aboutUsTextSelector(state),
+    contactUsText: contactUsTextSelector(state),
+    welcomeImages: welcomeImagesSelector(state),
+    coreValuesMainImage: coreValuesMainImageSelector(state),
+    coreValuesImages: coreValuesImagesSelector(state),
+    employeesImages: employeesImagesSelector(state)
   };
 };
 
