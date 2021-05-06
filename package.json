@@ -50,6 +50,7 @@
     "react-dom": "^16.13.0",
     "react-elastic-carousel": "^0.11.1",
     "react-flags-select": "^2.1.2",
+    "react-helmet-async": "^1.0.9",
     "react-loader-spinner": "^4.0.0",
     "react-modal": "^3.13.1",
     "react-redux": "^7.2.2",

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from 'styled-components';
 import Navbar from './containers/Navbar/Navbar';
 import FooterContainer from './containers/Footer/FooterContainer';
@@ -12,13 +13,19 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Router>
-        <>
-          <Navbar language={language} setLanguage={setLanguage} />
-          <Routes language={language} />
-          <FooterContainer language={language} />
-        </>
-      </Router>
+      <HelmetProvider>
+        <Helmet>
+          <title>Astutecarepathways</title>
+          <link rel="shortcut icon" href="favicon.ico"></link>
+        </Helmet>
+        <Router>
+          <>
+            <Navbar language={language} setLanguage={setLanguage} />
+            <Routes language={language} />
+            <FooterContainer language={language} />
+          </>
+        </Router>
+      </HelmetProvider>
     </ThemeProvider>
   );
 };
