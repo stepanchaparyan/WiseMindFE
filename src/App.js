@@ -17,6 +17,11 @@ const App = () => {
         <Helmet>
           <title>Astutecarepathways</title>
           <link rel="shortcut icon" href="favicon.ico"></link>
+          <meta charset="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="description" content="Astute page, Doctors, medical" />
+          <meta name="keywords" content="HTML, CSS, JavaScript, medical, doctors, LA" />
+          <meta name="author" content="Astute team" />
         </Helmet>
         <Router>
           <>
