@@ -112,9 +112,9 @@ const Footer = ({
       <BottomContainer>
         <TitleAndDate>
           <CompanyName>{appFullName?.title}</CompanyName>
-          <AllRightsReserved>{`© ${new Date().getFullYear()}. ${
-            allRights?.title
-          }`}</AllRightsReserved>
+          <AllRightsReserved>
+            &#169; {` ${new Date().getFullYear()}. ${allRights?.title}`}
+          </AllRightsReserved>
         </TitleAndDate>
         <SocialMedia>
           <IconContainer type={facebook} target={BLANK} href={FACEBOOK_LINK}>
