@@ -113,7 +113,7 @@ const Footer = ({
         <TitleAndDate>
           <CompanyName>{appFullName?.title}</CompanyName>
           <AllRightsReserved>
-            &#169; {` ${new Date().getFullYear()}. ${allRights?.title}`}
+            &copy; {` ${new Date().getFullYear()}. ${allRights?.title}`}
           </AllRightsReserved>
         </TitleAndDate>
         <SocialMedia>
