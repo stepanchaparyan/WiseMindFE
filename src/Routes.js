@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import PageNotFound from './containers/PageNotFound/PageNotFound';
+import PageNotFound from './components/PageNotFound/PageNotFound';
 import Home from './containers/Home/Home';
 import About from './containers/About/About';
 import CareerOpportunities from './containers/CareerOpportunities/CareerOpportunities';
