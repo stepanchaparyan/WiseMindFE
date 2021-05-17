@@ -17,7 +17,7 @@ const optimization = () => {
     splitChunks: {
       chunks: 'all',
       minSize: 10000,
-      maxSize: 250000
+      maxSize: 500000
     }
   };
 
@@ -94,6 +94,10 @@ const plugins = () => {
         from: path.resolve(__dirname, 'src/favicon.ico'),
         to: path.resolve(__dirname, 'build')
       }
+      // {
+      //   from: path.resolve(__dirname, 'src/assets'),
+      //   to: path.resolve(__dirname, 'build/assets')
+      // }
     ]),
     new MiniCssExtractPlugin({
       filename: filename('css'),
@@ -148,30 +152,10 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|pdf|svg|gif|webp|pdf|jp2)$/,
-        use: [
-          'file-loader',
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              mozjpeg: {
-                progressive: true
-              },
-              optipng: {
-                enabled: false
-              },
-              pngquant: {
-                quality: [0.65, 0.9],
-                speed: 4
-              },
-              gifsicle: {
-                interlaced: false
-              },
-              webp: {
-                quality: 96
-              }
-            }
-          }
-        ]
+        loader: 'file-loader',
+        options: {
+          outputPath: 'assets'
+        }
       },
       {
         test: /\.(ttf|woff|woff2|eot)$/,
