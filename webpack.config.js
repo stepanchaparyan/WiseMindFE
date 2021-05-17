@@ -159,7 +159,7 @@ module.exports = {
       },
       {
         test: /\.(ttf|woff|woff2|eot)$/,
-        use: ['file-loader'],
+        use: 'file-loader',
         options: {
           outputPath: 'assets'
         }
