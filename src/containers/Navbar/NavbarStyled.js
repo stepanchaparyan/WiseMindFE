@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { desktopUp } from '../../styles/mediaQueries/mixins';
 import PaperPlaneWhite from '../../assets/paper-plane-16_white.png';
 import PaperPlaneGray from '../../assets/paper-plane-16_gray.png';
-import ReactFlagsSelect from 'react-flags-select';
 
 export const Container = styled.nav`
   display: flex;
@@ -90,7 +89,7 @@ export const NavLinkContainer = styled.div`
 `;
 
 export const RightContainer = styled.div`
-  flex-direction: column;
+  flex-direction: column-reverse;
   font-weight: bold;
   display: ${({ open }) => (open ? 'flex' : 'none')};
   background: ${props => props.theme.black};
@@ -104,14 +103,15 @@ export const RightContainer = styled.div`
     position: relative;
     background: none;
     padding-right: 30px;
-    top: 3px;
+    top: 0;
   `};
 `;
 
 export const SendRequestButton = styled.a`
   display: flex;
   padding: 8px;
-  height: 16px;
+  height: 15px;
+  margin-top: 2px;
   border: solid 1px white;
   background: transparent;
   text-align: center;
@@ -122,7 +122,7 @@ export const SendRequestButton = styled.a`
   text-decoration: none;
   white-space: nowrap;
   ${desktopUp`
-    margin-left: 30px;
+    margin-left: 20px;
   `};
   :hover {
     background: white;
@@ -154,23 +154,6 @@ export const Hamburger = styled.img`
   `};
 `;
 
-export const ReactFlagsSelectStyled = styled(ReactFlagsSelect)`
-  button {
-    color: white;
-    padding: 4px;
-    font-weight: bold;
-    border: 1px solid;
-    outline: none;
-    ${desktopUp`
-      background: slategray;
-      border: none;
-    `};
-  }
-  ${desktopUp`
-    min-width: 130px;
-  `};
-`;
-
 export const customStyles = {
   control: () => ({
     width: 120,
@@ -178,14 +161,19 @@ export const customStyles = {
     background: 'slategray',
     borderRadius: 4,
     opacity: 0.9,
-    marginTop: 6,
-    cursor: 'pointer'
+    margin: '16px 0 0 16px',
+    cursor: 'pointer',
+    '@media (min-width: 1024px)': { margin: '2px 0 0 0' }
   }),
   placeholder: defaultStyles => ({
     ...defaultStyles,
     color: 'white',
     marginTop: 1,
     fontWeight: 'bold'
+  }),
+  valueContainer: defaultStyles => ({
+    ...defaultStyles,
+    padding: '4px 6px'
   }),
   menu: provided => ({
     ...provided,

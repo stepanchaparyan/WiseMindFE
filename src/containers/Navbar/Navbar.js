@@ -95,14 +95,14 @@ const Navbar = ({
                   </NavLinks>
                 </NavLinkContainer>
               )}
-              <Select
-                options={languagesList}
-                styles={customStyles}
-                onChange={changeHandler}
-                placeholder={languageLabel}
-                components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }}
-              />
               <RightContainer open={open}>
+                <Select
+                  options={languagesList}
+                  styles={customStyles}
+                  onChange={changeHandler}
+                  placeholder={languageLabel}
+                  components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }}
+                />
                 <SendRequestButton target={BLANK} href={sentRequest?.h_link}>
                   {sentRequest?.title}
                   <PaperPlaneIcon />
