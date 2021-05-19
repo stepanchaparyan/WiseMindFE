@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Select from 'react-select';
 import { connect, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
@@ -12,26 +13,33 @@ import {
   RightContainer,
   PaperPlaneIcon,
   Hamburger,
-  ReactFlagsSelectStyled
+  customStyles
 } from './NavbarStyled';
 import logo from '../../assets/logo.png';
 import hamburger from '../../assets/hamburger.png';
 import { LINK, BLANK } from '../../constants';
 import { getNavbar } from '../../redux/actions/navbarActions';
 import { useOnClickOutside } from '../../hooks/clickOutSide';
-import { languageTransformer } from '../../util/languageTransformer';
-import { showLanguageSelector } from '../../../environment';
 import Loading from '../../components/Loading/Loading';
 import {
   navbarMenusSelector,
   sentRequestSelector,
   loadingSelector
 } from '../../redux/selectors/navbarSelector';
+import { languagesList } from './LanguagesList';
 
 const logoAlt = 'logoAlt';
 const hamburgerAlt = 'hamburgerAlt';
 
-const Navbar = ({ language, setLanguage, sentRequest, navbarMenus, loading }) => {
+const Navbar = ({
+  language,
+  setLanguage,
+  languageLabel,
+  setLanguageLabel,
+  sentRequest,
+  navbarMenus,
+  loading
+}) => {
   const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
   const node = useRef();
@@ -60,7 +68,10 @@ const Navbar = ({ language, setLanguage, sentRequest, navbarMenus, loading }) =>
     setOpen(!open);
   };
 
-  const languagesList = ['en', 'es', 'de', 'fr', 'ru', 'hy']; // will delete later
+  const changeHandler = value => {
+    setLanguage(value.value);
+    setLanguageLabel(value.label);
+  };
 
   return (
     <>
@@ -84,25 +95,14 @@ const Navbar = ({ language, setLanguage, sentRequest, navbarMenus, loading }) =>
                   </NavLinks>
                 </NavLinkContainer>
               )}
+              <Select
+                options={languagesList}
+                styles={customStyles}
+                onChange={changeHandler}
+                placeholder={languageLabel}
+                components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }}
+              />
               <RightContainer open={open}>
-                {showLanguageSelector && (
-                  <ReactFlagsSelectStyled
-                    countries={languageTransformer(languagesList)}
-                    customLabels={{
-                      US: 'English',
-                      ES: 'Español',
-                      FR: 'Français',
-                      DE: 'Deutsch',
-                      RU: 'Русский',
-                      AM: 'Հայերեն'
-                    }}
-                    selected={language}
-                    onSelect={code => setLanguage(code)}
-                    selectedSize={14}
-                    optionsSize={13}
-                    placeholder={'English'}
-                  />
-                )}
                 <SendRequestButton target={BLANK} href={sentRequest?.h_link}>
                   {sentRequest?.title}
                   <PaperPlaneIcon />
@@ -122,7 +122,9 @@ Navbar.propTypes = {
   setLanguage: PropTypes.func.isRequired,
   sentRequest: PropTypes.object, //todo
   navbarMenus: PropTypes.array, // todo
-  loading: PropTypes.bool //todo
+  loading: PropTypes.bool, //todo
+  languageLabel: PropTypes.string.isRequired,
+  setLanguageLabel: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {

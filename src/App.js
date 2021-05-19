@@ -9,7 +9,12 @@ import theme from '../src/styles/theme';
 
 const App = () => {
   const [language, setLanguage] = useState(localStorage.getItem('language') || 'EN');
+  const [languageLabel, setLanguageLabel] = useState(
+    localStorage.getItem('languageLabel') || 'English'
+  );
+
   localStorage.setItem('language', language);
+  localStorage.setItem('languageLabel', languageLabel);
 
   return (
     <ThemeProvider theme={theme}>
@@ -25,7 +30,12 @@ const App = () => {
         </Helmet>
         <Router>
           <>
-            <Navbar language={language} setLanguage={setLanguage} />
+            <Navbar
+              language={language}
+              setLanguage={setLanguage}
+              languageLabel={languageLabel}
+              setLanguageLabel={setLanguageLabel}
+            />
             <Routes language={language} />
             <FooterContainer language={language} />
           </>

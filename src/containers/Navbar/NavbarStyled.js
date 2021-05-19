@@ -170,3 +170,41 @@ export const ReactFlagsSelectStyled = styled(ReactFlagsSelect)`
     min-width: 130px;
   `};
 `;
+
+export const customStyles = {
+  control: () => ({
+    width: 120,
+    color: 'white',
+    background: 'slategray',
+    borderRadius: 4,
+    opacity: 0.9,
+    marginTop: 6,
+    cursor: 'pointer'
+  }),
+  placeholder: defaultStyles => ({
+    ...defaultStyles,
+    color: 'white',
+    marginTop: 1,
+    fontWeight: 'bold'
+  }),
+  menu: provided => ({
+    ...provided,
+    marginTop: 12
+  }),
+  menuList: provided => ({
+    ...provided,
+    background: 'slateGray',
+    borderRadius: 4,
+    padding: 0
+  }),
+  option: provided => ({
+    ...provided,
+    color: 'black',
+    padding: 6,
+    cursor: 'pointer'
+  }),
+  singleValue: provided => ({
+    ...provided,
+    color: 'white'
+  })
+};
