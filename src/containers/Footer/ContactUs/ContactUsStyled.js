@@ -86,7 +86,6 @@ export const CheckboxText = styled.a`
   text-decoration: none;
   font-size: 14px;
   color: white;
-  margin-left: 4px;
   cursor: 'pointer';
 `;
 

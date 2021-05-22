@@ -1,37 +1,72 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { tabletUp } from '../../styles/mediaQueries/mixins';
+import { tabletUp, desktopUp } from '../../styles/mediaQueries/mixins';
 
 export const Container = styled.div`
-  background-color: lightGray;
-  width: 100%;
+  background-color: ${props => props.theme.lightGray};
 `;
 
-export const Module = styled.div`
+export const Context = styled.div`
+  margin: auto 24px;
+  padding-bottom: 30px;
+  font-size: 14px;
+  overflow-wrap: break-word;
+  ${tabletUp`
+    font-size: 16px;
+    margin: auto 100px;
+    padding-bottom: 50px;
+  `};
+`;
+
+export const MainText = styled.div`
+  margin-top: 24px;
+  margin-bottom: 12px;
+`;
+
+export const EmailTextContainer = styled.div`
+  display: inline-grid;
+  ${tabletUp`
+    display: flex;
+  `};
+`;
+
+export const Email = styled.span`
+  color: ${props => props.theme.lighterBlue};
+  ${tabletUp`
+    padding: 0 6px;
+  `};
+`;
+
+export const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 16px;
-`;
-
-export const WelcomeText = styled.div`
-  margin-top: 80px;
-  font-size: 30px;
-  padding: 32px 32px 0 32px;
-  height: 110px;
-`;
-
-export const LongText = styled.div`
-  font-size: 20px;
-  padding: 12px;
-`;
-
-export const LinkStyled = styled(Link)`
-  color: ${props => props.theme.cadetblue};
-  margin: 32px;
-  text-decoration: none;
-  font-size: 26px;
-  ${tabletUp`
-    font-size: 32px;
+  padding-top: 70px;
+  ${desktopUp`
+    padding-left: 100px;
+    padding-top: 100px;
+    flex-direction: row;
   `};
+`;
+
+export const Title = styled.div`
+  display: flex;
+  font-size: 28px;
+  align-items: center;
+  margin: auto;
+  ${desktopUp`
+    font-size: 48px;
+    margin: 0 0 12px 70px;
+  `};
+`;
+
+export const LogoContainer = styled.div`
+  margin: auto;
+  padding: 0;
+  ${desktopUp`
+    margin: 0;
+    padding-left: 150px;
+  `};
+`;
+
+export const Logo = styled.img`
+  width: 100px;
 `;

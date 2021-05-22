@@ -185,17 +185,9 @@ export const CompanyName = styled.span`
   }
 `;
 
-export const TermsConditions = styled(NavLink)`
+export const PrivacyPolicyAndTerms = styled.a`
   text-decoration: none;
-  color: ${props => props.theme.footerTextColor};
-  :hover {
-    color: ${props => props.theme.midLightGray};
-  }
-  margin: 14px 0;
-`;
-
-export const PrivacyPolicy = styled(NavLink)`
-  text-decoration: none;
+  margin: 6px 0;
   color: ${props => props.theme.footerTextColor};
   :hover {
     color: ${props => props.theme.midLightGray};

@@ -1,18 +1,20 @@
 import React from 'react';
-import { Container, Module, WelcomeText, LongText, LinkStyled } from './ClientResourcesStyled';
-import { LINK } from '../../constants';
+import { Container, Module } from './ClientResourcesStyled';
 
 const ClientResources = () => {
   return (
-    <>
-      <Container>
-        <Module>
-          <WelcomeText>ClientResources</WelcomeText>
-          <LongText>ClientResources</LongText>
-          <LinkStyled to={LINK.TO.HOME}>GO HOME</LinkStyled>
-        </Module>
-      </Container>
-    </>
+    <Container>
+      <Module>
+        <a
+          href="https://bucketforfavorites.s3.eu-north-1.amazonaws.com/test.pdf"
+          download="test.pdf"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Download
+        </a>
+      </Module>
+    </Container>
   );
 };
 

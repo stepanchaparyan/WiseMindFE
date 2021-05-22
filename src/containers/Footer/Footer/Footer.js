@@ -35,7 +35,8 @@ import {
   AllRightsReserved,
   AddressTitleContainer,
   AddressText,
-  DMCAContainer
+  DMCAContainer,
+  PrivacyPolicyAndTerms
 } from './FooterStyled';
 import { LINK } from '../../../constants';
 import { BLANK, FACEBOOK_LINK, TWITTER_LINK, INSTAGRAM_LINK } from '../../../constants/url';
@@ -96,12 +97,26 @@ const Footer = ({
         </InfoContainer>
         <LinksContainer>
           <Title>{linksTitle?.title}</Title>
-          {linksNames?.map(({ h_link, title }) => (
-            <Arrow key={title}>
-              <ArrowIcon />
-              <StyledLink to={h_link}>{title}</StyledLink>
-            </Arrow>
-          ))}
+          {linksNames?.map(
+            ({ h_link, title }) =>
+              !h_link.startsWith('https') && (
+                <Arrow key={title}>
+                  <ArrowIcon />
+                  <StyledLink to={h_link}>{title}</StyledLink>
+                </Arrow>
+              )
+          )}
+          {linksNames?.map(
+            ({ h_link, title }) =>
+              h_link.startsWith('https') && (
+                <Arrow key={title}>
+                  <ArrowIcon />
+                  <PrivacyPolicyAndTerms href={h_link} target="_blank" rel="noreferrer">
+                    {title}
+                  </PrivacyPolicyAndTerms>
+                </Arrow>
+              )
+          )}
         </LinksContainer>
         <NewsLetterContainer>
           <Title>{newsLetterTitle?.title}</Title>
