@@ -14,5 +14,6 @@ export const errorSelector = createSelector(
 
 export const allTextsSelector = createSelector(
   careerTextsSelector,
-  ({ careerTexts }) => careerTexts
+  ({ careerTexts }) =>
+    careerTexts.sort((a, b) => (a.position < b.position ? -1 : a.position > b.position ? 1 : 0))
 );

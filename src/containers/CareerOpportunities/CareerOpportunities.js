@@ -54,9 +54,9 @@ const CareerOpportunities = ({ careerTexts, loading, error, language }) => {
               <Context>
                 <MainText>{careerTexts[1].content}</MainText>
                 <EmailTextContainer>
-                  <span>{careerTexts[0].content}</span>
-                  <Email>{careerTexts[2].content}</Email>
-                  <span>{careerTexts[3].content}</span>
+                  <span>{careerTexts[2].content}</span>
+                  <Email>{careerTexts[3].content}</Email>
+                  <span>{careerTexts[4].content}</span>
                 </EmailTextContainer>
               </Context>
             </Container>
