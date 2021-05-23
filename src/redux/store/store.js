@@ -6,6 +6,7 @@ import { careerTextsReducer } from '../reducers/careerTextsReducer';
 import { navbarReducer } from '../reducers/navbarReducer';
 import { footerReducer } from '../reducers/footerReducer';
 import { homeImagesReducer } from '../reducers/homeImagesReducer';
+import { languagesListReducer } from '../reducers/languagesListReducer';
 
 const middleware = [thunk];
 
@@ -14,7 +15,8 @@ const reducer = combineReducers({
   careerTexts: careerTextsReducer,
   navbar: navbarReducer,
   footer: footerReducer,
-  homeImages: homeImagesReducer
+  homeImages: homeImagesReducer,
+  languagesList: languagesListReducer
 });
 
 const initialState = {};

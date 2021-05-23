@@ -13,12 +13,15 @@ import {
   RightContainer,
   PaperPlaneIcon,
   Hamburger,
-  customStyles
+  customStyles,
+  GlobeIcon
 } from './NavbarStyled';
 import logo from '../../assets/logo.png';
+import globe from '../../assets/globe.png';
 import hamburger from '../../assets/hamburger.png';
 import { LINK, BLANK } from '../../constants';
 import { getNavbar } from '../../redux/actions/navbarActions';
+import { getLanguagesList } from '../../redux/actions/languagesListAction';
 import { useOnClickOutside } from '../../hooks/clickOutSide';
 import Loading from '../../components/Loading/Loading';
 import {
@@ -26,7 +29,7 @@ import {
   sentRequestSelector,
   loadingSelector
 } from '../../redux/selectors/navbarSelector';
-import { languagesList } from './LanguagesList';
+import { languagesSelector } from '../../redux/selectors/languagesListSelector';
 
 const logoAlt = 'logoAlt';
 const hamburgerAlt = 'hamburgerAlt';
@@ -38,17 +41,23 @@ const Navbar = ({
   setLanguageLabel,
   sentRequest,
   navbarMenus,
-  loading
+  loading,
+  languagesList
 }) => {
   const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
   const node = useRef();
+
+  const languagesUpdatedList = languagesList?.map(item => {
+    return { value: item.key, label: item.name };
+  });
 
   useOnClickOutside(node, () => setOpen(false));
 
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(getLanguagesList());
     dispatch(getNavbar(language.toLowerCase()));
   }, [dispatch, language]);
 
@@ -97,11 +106,15 @@ const Navbar = ({
               )}
               <RightContainer open={open}>
                 <Select
-                  options={languagesList}
+                  options={languagesUpdatedList}
                   styles={customStyles}
                   onChange={changeHandler}
                   placeholder={languageLabel}
-                  components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }}
+                  components={{
+                    // eslint-disable-next-line react/display-name
+                    DropdownIndicator: () => <GlobeIcon src={globe} alt={logoAlt} />,
+                    IndicatorSeparator: () => null
+                  }}
                 />
                 <SendRequestButton target={BLANK} href={sentRequest?.h_link}>
                   {sentRequest?.title}
@@ -124,14 +137,16 @@ Navbar.propTypes = {
   navbarMenus: PropTypes.array, // todo
   loading: PropTypes.bool, //todo
   languageLabel: PropTypes.string.isRequired,
-  setLanguageLabel: PropTypes.func.isRequired
+  setLanguageLabel: PropTypes.func.isRequired,
+  languagesList: PropTypes.array // todo
 };
 
 const mapStateToProps = state => {
   return {
     sentRequest: sentRequestSelector(state),
     navbarMenus: navbarMenusSelector(state),
-    loading: loadingSelector(state)
+    loading: loadingSelector(state),
+    languagesList: languagesSelector(state)
   };
 };
 
