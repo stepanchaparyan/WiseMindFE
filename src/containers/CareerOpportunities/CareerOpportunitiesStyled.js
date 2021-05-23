@@ -20,19 +20,16 @@ export const Context = styled.div`
 export const MainText = styled.div`
   margin-top: 24px;
   margin-bottom: 12px;
-`;
-
-export const EmailTextContainer = styled.div`
-  display: inline-grid;
+  *:nth-child(2) {
+    font-weight: bold;
+  }
+  > span {
+    display: block;
+  }
   ${tabletUp`
-    display: flex;
-  `};
-`;
-
-export const Email = styled.span`
-  color: ${props => props.theme.lighterBlue};
-  ${tabletUp`
-    padding: 0 6px;
+    > span {
+      display: inline;
+    }
   `};
 `;
 

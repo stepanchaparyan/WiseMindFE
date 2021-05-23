@@ -13,8 +13,6 @@ import {
   Container,
   Context,
   MainText,
-  EmailTextContainer,
-  Email,
   TitleContainer,
   Title,
   LogoContainer,
@@ -37,6 +35,10 @@ const CareerOpportunities = ({ careerTexts, loading, error, language }) => {
     setCloseModal(false);
   };
 
+  const textWithEmail = careerTexts[1]?.content
+    ?.split('\\n')
+    .map((item, i) => <span key={i}>{item}</span>);
+
   return (
     <>
       {loading ? (
@@ -49,15 +51,11 @@ const CareerOpportunities = ({ careerTexts, loading, error, language }) => {
                 <LogoContainer>
                   <Logo src={logo} alt={logoAlt}></Logo>
                 </LogoContainer>
-                <Title>{careerTexts[1].title}</Title>
+                <Title>{careerTexts[0].title}</Title>
               </TitleContainer>
               <Context>
-                <MainText>{careerTexts[1].content}</MainText>
-                <EmailTextContainer>
-                  <span>{careerTexts[2].content}</span>
-                  <Email>{careerTexts[3].content}</Email>
-                  <span>{careerTexts[4].content}</span>
-                </EmailTextContainer>
+                <MainText>{careerTexts && careerTexts[0].content}</MainText>
+                <MainText>{textWithEmail}</MainText>
               </Context>
             </Container>
           )}

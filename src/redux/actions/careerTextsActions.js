@@ -11,7 +11,6 @@ export const getCareerTexts = lang => async dispatch => {
     dispatch({ type: actionTypes.GET_CAREER_TEXTS_REQUEST });
 
     const { data } = await axios.get(createURL(lang));
-    console.log(data);
     dispatch({
       type: actionTypes.GET_CAREER_TEXTS_SUCCESS,
       payload: data
