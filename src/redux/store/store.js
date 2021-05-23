@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { homeTextsReducer } from '../reducers/homeTextsReducer';
 import { careerTextsReducer } from '../reducers/careerTextsReducer';
+import { aboutTextsReducer } from '../reducers/aboutTextsReducer';
 import { navbarReducer } from '../reducers/navbarReducer';
 import { footerReducer } from '../reducers/footerReducer';
 import { homeImagesReducer } from '../reducers/homeImagesReducer';
@@ -13,6 +14,7 @@ const middleware = [thunk];
 const reducer = combineReducers({
   homeTexts: homeTextsReducer,
   careerTexts: careerTextsReducer,
+  aboutTexts: aboutTextsReducer,
   navbar: navbarReducer,
   footer: footerReducer,
   homeImages: homeImagesReducer,

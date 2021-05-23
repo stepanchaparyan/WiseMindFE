@@ -1,19 +1,19 @@
 import { createSelector } from 'reselect';
 
-const careerTextsSelector = state => state.careerTexts;
+const aboutTextsSelector = state => state.aboutTexts;
 
 export const loadingSelector = createSelector(
-  careerTextsSelector,
+  aboutTextsSelector,
   ({ loading }) => loading
 );
 
 export const errorSelector = createSelector(
-  careerTextsSelector,
+  aboutTextsSelector,
   ({ error }) => error
 );
 
 export const allTextsSelector = createSelector(
-  careerTextsSelector,
-  ({ careerTexts }) =>
-    careerTexts?.sort((a, b) => (a.position < b.position ? -1 : a.position > b.position ? 1 : 0))
+  aboutTextsSelector,
+  ({ aboutTexts }) =>
+    aboutTexts?.sort((a, b) => (a.position < b.position ? -1 : a.position > b.position ? 1 : 0))
 );

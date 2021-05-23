@@ -1,20 +1,95 @@
-import React from 'react';
-import { Container, Module, WelcomeText, LongText, LinkStyled } from './AboutStyled';
-import { LINK } from '../../constants';
-import { Link as DownLoadLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import customObject from '../../util/propTypes';
+import { getAboutTexts } from '../../redux/actions/aboutTextsActions';
+import Loading from '../../components/Loading/Loading';
+import {
+  loadingSelector,
+  errorSelector,
+  allTextsSelector
+} from '../../redux/selectors/aboutTextsSelector';
+import {
+  Container,
+  Context,
+  MainText,
+  TitleContainer,
+  Title,
+  LogoContainer,
+  Logo
+} from './AboutStyled';
+import CustomModal from '../../components/Modal/Modal';
+import logo from '../../assets/logo.png';
 
-const About = () => {
+const logoAlt = 'logoAlt';
+
+const About = ({ aboutTexts, loading, error, language }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAboutTexts(language.toLowerCase()));
+  }, [dispatch, language]);
+
+  const [modalIsOpen, setCloseModal] = useState(!error);
+  const handleCloseErrorModal = () => {
+    setCloseModal(false);
+  };
+
   return (
     <>
-      <Container>
-        <Module>
-          <WelcomeText>{'About Us'}</WelcomeText>
-          <LongText>{'About Us'}</LongText>
-          <LinkStyled to={LINK.TO.HOME}>{'GO HOME'}</LinkStyled>
-        </Module>
-      </Container>
+      {loading ? (
+        <Loading></Loading>
+      ) : !error ? (
+        <>
+          {aboutTexts.length > 0 && (
+            <Container>
+              <TitleContainer>
+                <LogoContainer>
+                  <Logo src={logo} alt={logoAlt}></Logo>
+                </LogoContainer>
+                <Title>{aboutTexts[0].title}</Title>
+              </TitleContainer>
+              <Context>
+                {aboutTexts.map((text, i) => (
+                  <MainText key={i}>{text?.content}</MainText>
+                ))}
+              </Context>
+            </Container>
+          )}
+        </>
+      ) : (
+        <CustomModal
+          modalIsOpen={modalIsOpen}
+          onConfirm={handleCloseErrorModal}
+          title="Error"
+          text="Something went wrong, please try later"
+          buttonConfirmText="OK"
+          titleBgColor="gray"
+          isBigSize
+          shouldShowFooter
+        ></CustomModal>
+      )}
     </>
   );
 };
 
-export default About;
+About.propTypes = {
+  language: PropTypes.string.isRequired,
+  aboutTexts: PropTypes.arrayOf(customObject),
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.object
+};
+
+About.defaultProps = {
+  error: null
+};
+
+const mapStateToProps = state => {
+  return {
+    loading: loadingSelector(state),
+    error: errorSelector(state),
+    aboutTexts: allTextsSelector(state)
+  };
+};
+
+export default connect(mapStateToProps)(About);
