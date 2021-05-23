@@ -42,6 +42,7 @@ import { LINK } from '../../../constants';
 import { BLANK, FACEBOOK_LINK, TWITTER_LINK, INSTAGRAM_LINK } from '../../../constants/url';
 import logo from '../../../assets/logo.png';
 import { DMCA } from '../Dmca';
+import { splitterByNewLine } from '../../../util/splitterByNewLine';
 
 const facebook = 'facebook';
 const twitter = 'twitter';
@@ -79,7 +80,7 @@ const Footer = ({
               <AddressIcon />
               <div>{addressText?.title}</div>
             </AddressTitleContainer>
-            <AddressText>{address?.title}</AddressText>
+            <AddressText>{splitterByNewLine(address?.title)}</AddressText>
           </Address>
           <Phone>
             <PhoneIcon />

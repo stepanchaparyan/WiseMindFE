@@ -20,6 +20,7 @@ import {
 } from './CareerOpportunitiesStyled';
 import CustomModal from '../../components/Modal/Modal';
 import logo from '../../assets/logo.png';
+import { splitterByNewLine } from '../../util/splitterByNewLine';
 
 const logoAlt = 'logoAlt';
 
@@ -34,10 +35,6 @@ const CareerOpportunities = ({ careerTexts, loading, error, language }) => {
   const handleCloseErrorModal = () => {
     setCloseModal(false);
   };
-
-  const textWithEmail = careerTexts[1]?.content
-    ?.split('\\n')
-    .map((item, i) => <span key={i}>{item}</span>);
 
   return (
     <>
@@ -55,7 +52,7 @@ const CareerOpportunities = ({ careerTexts, loading, error, language }) => {
               </TitleContainer>
               <Context>
                 <MainText>{careerTexts && careerTexts[0].content}</MainText>
-                <MainText>{textWithEmail}</MainText>
+                <MainText>{splitterByNewLine(careerTexts[1]?.content)}</MainText>
               </Context>
             </Container>
           )}
