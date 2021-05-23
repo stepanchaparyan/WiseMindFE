@@ -72,7 +72,7 @@ const Footer = ({
             <ImageContainer to={LINK.TO.HOME}>
               <Logo src={logo} alt={alt} />
             </ImageContainer>
-            <LogoText>{appFullName?.title}</LogoText>
+            <LogoText>{splitterByNewLine(appFullName?.title)}</LogoText>
           </LogoContainer>
           <Text>{infoText?.title}</Text>
           <Address>

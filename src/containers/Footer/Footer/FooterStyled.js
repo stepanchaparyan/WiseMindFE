@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { tabletUp } from '../../../styles/mediaQueries/mixins';
+import { mobileUp, tabletUp, desktopUp } from '../../../styles/mediaQueries/mixins';
 import FacebookMetal from '../../../assets/facebook-metal.png';
 import TwitterMetal from '../../../assets/twitter-metal.png';
 import InstagramMetal from '../../../assets/instagram-metal.png';
@@ -42,7 +42,7 @@ export const InfoContainer = styled.div`
   flex-wrap: no-wrap;
   ${tabletUp`
     flex-wrap: wrap;
-    width: 45%;
+    width: 50%;
   `};
 `;
 
@@ -236,17 +236,27 @@ export const ImageContainer = styled(NavLink)`
 
 export const Logo = styled.img`
   width: 60px;
+  ${desktopUp`
+    width: 80px;
+  `};
 `;
 
 export const LogoText = styled.span`
-  margin: auto 14px;
-  font-size: 22px;
+  display: grid;
+  margin: auto 4px;
+  font-size: 15px;
   cursor: pointer;
   color: white;
   :hover {
     color: ${props => props.theme.lightBlue};
     transition: color 0.5s;
   }
+  ${tabletUp`
+    font-size: 18px;
+  `};
+  ${desktopUp`
+    font-size: 26px;
+  `};
 `;
 
 export const LinksContainer = styled.div`
