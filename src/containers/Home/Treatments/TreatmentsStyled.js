@@ -9,6 +9,11 @@ export const TreatmentsContainer = styled.div`
   padding: 60px 0;
   ${tabletUp`
     flex-direction: row;
+    flex-flow: wrap;
+    > :nth-child(n+4) {
+      width: 40%;
+      text-align: left;
+    }
   `};
 `;
 
@@ -21,7 +26,6 @@ export const ButtonStyled = styled.span`
   transition: color 0.5s;
   :hover {
     color: ${props => props.theme.medBlue};
-  }
   }
 `;
 
@@ -71,4 +75,8 @@ export const TitleText = styled.div`
 
 export const MainText = styled.div`
   color: ${props => props.theme.moreDarkGray};
+  text-indent: 16px;
+  > span {
+    display: grid;
+  }
 `;

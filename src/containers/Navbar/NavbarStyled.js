@@ -35,7 +35,7 @@ export const Logo = styled.img`
 
 export const GlobeIcon = styled.img`
   width: 24px;
-  margin-right: 6px;
+  margin-left: 6px;
 `;
 
 export const NavLinks = styled.div`
@@ -169,6 +169,7 @@ export const customStyles = {
     margin: '16px 0 0 16px',
     cursor: 'pointer',
     display: 'flex',
+    flexDirection: 'row-reverse',
     '@media (min-width: 1024px)': { margin: '2px 0 0 0' }
   }),
   placeholder: defaultStyles => ({

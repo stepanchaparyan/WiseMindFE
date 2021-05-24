@@ -9,11 +9,12 @@ import {
   TitleText,
   MainText
 } from './TreatmentsStyled';
+import { splitterByNewLine } from '../../../util/splitterByNewLine';
 
 const Treatments = ({ treatments, readMoreText, readLessText }) => {
-  const oneTreatment = treatment => {
+  const oneTreatment = (treatment, i) => {
     const text = treatment?.content;
-    const textMaxLength = 120;
+    const textMaxLength = i < 3 ? 263 : 490;
     const [isLongText, setLongText] = useState(text > textMaxLength);
     const buttonText = isLongText ? readLessText : readMoreText;
     const updatedText = isLongText ? text : `${text?.slice(0, textMaxLength)}`;
@@ -23,7 +24,7 @@ const Treatments = ({ treatments, readMoreText, readLessText }) => {
         <Container color={treatment.background}>
           <TitleText>{treatment?.title}</TitleText>
           <MainText>
-            {updatedText}
+            {splitterByNewLine(updatedText)}
             {treatment?.content?.length > textMaxLength && (
               <>
                 {!isLongText && <span>...</span>}
@@ -38,7 +39,7 @@ const Treatments = ({ treatments, readMoreText, readLessText }) => {
 
   return (
     <TreatmentsContainer>
-      {treatments?.map((treatment, i) => i < 3 && oneTreatment(treatment, i))}
+      {treatments?.map((treatment, i) => i < 5 && oneTreatment(treatment, i))}
     </TreatmentsContainer>
   );
 };

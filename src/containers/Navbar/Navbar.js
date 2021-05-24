@@ -74,7 +74,7 @@ const Navbar = ({
   };
 
   const toggle = () => {
-    setOpen(!open);
+    // setOpen(!open);
   };
 
   const changeHandler = value => {
