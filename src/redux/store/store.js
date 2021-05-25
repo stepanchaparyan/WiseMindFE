@@ -8,6 +8,7 @@ import { navbarReducer } from '../reducers/navbarReducer';
 import { footerReducer } from '../reducers/footerReducer';
 import { homeImagesReducer } from '../reducers/homeImagesReducer';
 import { languagesListReducer } from '../reducers/languagesListReducer';
+import { newsLettersImagesReducer, newsLettersTextsReducer } from '../reducers/newsLettersReducer';
 
 const middleware = [thunk];
 
@@ -18,7 +19,9 @@ const reducer = combineReducers({
   navbar: navbarReducer,
   footer: footerReducer,
   homeImages: homeImagesReducer,
-  languagesList: languagesListReducer
+  languagesList: languagesListReducer,
+  newsLettersImages: newsLettersImagesReducer,
+  newsLettersTexts: newsLettersTextsReducer
 });
 
 const initialState = {};

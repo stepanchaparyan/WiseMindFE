@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { mobileUp, tabletUp, desktopUp } from '../../../styles/mediaQueries/mixins';
+import { tabletUp, desktopUp } from '../../../styles/mediaQueries/mixins';
 import FacebookMetal from '../../../assets/facebook-metal.png';
 import TwitterMetal from '../../../assets/twitter-metal.png';
 import InstagramMetal from '../../../assets/instagram-metal.png';

@@ -6,6 +6,7 @@ import Home from './containers/Home/Home';
 import About from './containers/About/About';
 import CareerOpportunities from './containers/CareerOpportunities/CareerOpportunities';
 import ClientResources from './containers/ClientResources/ClientResources';
+import NewsLetter from './containers/NewsLetter/NewsLetter';
 
 const Routes = ({ language }) => {
   return (
@@ -22,6 +23,7 @@ const Routes = ({ language }) => {
         path="/client_resources"
         component={() => <ClientResources language={language} />}
       />
+      <Route exact path="/newsletter" component={() => <NewsLetter language={language} />} />
       <Route exact path="*" component={PageNotFound} />
     </Switch>
   );

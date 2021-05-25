@@ -7,12 +7,14 @@ export const TreatmentsContainer = styled.div`
   justify-content: center;
   background-color: ${props => props.theme.lightGray};
   padding: 60px 0;
+  > :nth-child(n + 4) {
+    text-align: left;
+  }
   ${tabletUp`
     flex-direction: row;
     flex-flow: wrap;
     > :nth-child(n+4) {
       width: 40%;
-      text-align: left;
     }
   `};
 `;
