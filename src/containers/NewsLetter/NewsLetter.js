@@ -13,7 +13,7 @@ import {
 import { Container, TitleContainer, Title, LogoContainer, Logo } from './NewsLetterStyled';
 import CustomModal from '../../components/Modal/Modal';
 
-const logoAlt = 'logoAlt';
+const newsLetter = 'newsLetter';
 
 const NewsLetter = ({ newsLettersImages, newsLettersTexts, loading, error, language }) => {
   const dispatch = useDispatch();
@@ -41,7 +41,7 @@ const NewsLetter = ({ newsLettersImages, newsLettersTexts, loading, error, langu
               </TitleContainer>
               <LogoContainer>
                 {newsLettersImages?.map(image => (
-                  <Logo src={image.image_url} key={image.image_url} alt={logoAlt}></Logo>
+                  <Logo src={image.image_url} key={image.image_url} alt={newsLetter}></Logo>
                 ))}
               </LogoContainer>
             </Container>
