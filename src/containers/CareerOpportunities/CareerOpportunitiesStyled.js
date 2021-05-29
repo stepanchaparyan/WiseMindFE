@@ -53,16 +53,16 @@ export const MainText = styled.div`
 
 export const Title = styled.div`
   display: flex;
-  font-size: 28px;
+  font-size: 24px;
   align-items: center;
   margin: auto;
   ${desktopUp`
-    text-indent: -75px;
-    font-size: 48px;
+    text-indent: -60px;
+    font-size: 36px;
     margin: 0 0 12px 70px;
   `};
   ${desktopLargeUp`
-    margin: 0 0 12px 190px;
+    margin: 0 0 12px 110px;
   `};
 `;
 
