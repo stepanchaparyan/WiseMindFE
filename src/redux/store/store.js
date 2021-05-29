@@ -9,6 +9,7 @@ import { footerReducer } from '../reducers/footerReducer';
 import { homeImagesReducer } from '../reducers/homeImagesReducer';
 import { languagesListReducer } from '../reducers/languagesListReducer';
 import { newsLettersImagesReducer, newsLettersTextsReducer } from '../reducers/newsLettersReducer';
+import { treatmentsTextsReducer } from '../reducers/treatmentsTextsReducer';
 
 const middleware = [thunk];
 
@@ -21,7 +22,8 @@ const reducer = combineReducers({
   homeImages: homeImagesReducer,
   languagesList: languagesListReducer,
   newsLettersImages: newsLettersImagesReducer,
-  newsLettersTexts: newsLettersTextsReducer
+  newsLettersTexts: newsLettersTextsReducer,
+  treatmentsTexts: treatmentsTextsReducer
 });
 
 const initialState = {};
