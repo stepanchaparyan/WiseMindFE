@@ -13,10 +13,11 @@ import {
   Container,
   Context,
   MainText,
-  TitleContainer,
+  VerticalLine,
   Title,
   LogoContainer,
-  Logo
+  Logo,
+  TextsContainer
 } from './CareerOpportunitiesStyled';
 import CustomModal from '../../components/Modal/Modal';
 import logo from '../../assets/logo.png';
@@ -44,15 +45,16 @@ const CareerOpportunities = ({ careerTexts, loading, error, language }) => {
         <>
           {careerTexts.length > 0 && (
             <Container>
-              <TitleContainer>
+              <Context>
                 <LogoContainer>
                   <Logo src={logo} alt={logoAlt}></Logo>
                 </LogoContainer>
-                <Title>{careerTexts[0].title}</Title>
-              </TitleContainer>
-              <Context>
-                <MainText>{careerTexts && careerTexts[0].content}</MainText>
-                <MainText>{splitterByNewLine(careerTexts[1]?.content)}</MainText>
+                <VerticalLine></VerticalLine>
+                <TextsContainer>
+                  <Title>{careerTexts[0].title}</Title>
+                  <MainText>{careerTexts && careerTexts[0].content}</MainText>
+                  <MainText>{splitterByNewLine(careerTexts[1]?.content)}</MainText>
+                </TextsContainer>
               </Context>
             </Container>
           )}

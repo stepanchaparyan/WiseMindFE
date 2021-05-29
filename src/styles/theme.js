@@ -19,7 +19,8 @@ const theme = {
   white: '#ffffff',
   lightBlue: '#1996cd',
   lighterBlue: '#2398c9',
-  medBlue: '#155C7A'
+  medBlue: '#155C7A',
+  lightOrange: '#F0E6DD'
 };
 
 export default theme;

@@ -59,7 +59,7 @@ const Navbar = ({
   useEffect(() => {
     dispatch(getLanguagesList());
     dispatch(getNavbar(language.toLowerCase()));
-  }, [dispatch]);
+  }, [dispatch, language]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
