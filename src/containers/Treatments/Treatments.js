@@ -29,7 +29,9 @@ import {
   Logo,
   MyAccordion,
   GroupTherapyTexts,
-  ParentingSkillsTexts
+  ParentingSkillsTexts,
+  ParentingSkillsTextsLi,
+  ParentingSkillsTextsSpan
 } from './TreatmentsStyled';
 import CustomModal from '../../components/Modal/Modal';
 import logo from '../../assets/logo.png';
@@ -56,7 +58,12 @@ const Treatments = ({
     setCloseModal(false);
   };
 
-  console.log(groupTherapy);
+  const splitAndJoinByDot = text => {
+    return text
+      .split('.')
+      .filter((item, i) => i !== 0)
+      .join('.');
+  };
 
   return (
     <>
@@ -106,6 +113,64 @@ const Treatments = ({
                     <AccordionItemPanel>
                       <ParentingSkillsTexts>{parentingSkills[0]?.content}</ParentingSkillsTexts>
                       <ParentingSkillsTexts>{parentingSkills[1]?.content}</ParentingSkillsTexts>
+                      <ParentingSkillsTexts>{parentingSkills[2]?.content}</ParentingSkillsTexts>
+                      <ParentingSkillsTextsLi>{parentingSkills[3]?.content}</ParentingSkillsTextsLi>
+                      <ParentingSkillsTextsLi>{parentingSkills[4]?.content}</ParentingSkillsTextsLi>
+                      <ParentingSkillsTextsLi>{parentingSkills[5]?.content}</ParentingSkillsTextsLi>
+                      <ParentingSkillsTextsLi>{parentingSkills[6]?.content}</ParentingSkillsTextsLi>
+                      <ParentingSkillsTextsLi>{parentingSkills[7]?.content}</ParentingSkillsTextsLi>
+                      <ParentingSkillsTextsLi>{parentingSkills[8]?.content}</ParentingSkillsTextsLi>
+                      <ParentingSkillsTexts isBold isMargin>
+                        {parentingSkills[9]?.content}
+                      </ParentingSkillsTexts>
+                      <ParentingSkillsTexts>{parentingSkills[10]?.content}</ParentingSkillsTexts>
+                      <ParentingSkillsTextsLi>
+                        {parentingSkills[11]?.content}
+                      </ParentingSkillsTextsLi>
+                      <ParentingSkillsTextsLi>
+                        {parentingSkills[12]?.content}
+                      </ParentingSkillsTextsLi>
+                      <ParentingSkillsTextsLi>
+                        {parentingSkills[13]?.content}
+                      </ParentingSkillsTextsLi>
+                      <ParentingSkillsTextsLi>
+                        {parentingSkills[14]?.content}
+                      </ParentingSkillsTextsLi>
+                      <ParentingSkillsTextsLi>
+                        {parentingSkills[15]?.content}
+                      </ParentingSkillsTextsLi>
+                      <ParentingSkillsTextsLi>
+                        {parentingSkills[16]?.content}
+                      </ParentingSkillsTextsLi>
+                      <ParentingSkillsTextsLi>
+                        {parentingSkills[17]?.content}
+                      </ParentingSkillsTextsLi>
+                      <ParentingSkillsTexts>{parentingSkills[18]?.content}</ParentingSkillsTexts>
+                      <ParentingSkillsTextsLi isBold>
+                        {parentingSkills[19]?.content.split('.')[0]}.
+                        <ParentingSkillsTextsSpan>
+                          {splitAndJoinByDot(parentingSkills[19]?.content)}
+                        </ParentingSkillsTextsSpan>
+                      </ParentingSkillsTextsLi>
+                      <ParentingSkillsTextsLi isBold>
+                        {parentingSkills[20]?.content.split('.')[0]}.
+                        <ParentingSkillsTextsSpan>
+                          {splitAndJoinByDot(parentingSkills[20]?.content)}
+                        </ParentingSkillsTextsSpan>
+                      </ParentingSkillsTextsLi>
+                      <ParentingSkillsTextsLi isBold>
+                        {parentingSkills[21]?.content.split('.')[0]}.
+                        <ParentingSkillsTextsSpan>
+                          {splitAndJoinByDot(parentingSkills[21]?.content)}
+                        </ParentingSkillsTextsSpan>
+                      </ParentingSkillsTextsLi>
+                      <ParentingSkillsTextsLi isBold>
+                        {parentingSkills[22]?.content.split('.')[0]}.
+                        <ParentingSkillsTextsSpan>
+                          {splitAndJoinByDot(parentingSkills[22]?.content)}
+                        </ParentingSkillsTextsSpan>
+                      </ParentingSkillsTextsLi>
+                      <ParentingSkillsTexts>{parentingSkills[23]?.content}</ParentingSkillsTexts>
                     </AccordionItemPanel>
                   </AccordionItem>
                 </MyAccordion>

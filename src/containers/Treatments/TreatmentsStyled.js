@@ -89,5 +89,14 @@ export const GroupTherapyTexts = styled.div`
 `;
 
 export const ParentingSkillsTexts = styled.div`
-  color: ${props => (props.index === 2 ? 'gray' : 'inherit')};
+  font-weight: ${props => (props.isBold ? 'bold' : 'normal')};
+  margin: ${props => (props.isMargin ? '12px 0 4px' : '0')};
+`;
+
+export const ParentingSkillsTextsLi = styled.li`
+  font-weight: ${props => (props.isBold ? 'bold' : 'normal')};
+`;
+
+export const ParentingSkillsTextsSpan = styled.span`
+  font-weight: normal;
 `;
