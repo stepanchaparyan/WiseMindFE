@@ -83,7 +83,6 @@ export const NavLinkContainer = styled.div`
   position: absolute;
   top: 56px;
   width: 100%;
-  height: 350px;
   z-index: 1;
   ${desktopUp`
     display: flex;

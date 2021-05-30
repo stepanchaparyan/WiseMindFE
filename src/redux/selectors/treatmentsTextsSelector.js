@@ -28,3 +28,9 @@ export const groupTherapySelector = createSelector(
   ({ treatmentsTexts }) =>
     treatmentsTexts.filter(item => item.section === 'treatments_group_therapy')
 );
+
+export const parentingSkillsSelector = createSelector(
+  treatmentsTextsSelector,
+  ({ treatmentsTexts }) =>
+    treatmentsTexts.filter(item => item.section === 'treatments_parenting_skills')
+);

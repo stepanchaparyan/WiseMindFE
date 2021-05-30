@@ -16,7 +16,8 @@ import {
   errorSelector,
   allTreatmentsTextsSelector,
   individualPsychotherapySelector,
-  groupTherapySelector
+  groupTherapySelector,
+  parentingSkillsSelector
 } from '../../redux/selectors/treatmentsTextsSelector';
 import {
   Container,
@@ -27,7 +28,8 @@ import {
   LogoContainer,
   Logo,
   MyAccordion,
-  GroupTherapyTexts
+  GroupTherapyTexts,
+  ParentingSkillsTexts
 } from './TreatmentsStyled';
 import CustomModal from '../../components/Modal/Modal';
 import logo from '../../assets/logo.png';
@@ -38,6 +40,7 @@ const Treatments = ({
   treatmentsTexts,
   individualPsychotherapy,
   groupTherapy,
+  parentingSkills,
   loading,
   error,
   language
@@ -95,6 +98,17 @@ const Treatments = ({
                     </AccordionItemPanel>
                   </AccordionItem>
                 </MyAccordion>
+                <MyAccordion allowZeroExpanded>
+                  <AccordionItem>
+                    <AccordionItemHeading>
+                      <AccordionItemButton>{parentingSkills[0]?.title}</AccordionItemButton>
+                    </AccordionItemHeading>
+                    <AccordionItemPanel>
+                      <ParentingSkillsTexts>{parentingSkills[0]?.content}</ParentingSkillsTexts>
+                      <ParentingSkillsTexts>{parentingSkills[1]?.content}</ParentingSkillsTexts>
+                    </AccordionItemPanel>
+                  </AccordionItem>
+                </MyAccordion>
               </Context>
             </Container>
           )}
@@ -119,6 +133,7 @@ Treatments.propTypes = {
   language: PropTypes.string.isRequired,
   treatmentsTexts: PropTypes.arrayOf(customObject),
   groupTherapy: PropTypes.arrayOf(customObject),
+  parentingSkills: PropTypes.arrayOf(customObject),
   individualPsychotherapy: customObject,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.object
@@ -134,7 +149,8 @@ const mapStateToProps = state => {
     error: errorSelector(state),
     treatmentsTexts: allTreatmentsTextsSelector(state),
     individualPsychotherapy: individualPsychotherapySelector(state),
-    groupTherapy: groupTherapySelector(state)
+    groupTherapy: groupTherapySelector(state),
+    parentingSkills: parentingSkillsSelector(state)
   };
 };
 

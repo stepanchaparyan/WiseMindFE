@@ -3,7 +3,7 @@ import { tabletUp, desktopUp } from '../../styles/mediaQueries/mixins';
 import { Accordion } from 'react-accessible-accordion';
 
 export const Container = styled.div`
-  background-color: #3257740f;
+  background: ${props => props.theme.grayBG1};
 `;
 
 export const Context = styled.div`
@@ -66,15 +66,18 @@ export const MyAccordion = styled(Accordion)`
   }
 
   .accordion__button {
-    background-color: #a4b7d0b5;
+    background: ${props => props.theme.gray1};
     border: 0 solid gray;
+    border-right: 1px solid slategray;
+    border-radius: 22px 3px 22px 3px;
     width: auto;
-    margin: 0.5px;
+    margin: 1px;
   }
   .accordion__panel {
     line-height: 24px;
     text-indent: 20px;
-    background-color: #d3d3d340;
+    background: ${props => props.theme.gray2};
+    border-radius: 3px 22px 3px 22px;
   }
 `;
 
@@ -83,4 +86,8 @@ export const GroupTherapyTexts = styled.div`
   font-weight: ${props => (props.index === 2 ? 'bold' : 'normal')};
   margin: ${props => (props.index === 2 ? '4px 0' : '0')};
   font-size: ${props => (props.index === 2 ? '18px' : 'inherit')};
+`;
+
+export const ParentingSkillsTexts = styled.div`
+  color: ${props => (props.index === 2 ? 'gray' : 'inherit')};
 `;
