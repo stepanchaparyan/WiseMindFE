@@ -81,12 +81,8 @@ export const employeesTitleTextSelector = createSelector(
   ({ homeTexts }) => homeTexts?.find(item => item.section === 'employeesTitleText')
 );
 
-export const aboutUsTextSelector = createSelector(
+export const whoWeAreButtonTextSelector = createSelector(
   homeTextsSelector,
-  ({ homeTexts }) => homeTexts?.find(item => item.section === 'aboutMeButton')
-);
-
-export const contactUsTextSelector = createSelector(
-  homeTextsSelector,
-  ({ homeTexts }) => homeTexts?.find(item => item.section === 'contactUsButton')
+  ({ homeTexts }) =>
+    homeTexts?.find(item => item.section === 'whoWeAre' && item.title === 'whoWeAreButtonText')
 );

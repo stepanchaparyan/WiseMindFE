@@ -19,8 +19,6 @@ import {
   StyledLink,
   ArrowIcon,
   Arrow,
-  NewsLetterContainer,
-  NewsLetterText,
   BottomContainer,
   CompanyName,
   LogoContainer,
@@ -36,13 +34,15 @@ import {
   AddressTitleContainer,
   AddressText,
   DMCAContainer,
-  PrivacyPolicyAndTerms
+  DMCABadge,
+  PrivacyPolicyAndTerms,
+  AppName,
+  CompanyNameContainer
 } from './FooterStyled';
 import { LINK } from '../../../constants';
 import { BLANK, FACEBOOK_LINK, TWITTER_LINK, INSTAGRAM_LINK } from '../../../constants/url';
 import logo from '../../../assets/logo.png';
 import { DMCA } from '../Dmca';
-import { splitterByNewLine } from '../../../util/splitterByNewLine';
 
 const facebook = 'facebook';
 const twitter = 'twitter';
@@ -60,8 +60,6 @@ const Footer = ({
   appFullName,
   linksTitle,
   linksNames,
-  newsLetterTitle,
-  newsLetterText,
   allRights
 }) => {
   return (
@@ -72,7 +70,10 @@ const Footer = ({
             <ImageContainer to={LINK.TO.HOME}>
               <Logo src={logo} alt={alt} />
             </ImageContainer>
-            <LogoText>{splitterByNewLine(appFullName?.title)}</LogoText>
+            <AppName>
+              <LogoText>{appFullName[0]?.title}</LogoText>
+              <LogoText>{appFullName[1]?.title}</LogoText>
+            </AppName>
           </LogoContainer>
           <Text>{infoText?.title}</Text>
           <Address>
@@ -80,7 +81,7 @@ const Footer = ({
               <AddressIcon />
               <div>{addressText?.title}</div>
             </AddressTitleContainer>
-            <AddressText>{splitterByNewLine(address?.title)}</AddressText>
+            <AddressText>{address?.title}</AddressText>
           </Address>
           <Phone>
             <PhoneIcon />
@@ -119,15 +120,16 @@ const Footer = ({
               )
           )}
         </LinksContainer>
-        <NewsLetterContainer>
-          <Title>{newsLetterTitle?.title}</Title>
-          <NewsLetterText>{newsLetterText?.title}</NewsLetterText>
-          <DMCAContainer>{DMCA}</DMCAContainer>
-        </NewsLetterContainer>
+        <DMCAContainer>
+          <DMCABadge>{DMCA}</DMCABadge>
+        </DMCAContainer>
       </MainContainer>
       <BottomContainer>
         <TitleAndDate>
-          <CompanyName>{appFullName?.title}</CompanyName>
+          <CompanyNameContainer>
+            <CompanyName>{appFullName[0]?.title}</CompanyName>
+            <CompanyName>{appFullName[1]?.title}</CompanyName>
+          </CompanyNameContainer>
           <AllRightsReserved>
             &copy; {` ${new Date().getFullYear()}. ${allRights?.title}`}
           </AllRightsReserved>

@@ -24,7 +24,7 @@ const FooterContainer = ({ language }) => {
   const email = footer?.find(item => item.num === 15);
   const phoneText = footer?.find(item => item.num === 16);
   const phone = footer?.find(item => item.num === 17);
-  const appFullName = footer?.find(item => item.num === 18);
+  const appFullName = footer?.filter(item => item.num === 18);
 
   const linksTitle = footer?.find(item => item.num === 19);
   const linksNames = footer?.filter(item => item.num === 20);

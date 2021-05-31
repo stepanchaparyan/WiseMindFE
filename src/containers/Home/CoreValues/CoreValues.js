@@ -16,7 +16,7 @@ import {
   WhoWeAreTitleText,
   WhoWeAreMainText,
   Overlay,
-  ContactUsButton
+  WhoWeAreButton
 } from './CoreValuesStyled';
 import { BLANK } from '../../../constants';
 
@@ -29,7 +29,7 @@ const CoreValues = ({
   coreValuesMainImage,
   coreValuesImages,
   sentRequest,
-  aboutUsText
+  whoWeAreButton
 }) => {
   const [isLongText, setLongText] = useState(false);
   const textLength = 473;
@@ -68,9 +68,9 @@ const CoreValues = ({
         <WhoWeAre>
           <WhoWeAreTitleText>{whoWeAreText?.title}</WhoWeAreTitleText>
           <WhoWeAreMainText>{whoWeAreText?.content}</WhoWeAreMainText>
-          <ContactUsButton target={BLANK} href={sentRequest?.h_link}>
-            {aboutUsText?.title}
-          </ContactUsButton>
+          <WhoWeAreButton target={BLANK} href={sentRequest?.h_link}>
+            {whoWeAreButton?.content}
+          </WhoWeAreButton>
         </WhoWeAre>
       </RightPart>
     </CoreValesContainer>
@@ -85,7 +85,7 @@ CoreValues.propTypes = {
   readLessText: PropTypes.string,
   coreValuesImages: PropTypes.array,
   coreValuesMainImage: customObject,
-  aboutUsText: customObject,
+  whoWeAreButton: customObject,
   sentRequest: customObject
 };
 

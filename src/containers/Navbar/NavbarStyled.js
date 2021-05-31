@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { desktopUp } from '../../styles/mediaQueries/mixins';
+import { desktopUp, desktopLargeUp } from '../../styles/mediaQueries/mixins';
 import PaperPlaneWhite from '../../assets/paper-plane-16_white.png';
 import PaperPlaneGray from '../../assets/paper-plane-16_gray.png';
 
@@ -22,8 +22,8 @@ export const Container = styled.nav`
 export const LogoContainer = styled(NavLink)`
   margin: 0;
   padding: 0;
-  padding-left: 16px;
-  ${desktopUp`
+  padding-left: 18px;
+  ${desktopLargeUp`
     padding-left: 100px;
   `};
 `;

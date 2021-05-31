@@ -130,22 +130,6 @@ export const PhoneText = styled.a`
   }
 `;
 
-export const NewsLetterContainer = styled.div`
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  align-items: flex-start;
-  ${tabletUp`
-    width: 18%;
-  `};
-`;
-
-export const NewsLetterText = styled.div`
-  display: flex;
-  line-height: 1.6;
-  letter-spacing: 0.8px;
-`;
-
 export const BottomContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -173,16 +157,25 @@ export const AllRightsReserved = styled.div`
   display: flex;
 `;
 
-export const CompanyName = styled.span`
-  margin-right: 5px;
+export const CompanyNameContainer = styled.div`
+  margin-bottom: 12px;
+  text-align: center;
+  ${tabletUp`
+    display: flex;
+  `};
+`;
+
+export const CompanyName = styled.div`
   cursor: pointer;
   align-self: center;
-  margin-bottom: 8px;
   color: inherit;
   :hover {
     color: ${props => props.theme.lightBlue};
     transition: color 0.5s;
   }
+  ${tabletUp`
+    margin-right: 10px;
+  `};
 `;
 
 export const PrivacyPolicyAndTerms = styled.a`
@@ -241,8 +234,12 @@ export const Logo = styled.img`
   `};
 `;
 
-export const LogoText = styled.span`
-  display: grid;
+export const AppName = styled.div`
+  margin: 18px 0 18px 6px;
+`;
+
+export const LogoText = styled.div`
+  display: flex;
   margin: auto 4px;
   font-size: 15px;
   cursor: pointer;
@@ -265,7 +262,7 @@ export const LinksContainer = styled.div`
   width: 100%;
   align-items: flex-start;
   ${tabletUp`
-    width: 16%;
+    width: 18%;
   `};
 `;
 
@@ -274,7 +271,6 @@ export const Title = styled.div`
   color: white;
   font-size: 22px;
   margin: 40px 0 15px;
-  align-self: center;
   ${tabletUp`
     margin: 12px 0 34px;
   `};
@@ -304,10 +300,6 @@ export const Arrow = styled.div`
   display: flex;
 `;
 
-export const DMCAContainer = styled.div`
-  margin: 10px 0 0 -4px;
-`;
-
 export const AddressTitleContainer = styled.div`
   display: flex;
 `;
@@ -315,4 +307,19 @@ export const AddressTitleContainer = styled.div`
 export const AddressText = styled.div`
   display: flex;
   margin-left: 6px;
+`;
+
+export const DMCAContainer = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  ${tabletUp`
+    width: 16%;
+    margin-top: 66px;
+  `};
+`;
+
+export const DMCABadge = styled.div`
+  margin: 10px 0 0 -4px;
 `;

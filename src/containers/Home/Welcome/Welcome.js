@@ -1,58 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import customObject from '../../../util/propTypes';
-import {
-  Container,
-  Module,
-  SmallText,
-  TitleText,
-  ButtonsContainer,
-  LongText,
-  LogoContainer,
-  Logo,
-  ContactUsButton,
-  AboutUsButton,
-  TestContainer
-} from './WelcomeStyled';
-import { LINK, BLANK } from '../../../constants';
-import logo from '../../../assets/logo.png';
+import { Container, SubTitle, Title, LongText, TextContainer } from './WelcomeStyled';
 
-const alt = 'astute logo';
-
-const Welcome = ({
-  shortText,
-  appFullName,
-  longText,
-  welcomeImages,
-  sentRequest,
-  contactUsText,
-  aboutUsText
-}) => {
+const Welcome = ({ shortText, appFullName, longText, welcomeImages }) => {
   const { image_url } =
     (welcomeImages?.length && welcomeImages.find(item => item.section === 'welcome')) || '';
 
   return (
     <Container src={image_url}>
-      <Module>
-        <LogoContainer to={LINK.TO.HOME}>
-          <Logo src={logo} alt={alt} />
-        </LogoContainer>
-
-        <ButtonsContainer>
-          <AboutUsButton target={BLANK} href={sentRequest?.h_link}>
-            {aboutUsText?.title}
-          </AboutUsButton>
-          <ContactUsButton target={BLANK} href={sentRequest?.h_link}>
-            {contactUsText?.title}
-          </ContactUsButton>
-        </ButtonsContainer>
-
-        <TestContainer>
-          <SmallText>{shortText?.content}</SmallText>
-          <TitleText>{appFullName?.content}</TitleText>
-          <LongText>{longText?.content}</LongText>
-        </TestContainer>
-      </Module>
+      <TextContainer>
+        <Title>{appFullName?.content}</Title>
+        <SubTitle>{shortText?.content}</SubTitle>
+        <LongText>{longText?.content}</LongText>
+      </TextContainer>
     </Container>
   );
 };
@@ -61,9 +22,7 @@ Welcome.propTypes = {
   shortText: customObject,
   appFullName: customObject,
   longText: customObject,
-  sentRequest: customObject,
-  contactUsText: customObject,
-  aboutUsText: customObject,
+  whoWeAreButton: customObject,
   welcomeImages: PropTypes.array
 };
 

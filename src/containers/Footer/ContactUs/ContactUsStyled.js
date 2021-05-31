@@ -51,7 +51,7 @@ export const ButtonContainer = styled.div`
 export const ButtonStyled = styled.a`
   min-width: 140px;
   width: 140px;
-  margin: 4px 0 8px 2px;
+  margin: 16px 0 8px 2px;
   padding: 10px;
   align-items: center;
   text-decoration: none;
@@ -69,6 +69,9 @@ export const ButtonStyled = styled.a`
     border: ${props => `1px solid ${props.theme.white}`};
     transition: border 0.5s;
   }
+  ${tabletUp`
+    margin: 0 0 8px 2px;
+  `};
 `;
 
 export const MailIcon = styled.div.attrs({ as: 'span' })`

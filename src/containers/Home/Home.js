@@ -25,8 +25,7 @@ import {
   whoWeAreTextSelector,
   employeesTextsSelector,
   employeesTitleTextSelector,
-  aboutUsTextSelector,
-  contactUsTextSelector
+  whoWeAreButtonTextSelector
 } from '../../redux/selectors/homeTextsSelector';
 import {
   welcomeImagesSelector,
@@ -51,8 +50,7 @@ const Home = ({
   whoWeAreText,
   employeesTexts,
   employeesTitleText,
-  aboutUsText,
-  contactUsText,
+  whoWeAreButton,
   welcomeImages,
   coreValuesMainImage,
   coreValuesImages,
@@ -83,8 +81,6 @@ const Home = ({
             longText={longText}
             welcomeImages={welcomeImages}
             sentRequest={sentRequest}
-            aboutUsText={aboutUsText}
-            contactUsText={contactUsText}
           ></Welcome>
           {coreValuesTexts && (
             <CoreValues
@@ -96,7 +92,7 @@ const Home = ({
               coreValuesMainImage={coreValuesMainImage}
               coreValuesImages={coreValuesImages}
               sentRequest={sentRequest}
-              aboutUsText={aboutUsText}
+              whoWeAreButton={whoWeAreButton}
             ></CoreValues>
           )}
           {treatments && (
@@ -146,8 +142,7 @@ Home.propTypes = {
   whoWeAreText: customObject,
   employeesTexts: PropTypes.arrayOf(customObject),
   employeesTitleText: customObject,
-  aboutUsText: customObject,
-  contactUsText: customObject,
+  whoWeAreButton: customObject,
   welcomeImages: PropTypes.arrayOf(customObject),
   coreValuesMainImage: customObject,
   coreValuesImages: PropTypes.arrayOf(customObject),
@@ -176,8 +171,7 @@ const mapStateToProps = state => {
     whoWeAreText: whoWeAreTextSelector(state),
     employeesTexts: employeesTextsSelector(state),
     employeesTitleText: employeesTitleTextSelector(state),
-    aboutUsText: aboutUsTextSelector(state),
-    contactUsText: contactUsTextSelector(state),
+    whoWeAreButton: whoWeAreButtonTextSelector(state),
     welcomeImages: welcomeImagesSelector(state),
     coreValuesMainImage: coreValuesMainImageSelector(state),
     coreValuesImages: coreValuesImagesSelector(state),

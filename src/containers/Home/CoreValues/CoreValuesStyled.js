@@ -165,15 +165,13 @@ export const WhoWeAreMainText = styled.div`
   line-height: 1.8;
 `;
 
-export const ContactUsButton = styled.a`
-  align-items: center;
-  padding: 12px 28px;
-  margin: auto 14px;
+export const WhoWeAreButton = styled.a`
+  padding: 6px 10px;
+  margin: 0 30px;
+  text-align: center;
   text-decoration: none;
-  text-transform: uppercase;
-  border-radius: 3px;
-  font-size: 12px;
-  letter-spacing: 1px;
+  border-radius: 20px;
+  font-size: 14px;
   color: ${props => props.theme.white};
   background-color: ${props => props.theme.navGreen};
   transition: background-color 0.5s;
@@ -181,11 +179,6 @@ export const ContactUsButton = styled.a`
     background-color: ${props => props.theme.lightBlack};
   }
   ${tabletUp`
-    padding: 14px 50px;
-    margin: auto 30px;
-  `};
-  ${desktopUp`
-    padding: 14px 60px;
-    margin: auto 40px;
+    padding: 10px 22px;
   `};
 `;
