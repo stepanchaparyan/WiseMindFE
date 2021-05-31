@@ -10,6 +10,7 @@ import { homeImagesReducer } from '../reducers/homeImagesReducer';
 import { languagesListReducer } from '../reducers/languagesListReducer';
 import { newsLettersImagesReducer, newsLettersTextsReducer } from '../reducers/newsLettersReducer';
 import { treatmentsTextsReducer } from '../reducers/treatmentsTextsReducer';
+import { clientResourcesReducer } from '../reducers/clientResourcesReducer';
 
 const middleware = [thunk];
 
@@ -23,7 +24,8 @@ const reducer = combineReducers({
   languagesList: languagesListReducer,
   newsLettersImages: newsLettersImagesReducer,
   newsLettersTexts: newsLettersTextsReducer,
-  treatmentsTexts: treatmentsTextsReducer
+  treatmentsTexts: treatmentsTextsReducer,
+  clientResources: clientResourcesReducer
 });
 
 const initialState = {};

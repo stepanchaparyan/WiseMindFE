@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { tabletUp, desktopUp } from '../../../styles/mediaQueries/mixins';
+import { tabletUp } from '../../../styles/mediaQueries/mixins';
 
 export const CoreValesContainer = styled.div`
   display: flex;
