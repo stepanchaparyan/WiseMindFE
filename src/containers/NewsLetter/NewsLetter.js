@@ -10,7 +10,7 @@ import {
   newsImagesSelector,
   newsTextsSelector
 } from '../../redux/selectors/newsLettersSelector';
-import { Container, TitleContainer, Title, LogoContainer, Logo } from './NewsLetterStyled';
+import { Container, TitleContainer, Title, NewsContainer, News } from './NewsLetterStyled';
 import CustomModal from '../../components/Modal/Modal';
 
 const newsLetter = 'newsLetter';
@@ -39,11 +39,11 @@ const NewsLetter = ({ newsLettersImages, newsLettersTexts, loading, error, langu
               <TitleContainer>
                 <Title>{newsLettersTexts[0]?.title}</Title>
               </TitleContainer>
-              <LogoContainer>
+              <NewsContainer>
                 {newsLettersImages?.map(image => (
-                  <Logo src={image.image_url} key={image.image_url} alt={newsLetter}></Logo>
+                  <News src={image.image_url} key={image.image_url} alt={newsLetter}></News>
                 ))}
-              </LogoContainer>
+              </NewsContainer>
             </Container>
           )}
         </>

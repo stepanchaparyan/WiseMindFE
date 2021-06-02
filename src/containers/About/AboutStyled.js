@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { tabletUp, desktopUp } from '../../styles/mediaQueries/mixins';
 
 export const Container = styled.div`
+  display: flex;
+  height: ${props => (props.isMobileOrTablet ? '100%' : '100vh')};
   background-color: ${props => props.theme.lightGray};
 `;
 
@@ -12,7 +14,7 @@ export const Context = styled.div`
   overflow-wrap: break-word;
   ${tabletUp`
     font-size: 16px;
-    margin: auto 100px;
+    margin: auto 0 auto 100px;
     padding-bottom: 50px;
   `};
 `;
@@ -20,17 +22,24 @@ export const Context = styled.div`
 export const MainText = styled.div`
   margin-top: 24px;
   margin-bottom: 12px;
-  *:nth-child(2) {
-    font-weight: bold;
-  }
-  > span {
-    display: block;
-  }
-  ${tabletUp`
-    > span {
-      display: inline;
-    }
-  `};
+`;
+
+export const MainText1 = styled.div`
+  margin-top: 24px;
+  margin-bottom: 12px;
+  width: 75vw;
+`;
+
+export const MainText2 = styled(MainText1)`
+  width: 70vw;
+`;
+
+export const MainText3 = styled(MainText1)`
+  width: 60vw;
+`;
+
+export const MainText4 = styled(MainText1)`
+  width: 50vw;
 `;
 
 export const TitleContainer = styled.div`
@@ -60,10 +69,28 @@ export const LogoContainer = styled.div`
   padding: 0;
   ${desktopUp`
     margin: 0;
-    padding-left: 150px;
+    padding-left: 100px;
   `};
 `;
 
 export const Logo = styled.img`
   width: 100px;
+`;
+
+export const Triangle = styled.div`
+  position: absolute;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-top: 70vh solid transparent;
+  border-right: 50vw solid #8faee5;
+  align-self: flex-end;
+`;
+
+export const Line = styled.div`
+  position: absolute;
+  right: -300px;
+  width: 1500px;
+  border-bottom: 3px solid #8faee5;
+  transform: rotate(35deg);
 `;

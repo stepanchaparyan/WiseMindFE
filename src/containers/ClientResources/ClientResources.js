@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, connect } from 'react-redux';
-import { Container, Resource } from './ClientResourcesStyled';
+import { Container, Title, Resource, ResourceList } from './ClientResourcesStyled';
 import PropTypes from 'prop-types';
 import customObject from '../../util/propTypes';
 import { getClientResources } from '../../redux/actions/clientResourcesActions';
@@ -31,9 +31,14 @@ const ClientResources = ({ resources, loading, error, language }) => {
       ) : !error ? (
         <>
           <Container>
-            <Resource href={resources[0]?.url} target="_blank" rel="noreferrer">
-              {resources[0]?.title}
-            </Resource>
+            <ResourceList>
+              <Title>Client Resources</Title>
+              {resources?.map(resource => (
+                <Resource key={resource.title} href={resource.url} target="_blank" rel="noreferrer">
+                  {resource.title}
+                </Resource>
+              ))}
+            </ResourceList>
           </Container>
         </>
       ) : (

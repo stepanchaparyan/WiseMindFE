@@ -18,11 +18,14 @@ const theme = {
   grayBG1: '#3257740f',
   gray1: '#a4b7d0b5',
   gray2: '#d3d3d340',
+  gray3: '#c8cbcb',
   navGreen: '#71b347',
   white: '#ffffff',
   lightBlue: '#1996cd',
   lighterBlue: '#2398c9',
   medBlue: '#155C7A',
+  electricBlue: '#003c69',
+  greenBlue: '#1e7981',
   lightOrange: '#F0E6DD'
 };
 

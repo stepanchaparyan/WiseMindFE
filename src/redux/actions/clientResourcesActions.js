@@ -3,7 +3,7 @@ import axios from 'axios';
 import { BASE_URL } from '../../constants/url';
 
 const createURL = lang => {
-  return `${BASE_URL}/${lang}/client_resources/texts`;
+  return `${BASE_URL}/${lang}/clientResources/texts`;
 };
 
 export const getClientResources = lang => async dispatch => {

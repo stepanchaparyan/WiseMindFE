@@ -27,15 +27,18 @@ export const Title = styled.div`
   `};
 `;
 
-export const LogoContainer = styled.div`
+export const NewsContainer = styled.div`
   margin: auto;
   padding: 0;
   ${desktopUp`
-    margin: 0;
+    margin: 0 60px;
   `};
 `;
 
-export const Logo = styled.img`
+export const News = styled.img`
   width: 100%;
-  padding-bottom: 20px;
+  padding-bottom: 24px;
+  ${desktopUp`
+    padding-bottom: 60px;
+  `};
 `;

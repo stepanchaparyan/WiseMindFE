@@ -13,13 +13,20 @@ import {
   Container,
   Context,
   MainText,
+  MainText1,
+  MainText2,
+  MainText3,
+  MainText4,
   TitleContainer,
   Title,
   LogoContainer,
-  Logo
+  Logo,
+  Triangle,
+  Line
 } from './AboutStyled';
 import CustomModal from '../../components/Modal/Modal';
 import logo from '../../assets/logo.png';
+import { isMobileOrTablet } from '../../util/deviceType';
 
 const logoAlt = 'logoAlt';
 
@@ -42,18 +49,33 @@ const About = ({ aboutTexts, loading, error, language }) => {
       ) : !error ? (
         <>
           {aboutTexts.length > 0 && (
-            <Container>
-              <TitleContainer>
-                <LogoContainer>
-                  <Logo src={logo} alt={logoAlt}></Logo>
-                </LogoContainer>
-                <Title>{aboutTexts[0].title}</Title>
-              </TitleContainer>
-              <Context>
-                {aboutTexts.map((text, i) => (
-                  <MainText key={i}>{text?.content}</MainText>
-                ))}
-              </Context>
+            <Container isMobileOrTablet={isMobileOrTablet}>
+              <div>
+                <TitleContainer>
+                  <LogoContainer>
+                    <Logo src={logo} alt={logoAlt}></Logo>
+                  </LogoContainer>
+                  <Title>{aboutTexts[0].title}</Title>
+                </TitleContainer>
+                {!isMobileOrTablet ? (
+                  <Context>
+                    <>
+                      <MainText1>{aboutTexts[0].content}</MainText1>
+                      <MainText2>{aboutTexts[1].content}</MainText2>
+                      <MainText3>{aboutTexts[2].content}</MainText3>
+                      <MainText4>{aboutTexts[3].content}</MainText4>
+                    </>
+                  </Context>
+                ) : (
+                  <Context>
+                    {aboutTexts.map((text, i) => (
+                      <MainText key={i}>{text?.content}</MainText>
+                    ))}
+                  </Context>
+                )}
+              </div>
+              {!isMobileOrTablet && <Triangle />}
+              {!isMobileOrTablet && <Line />}
             </Container>
           )}
         </>
