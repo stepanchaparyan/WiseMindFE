@@ -100,3 +100,9 @@ export const ParentingSkillsTextsLi = styled.li`
 export const ParentingSkillsTextsSpan = styled.span`
   font-weight: normal;
 `;
+
+export const PsychAssessmentsText = styled.div`
+  color: ${props => (props.isGray ? '#5a5858' : 'black')};
+  font-weight: ${props => (props.isBold ? 'bold' : 'normal')};
+  display: ${props => (props.isInline ? 'inline' : 'block')};
+`;

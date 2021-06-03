@@ -17,7 +17,10 @@ import {
   allTreatmentsTextsSelector,
   individualPsychotherapySelector,
   groupTherapySelector,
-  parentingSkillsSelector
+  parentingSkillsSelector,
+  substanceAbuseDualDiagnosesCounsellingSelector,
+  adjustmentIssuesLifeTransitionsSelector,
+  psychAssessmentsSelector
 } from '../../redux/selectors/treatmentsTextsSelector';
 import {
   Container,
@@ -31,7 +34,8 @@ import {
   GroupTherapyTexts,
   ParentingSkillsTexts,
   ParentingSkillsTextsLi,
-  ParentingSkillsTextsSpan
+  ParentingSkillsTextsSpan,
+  PsychAssessmentsText
 } from './TreatmentsStyled';
 import CustomModal from '../../components/Modal/Modal';
 import logo from '../../assets/logo.png';
@@ -41,8 +45,11 @@ const logoAlt = 'logoAlt';
 const Treatments = ({
   treatmentsTexts,
   individualPsychotherapy,
+  substanceAbuseDualDiagnosesCounselling,
+  adjustmentIssuesLifeTransition,
   groupTherapy,
   parentingSkills,
+  psychAssessments,
   loading,
   error,
   language
@@ -90,6 +97,38 @@ const Treatments = ({
                     </AccordionItemPanel>
                   </AccordionItem>
                 </MyAccordion>
+
+                <MyAccordion allowZeroExpanded>
+                  <AccordionItem>
+                    <AccordionItemHeading>
+                      <AccordionItemButton>
+                        {substanceAbuseDualDiagnosesCounselling?.title}
+                      </AccordionItemButton>
+                    </AccordionItemHeading>
+                    <AccordionItemPanel>
+                      <MainText>{substanceAbuseDualDiagnosesCounselling?.content}</MainText>
+                    </AccordionItemPanel>
+                  </AccordionItem>
+                </MyAccordion>
+
+                <MyAccordion allowZeroExpanded>
+                  <AccordionItem>
+                    <AccordionItemHeading>
+                      <AccordionItemButton>
+                        {adjustmentIssuesLifeTransition[0]?.section}
+                      </AccordionItemButton>
+                    </AccordionItemHeading>
+                    <AccordionItemPanel>
+                      {!!adjustmentIssuesLifeTransition.length &&
+                        adjustmentIssuesLifeTransition?.map((item, i) => (
+                          <MainText index={i} key={item.content}>
+                            {item?.content}
+                          </MainText>
+                        ))}
+                    </AccordionItemPanel>
+                  </AccordionItem>
+                </MyAccordion>
+
                 <MyAccordion allowZeroExpanded>
                   <AccordionItem>
                     <AccordionItemHeading>
@@ -105,6 +144,7 @@ const Treatments = ({
                     </AccordionItemPanel>
                   </AccordionItem>
                 </MyAccordion>
+
                 <MyAccordion allowZeroExpanded>
                   <AccordionItem>
                     <AccordionItemHeading>
@@ -174,6 +214,25 @@ const Treatments = ({
                     </AccordionItemPanel>
                   </AccordionItem>
                 </MyAccordion>
+
+                <MyAccordion allowZeroExpanded>
+                  <AccordionItem>
+                    <AccordionItemHeading>
+                      <AccordionItemButton>{psychAssessments[0]?.section}</AccordionItemButton>
+                    </AccordionItemHeading>
+                    <AccordionItemPanel>
+                      <PsychAssessmentsText isBold isInline>
+                        {psychAssessments[0]?.content}&nbsp;
+                      </PsychAssessmentsText>
+                      <PsychAssessmentsText isGray isInline>
+                        {psychAssessments[1]?.content}
+                      </PsychAssessmentsText>
+                      <PsychAssessmentsText>{psychAssessments[2]?.content}</PsychAssessmentsText>
+                      <PsychAssessmentsText>{psychAssessments[3]?.content}</PsychAssessmentsText>
+                      <PsychAssessmentsText>{psychAssessments[3]?.content}</PsychAssessmentsText>
+                    </AccordionItemPanel>
+                  </AccordionItem>
+                </MyAccordion>
               </Context>
             </Container>
           )}
@@ -200,6 +259,9 @@ Treatments.propTypes = {
   groupTherapy: PropTypes.arrayOf(customObject),
   parentingSkills: PropTypes.arrayOf(customObject),
   individualPsychotherapy: customObject,
+  substanceAbuseDualDiagnosesCounselling: customObject,
+  adjustmentIssuesLifeTransition: PropTypes.arrayOf(customObject),
+  psychAssessments: PropTypes.arrayOf(customObject),
   loading: PropTypes.bool.isRequired,
   error: PropTypes.object
 };
@@ -215,7 +277,10 @@ const mapStateToProps = state => {
     treatmentsTexts: allTreatmentsTextsSelector(state),
     individualPsychotherapy: individualPsychotherapySelector(state),
     groupTherapy: groupTherapySelector(state),
-    parentingSkills: parentingSkillsSelector(state)
+    parentingSkills: parentingSkillsSelector(state),
+    substanceAbuseDualDiagnosesCounselling: substanceAbuseDualDiagnosesCounsellingSelector(state),
+    adjustmentIssuesLifeTransition: adjustmentIssuesLifeTransitionsSelector(state),
+    psychAssessments: psychAssessmentsSelector(state)
   };
 };
 
