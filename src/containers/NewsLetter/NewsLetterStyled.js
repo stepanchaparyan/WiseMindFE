@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { desktopUp } from '../../styles/mediaQueries/mixins';
 
 export const Container = styled.div`
-  background-color: ${props => props.theme.lightGray};
+  background-color: ${props => props.theme.gray1};
 `;
 
 export const TitleContainer = styled.div`
@@ -31,13 +31,13 @@ export const NewsContainer = styled.div`
   margin: auto;
   padding: 0;
   ${desktopUp`
-    margin: 0 60px;
+    margin: 0 80px;
   `};
 `;
 
 export const News = styled.img`
   width: 100%;
-  padding-bottom: 24px;
+  padding-bottom: 48px;
   ${desktopUp`
     padding-bottom: 60px;
   `};

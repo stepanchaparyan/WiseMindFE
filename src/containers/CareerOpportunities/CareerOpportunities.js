@@ -21,7 +21,6 @@ import {
 } from './CareerOpportunitiesStyled';
 import CustomModal from '../../components/Modal/Modal';
 import logo from '../../assets/logo.png';
-import { splitterByNewLine } from '../../util/splitterByNewLine';
 
 const logoAlt = 'logoAlt';
 
@@ -53,7 +52,7 @@ const CareerOpportunities = ({ careerTexts, loading, error, language }) => {
                 <TextsContainer>
                   <Title>{careerTexts[0].title}</Title>
                   <MainText>{careerTexts && careerTexts[0].content}</MainText>
-                  <MainText>{splitterByNewLine(careerTexts[1]?.content)}</MainText>
+                  <MainText>{careerTexts[1]?.content}</MainText>
                 </TextsContainer>
               </Context>
             </Container>

@@ -31,6 +31,19 @@ export const ButtonStyled = styled.span`
   }
 `;
 
+export const MoreLessButton = styled.div`
+  margin: -16px 16px 16px;
+  padding: 4px 0 16px 24px;
+  background-color: ${props => props.color};
+  cursor: pointer;
+  color: ${props => props.theme.lightBlue};
+  font-weight: bold;
+  transition: color 0.5s;
+  :hover {
+    color: ${props => props.theme.medBlue};
+  }
+`;
+
 export const ThreePictures = styled.div`
   display: flex;
   flex-direction: column;
@@ -53,6 +66,10 @@ export const Container = styled.div`
   flex-direction: column;
   margin: 16px;
   padding: 24px;
+
+  max-height: ${props => (props.isShortText ? '460px' : '100%')};
+  overflow: ${props => (props.isShortText ? 'hidden' : 'unset')};
+
   ${tabletUp`
     min-width: 22%;
   `};
@@ -60,6 +77,10 @@ export const Container = styled.div`
   :hover {
     margin-top: 10px;
     transition: margin-top 0.3s;
+  }
+
+  > :nth-child(n + 6) :nth-child(-n + 14) {
+    display: ${props => (props.isLiElements ? 'list-item' : 'flex')};
   }
 `;
 

@@ -5,26 +5,26 @@ import {
   TreatmentsContainer,
   Container,
   ButtonStyled,
+  MoreLessButton,
   ThreePictures,
   TitleText,
   MainText
 } from './TreatmentsStyled';
-import { splitterByNewLine } from '../../../util/splitterByNewLine';
 
 const Treatments = ({ treatments, readMoreText, readLessText }) => {
   const oneTreatment = (treatment, i) => {
     const text = treatment?.content;
-    const textMaxLength = i < 3 ? 263 : 490;
+    const textMaxLength = 263;
     const [isLongText, setLongText] = useState(text > textMaxLength);
     const buttonText = isLongText ? readLessText : readMoreText;
     const updatedText = isLongText ? text : `${text?.slice(0, textMaxLength)}`;
 
     return (
       <ThreePictures key={treatment?.title}>
-        <Container color={treatment.background}>
+        <Container color={treatment?.background}>
           <TitleText>{treatment?.title}</TitleText>
           <MainText>
-            {splitterByNewLine(updatedText)}
+            {updatedText}
             {treatment?.content?.length > textMaxLength && (
               <>
                 {!isLongText && <span>...</span>}
@@ -37,9 +37,37 @@ const Treatments = ({ treatments, readMoreText, readLessText }) => {
     );
   };
 
+  const manyTreatments = treatments => {
+    const [isShortText, setIsShortText] = useState(true);
+    const buttonText = isShortText ? readMoreText : readLessText;
+
+    return (
+      <div>
+        <Container
+          isLiElements={treatments[0].section === 'Acculturation Stress'}
+          isShortText={isShortText}
+          color={treatments[0]?.background}
+        >
+          <TitleText>{treatments[0]?.section}</TitleText>
+          {treatments.map(treatment => (
+            <MainText key={treatment.title}>{treatment.content}</MainText>
+          ))}
+        </Container>
+        <MoreLessButton
+          color={treatments[0]?.background}
+          onClick={() => setIsShortText(!isShortText)}
+        >
+          {buttonText}
+        </MoreLessButton>
+      </div>
+    );
+  };
+
   return (
     <TreatmentsContainer>
-      {treatments?.map((treatment, i) => i < 5 && oneTreatment(treatment, i))}
+      {treatments?.map(treatment =>
+        !treatment?.length ? oneTreatment(treatment) : manyTreatments(treatment)
+      )}
     </TreatmentsContainer>
   );
 };

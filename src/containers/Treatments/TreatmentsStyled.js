@@ -102,7 +102,7 @@ export const ParentingSkillsTextsSpan = styled.span`
 `;
 
 export const PsychAssessmentsText = styled.div`
-  color: ${props => (props.isGray ? '#5a5858' : 'black')};
+  color: ${props => (props.isGray ? props.theme.moreDarkGray : 'black')};
   font-weight: ${props => (props.isBold ? 'bold' : 'normal')};
   display: ${props => (props.isInline ? 'inline' : 'block')};
 `;

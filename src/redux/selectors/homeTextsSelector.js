@@ -47,12 +47,50 @@ export const coreValueMainTextSelector = createSelector(
   ({ homeTexts }) => homeTexts?.find(item => item.section === 'coreValuesMain')
 );
 
-export const treatmentsSelector = createSelector(
+export const psychotherapyTreatmentsSelector = createSelector(
+  homeTextsSelector,
+  ({ homeTexts }) => homeTexts?.find(item => item.section === 'psychotherapy')
+);
+
+export const substanceAbuseTreatmentsSelector = createSelector(
+  homeTextsSelector,
+  ({ homeTexts }) => homeTexts?.find(item => item.section === 'substance_abuse')
+);
+
+export const anxietyTreatmentTreatmentsSelector = createSelector(
+  homeTextsSelector,
+  ({ homeTexts }) => homeTexts?.find(item => item.section === 'anxiety_treatment')
+);
+
+export const meaningfulConnectionTreatmentsSelector = createSelector(
   homeTextsSelector,
   ({ homeTexts }) =>
     homeTexts
-      ?.filter(item => item.parent_section === 'treatment')
-      .sort((a, b) => (a.position < b.position ? -1 : a.position > b.position ? 1 : 0))
+      ?.filter(item => item.section === 'Meaningful Connections')
+      .sort((a, b) => a.title - b.title)
+);
+
+export const acculturationStressTreatmentsSelector = createSelector(
+  homeTextsSelector,
+  ({ homeTexts }) =>
+    homeTexts
+      ?.filter(item => item.section === 'Acculturation Stress')
+      .sort((a, b) => a.title - b.title)
+);
+
+export const treatmentsSelector = createSelector(
+  anxietyTreatmentTreatmentsSelector,
+  substanceAbuseTreatmentsSelector,
+  psychotherapyTreatmentsSelector,
+  meaningfulConnectionTreatmentsSelector,
+  acculturationStressTreatmentsSelector,
+  (anxietyTreatment, substanceAbuse, psychotherapy, meaningfulConnection, acculturationStress) => [
+    anxietyTreatment,
+    substanceAbuse,
+    psychotherapy,
+    meaningfulConnection,
+    acculturationStress
+  ]
 );
 
 export const coreValuesTextsSelector = createSelector(
