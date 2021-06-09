@@ -83,7 +83,7 @@ export const Triangle = styled.div`
   width: 0;
   height: 0;
   border-top: 70vh solid transparent;
-  border-right: 50vw solid #8faee5;
+  border-right: ${props => `50vw solid ${props.theme.grayBlue}`};
   align-self: flex-end;
 `;
 
@@ -91,6 +91,6 @@ export const Line = styled.div`
   position: absolute;
   right: -300px;
   width: 1500px;
-  border-bottom: 3px solid #8faee5;
+  border-bottom: ${props => `3px solid ${props.theme.grayBlue}`};
   transform: rotate(35deg);
 `;

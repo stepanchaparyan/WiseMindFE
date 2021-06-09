@@ -113,7 +113,7 @@ const Footer = ({
               h_link.startsWith('https') && (
                 <Arrow key={title}>
                   <ArrowIcon />
-                  <PrivacyPolicyAndTerms href={h_link} target="_blank" rel="noreferrer">
+                  <PrivacyPolicyAndTerms href={h_link} target={BLANK} rel="noreferrer">
                     {title}
                   </PrivacyPolicyAndTerms>
                 </Arrow>

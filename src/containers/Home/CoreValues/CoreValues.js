@@ -38,7 +38,7 @@ const CoreValues = ({
   const finalText = isLongText ? mainText : `${mainText?.slice(0, 472)}...`;
 
   const image_url = coreValuesMainImage?.image_url;
-  const alt = 'core values';
+  const alt = 'core_values';
 
   return (
     <CoreValesContainer>

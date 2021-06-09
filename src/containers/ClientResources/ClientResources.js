@@ -11,6 +11,7 @@ import {
   resourcesSelector
 } from '../../redux/selectors/clientResourcesSelector';
 import CustomModal from '../../components/Modal/Modal';
+import { BLANK } from '../../constants/url';
 
 const ClientResources = ({ resources, loading, error, language }) => {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ const ClientResources = ({ resources, loading, error, language }) => {
             <ResourceList>
               <Title>Client Resources</Title>
               {resources?.map(resource => (
-                <Resource key={resource.title} href={resource.url} target="_blank" rel="noreferrer">
+                <Resource key={resource.title} href={resource.url} target={BLANK} rel="noreferrer">
                   {resource.title}
                 </Resource>
               ))}

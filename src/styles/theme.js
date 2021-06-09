@@ -26,7 +26,8 @@ const theme = {
   medBlue: '#155C7A',
   electricBlue: '#003c69',
   greenBlue: '#1e7981',
-  lightOrange: '#F0E6DD'
+  lightOrange: '#F0E6DD',
+  grayBlue: '#8faee5'
 };
 
 export default theme;

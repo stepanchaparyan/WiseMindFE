@@ -3,6 +3,5 @@ export const HEADER_CONFIG = {
     headers: {
       'Content-Type': 'application/json'
     }
-  },
-  CONTENT_TYPE_MULTIPART_FORM_DATA: { 'Content-Type': 'multipart/form-data' }
+  }
 };

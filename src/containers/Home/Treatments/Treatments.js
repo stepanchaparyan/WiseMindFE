@@ -12,7 +12,7 @@ import {
 } from './TreatmentsStyled';
 
 const Treatments = ({ treatments, readMoreText, readLessText }) => {
-  const oneTreatment = (treatment, i) => {
+  const oneTreatment = treatment => {
     const text = treatment?.content;
     const textMaxLength = 263;
     const [isLongText, setLongText] = useState(text > textMaxLength);
