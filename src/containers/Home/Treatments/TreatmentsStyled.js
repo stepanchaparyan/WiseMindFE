@@ -81,6 +81,8 @@ export const Container = styled.div`
 
   > :nth-child(n + 6) :nth-child(-n + 14) {
     display: ${props => (props.isLiElements ? 'list-item' : 'flex')};
+    text-indent: ${props => (props.isLiElements ? '2px' : 'initial')};
+    margin-left: ${props => (props.isLiElements ? '16px' : 'initial')};
   }
 `;
 

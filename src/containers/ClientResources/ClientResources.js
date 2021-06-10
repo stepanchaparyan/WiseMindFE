@@ -33,7 +33,7 @@ const ClientResources = ({ resources, loading, error, language }) => {
         <>
           <Container>
             <ResourceList>
-              <Title>Client Resources</Title>
+              <Title>{resources[0]?.section}</Title>
               {resources?.map(resource => (
                 <Resource key={resource.title} href={resource.url} target={BLANK} rel="noreferrer">
                   {resource.title}

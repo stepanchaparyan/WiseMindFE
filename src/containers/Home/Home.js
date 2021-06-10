@@ -137,7 +137,7 @@ Home.propTypes = {
   readMoreText: customObject,
   readLessText: customObject,
   coreValueMainText: customObject,
-  treatments: PropTypes.arrayOf(customObject),
+  treatments: PropTypes.any,
   coreValuesTexts: PropTypes.arrayOf(customObject),
   whoWeAreText: customObject,
   employeesTexts: PropTypes.arrayOf(customObject),

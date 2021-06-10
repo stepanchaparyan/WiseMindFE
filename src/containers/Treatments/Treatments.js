@@ -229,7 +229,7 @@ const Treatments = ({
                       </PsychAssessmentsText>
                       <PsychAssessmentsText>{psychAssessments[2]?.content}</PsychAssessmentsText>
                       <PsychAssessmentsText>{psychAssessments[3]?.content}</PsychAssessmentsText>
-                      <PsychAssessmentsText>{psychAssessments[3]?.content}</PsychAssessmentsText>
+                      <PsychAssessmentsText>{psychAssessments[4]?.content}</PsychAssessmentsText>
                     </AccordionItemPanel>
                   </AccordionItem>
                 </MyAccordion>

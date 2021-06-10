@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import customObject from '../../../util/propTypes';
 import {
   TreatmentsContainer,
   Container,
@@ -20,7 +19,7 @@ const Treatments = ({ treatments, readMoreText, readLessText }) => {
     const updatedText = isLongText ? text : `${text?.slice(0, textMaxLength)}`;
 
     return (
-      <ThreePictures key={treatment?.title}>
+      <ThreePictures key={treatment?.content}>
         <Container color={treatment?.background}>
           <TitleText>{treatment?.title}</TitleText>
           <MainText>
@@ -42,7 +41,7 @@ const Treatments = ({ treatments, readMoreText, readLessText }) => {
     const buttonText = isShortText ? readMoreText : readLessText;
 
     return (
-      <div>
+      <div key={treatments?.content}>
         <Container
           isLiElements={treatments[0].section === 'Acculturation Stress'}
           isShortText={isShortText}
@@ -73,7 +72,7 @@ const Treatments = ({ treatments, readMoreText, readLessText }) => {
 };
 
 Treatments.propTypes = {
-  treatments: PropTypes.arrayOf(customObject).isRequired,
+  treatments: PropTypes.any.isRequired,
   readMoreText: PropTypes.string,
   readLessText: PropTypes.string
 };

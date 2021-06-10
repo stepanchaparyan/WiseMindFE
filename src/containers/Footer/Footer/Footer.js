@@ -158,7 +158,7 @@ Footer.propTypes = {
   phoneText: footerObject,
   email: footerObject,
   emailText: footerObject,
-  appFullName: footerObject,
+  appFullName: PropTypes.arrayOf(footerObject),
   linksTitle: footerObject,
   linksNames: PropTypes.array,
   newsLetterTitle: footerObject,

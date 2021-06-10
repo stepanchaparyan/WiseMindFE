@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Select from 'react-select';
 import { connect, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import navbarObject from '../../util/propTypes';
 import {
   Container,
   LogoContainer,
@@ -133,12 +134,12 @@ const Navbar = ({
 Navbar.propTypes = {
   language: PropTypes.string.isRequired,
   setLanguage: PropTypes.func.isRequired,
-  sentRequest: PropTypes.object, //todo
-  navbarMenus: PropTypes.array, // todo
-  loading: PropTypes.bool, //todo
+  sentRequest: navbarObject,
+  navbarMenus: PropTypes.arrayOf(navbarObject),
+  loading: PropTypes.bool,
   languageLabel: PropTypes.string.isRequired,
   setLanguageLabel: PropTypes.func.isRequired,
-  languagesList: PropTypes.array // todo
+  languagesList: PropTypes.array
 };
 
 const mapStateToProps = state => {

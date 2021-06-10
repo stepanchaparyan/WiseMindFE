@@ -22,4 +22,11 @@ export const footerObject = PropTypes.shape({
   num: PropTypes.number
 });
 
+export const navbarObject = PropTypes.shape({
+  lang: PropTypes.string,
+  title: PropTypes.string,
+  h_link: PropTypes.string,
+  num: PropTypes.number
+});
+
 export default customObject;

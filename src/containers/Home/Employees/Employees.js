@@ -81,7 +81,7 @@ const Employees = ({ titleText, employeesTexts, employeesImages }) => {
           <CarouselStyled itemsToShow={itemsToShow} itemPadding={[0, 20]}>
             {employeeList?.map(text => (
               <Container key={text?.title}>
-                {OverlayMedia()}
+                {OverlayMedia(text)}
                 <NameText>{text?.title}</NameText>
                 <MainText>{text?.content}</MainText>
               </Container>
