@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { desktopUp, desktopLargeUp } from '../../styles/mediaQueries/mixins';
 import PaperPlaneWhite from '../../assets/paper-plane-16_white.png';
 import PaperPlaneGray from '../../assets/paper-plane-16_gray.png';
+import ReactTooltip from 'react-tooltip';
 
 export const Container = styled.nav`
   display: flex;
@@ -202,3 +203,8 @@ export const customStyles = {
     color: 'white'
   })
 };
+
+export const ReactTooltipStyled = styled(ReactTooltip)`
+  padding: 4px 0;
+  border-radius: 6px;
+`;

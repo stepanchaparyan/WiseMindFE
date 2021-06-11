@@ -15,7 +15,8 @@ import {
   PaperPlaneIcon,
   Hamburger,
   customStyles,
-  GlobeIcon
+  GlobeIcon,
+  ReactTooltipStyled
 } from './NavbarStyled';
 import logo from '../../assets/logo.png';
 import globe from '../../assets/globe.png';
@@ -117,10 +118,16 @@ const Navbar = ({
                     IndicatorSeparator: () => null
                   }}
                 />
-                <SendRequestButton target={BLANK} href={sentRequest?.h_link}>
+                <SendRequestButton
+                  target={BLANK}
+                  href={sentRequest?.h_link}
+                  data-tip="By sending a request, you acknowledge and agree to ACP’s terms and conditions"
+                  data-background-color="gray"
+                >
                   {sentRequest?.title}
                   <PaperPlaneIcon />
                 </SendRequestButton>
+                <ReactTooltipStyled place="bottom" effect="float" multiline />
               </RightContainer>
               <Hamburger src={hamburger} alt={hamburgerAlt} onClick={toggle}></Hamburger>
             </Container>
