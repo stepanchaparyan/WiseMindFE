@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { tabletUp, desktopUp } from '../../styles/mediaQueries/mixins';
+import { tabletUp, desktopUp, desktopBigeUp } from '../../styles/mediaQueries/mixins';
 
 export const Container = styled.div`
   display: flex;
@@ -14,8 +14,10 @@ export const Context = styled.div`
   overflow-wrap: break-word;
   ${tabletUp`
     font-size: 16px;
-    margin: auto 0 auto 100px;
     padding-bottom: 50px;
+  `};
+  ${desktopBigeUp`
+    margin: auto 0 auto 100px;
   `};
 `;
 
