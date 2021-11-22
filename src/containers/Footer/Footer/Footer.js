@@ -35,6 +35,7 @@ import {
   AddressText,
   DMCAContainer,
   DMCABadge,
+  ZencareBadge,
   PrivacyPolicyAndTerms,
   AppName,
   CompanyNameContainer
@@ -122,6 +123,12 @@ const Footer = ({
         </LinksContainer>
         <DMCAContainer>
           <DMCABadge>{DMCA}</DMCABadge>
+          <ZencareBadge>
+            <iframe
+              title="Zencare Therapist Badge"
+              src="https://zencare.co/embed/trust-badge?z=eyJpZCI6MzkxNCwiY29sb3IiOiJ0dXJxdW9pc2UifQ%3D%3D"
+            ></iframe>
+          </ZencareBadge>
         </DMCAContainer>
       </MainContainer>
       <BottomContainer>

@@ -321,5 +321,13 @@ export const DMCAContainer = styled.div`
 `;
 
 export const DMCABadge = styled.div`
-  margin: 10px 0 0 -4px;
+  margin: 10px 0 10px -4px;
+`;
+
+export const ZencareBadge = styled.div`
+  & > iframe {
+    width: 140px;
+    height: 100px;
+    border: none;
+  }
 `;
