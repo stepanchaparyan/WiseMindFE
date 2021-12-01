@@ -16,6 +16,7 @@ const FooterContainer = ({ language }) => {
   const contactUsText = footer?.find(item => item.num === 2);
   const makeRequest = footer?.find(item => item.num === 3);
   const checkBoxText = footer?.find(item => item.num === 4);
+  const suicidalText = footer?.find(item => item.num === 5);
 
   const infoText = footer?.find(item => item.num === 11);
   const addressText = footer?.find(item => item.num === 12);
@@ -47,6 +48,7 @@ const FooterContainer = ({ language }) => {
             contactUsText={contactUsText}
             makeRequest={makeRequest}
             checkBoxText={checkBoxText}
+            suicidalText={suicidalText}
           ></ContactUs>
           <Footer
             infoText={infoText}
