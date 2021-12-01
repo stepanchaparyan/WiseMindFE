@@ -15,7 +15,8 @@ import {
   CarouselStyled,
   Media,
   MediaIcon,
-  IconContainer
+  IconContainer,
+  LinkStyled
 } from './EmployeesStyled';
 
 const facebook = 'facebook';
@@ -71,8 +72,19 @@ const Employees = ({ titleText, employeesTexts, employeesImages }) => {
           {employeeList?.map((employee, i) => (
             <Container key={employee?.title}>
               {OverlayMedia(employeeList[i], i)}
-              <NameText>{employee?.title}</NameText>
-              <MainText>{employee?.content}</MainText>
+              {employee?.content.startsWith('https') ? (
+                <>
+                  <LinkStyled href={employee.content} target="_blank" rel="noreferrer">
+                    {employee?.title}
+                  </LinkStyled>
+                  <MainText></MainText>
+                </>
+              ) : (
+                <>
+                  <NameText>{employee?.title}</NameText>
+                  <MainText>{employee?.content}</MainText>
+                </>
+              )}
             </Container>
           ))}
         </Employee>

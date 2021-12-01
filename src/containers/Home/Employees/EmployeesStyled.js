@@ -186,3 +186,16 @@ export const IconContainer = styled.div.attrs({ as: 'a' })`
         : `url(${InstagramBlue})`};
   }
 `;
+
+export const LinkStyled = styled.a`
+  text-decoration: none;
+  cursor: pointer;
+  margin: auto;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: ${props => props.theme.midLightBlack};
+  :hover {
+    color: ${props => props.theme.lightBlue};
+  }
+`;

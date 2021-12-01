@@ -2,6 +2,13 @@ import styled from 'styled-components';
 import { tabletUp, desktopUp } from '../../../styles/mediaQueries/mixins';
 import MailIconPNG from '../../../assets/email.png';
 
+export const Call911 = styled.div`
+  padding: 24px;
+  ${tabletUp`
+    padding: 24px 100px;
+  `};
+`;
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
