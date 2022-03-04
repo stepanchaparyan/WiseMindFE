@@ -89,6 +89,9 @@ export const NameText = styled.div`
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 12px;
+  width: 300px;
+  flex-wrap: wrap;
+  line-height: 1.5px;
   color: ${props => props.theme.midLightBlack};
   :hover {
     color: ${props => props.theme.lightBlue};
