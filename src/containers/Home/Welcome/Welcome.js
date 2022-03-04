@@ -11,7 +11,7 @@ const Welcome = ({ shortText, appFullName, longText, welcomeImages }) => {
     <Container src={image_url}>
       <TextContainer>
         <Title>{appFullName?.content}</Title>
-        <SubTitle>{shortText?.content}</SubTitle>
+        <Title>{shortText?.content}</Title>
         <LongText>{longText?.content}</LongText>
       </TextContainer>
     </Container>

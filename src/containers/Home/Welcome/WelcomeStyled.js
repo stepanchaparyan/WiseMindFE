@@ -25,13 +25,13 @@ export const TextContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 28px;
+  font-size: 18px;
   line-height: 1.2;
   font-weight: 600;
   text-align: center;
   margin: 0;
   ${tabletUp`
-    font-size: 54px;
+    font-size: 44px;
   `};
 `;
 
@@ -49,8 +49,8 @@ export const SubTitle = styled.h2`
 export const LongText = styled.div`
   text-align: center;
   margin: 6px 20px 0;
-  font-size: 12px;
+  font-size: 18px;
   ${tabletUp`
-    font-size: 18px;
+    font-size: 36px;
   `};
 `;
